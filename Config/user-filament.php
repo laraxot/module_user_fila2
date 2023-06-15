@@ -124,7 +124,7 @@ return [
     'auth' => [
         'guard' => env('FILAMENT_AUTH_GUARD', 'web'),
         'pages' => [
-            'login' => Modules\Booking\Http\Livewire\Auth\FilamentLogin::class,
+            'login' => Modules\User\Http\Livewire\Auth\FilamentLogin::class,
         ],
     ],
 
@@ -141,7 +141,7 @@ return [
     'middleware' => [
         'auth' => [
         //  Authenticate::class,
-            Modules\Booking\Http\Middleware\FilamentMiddleware::class
+            Modules\User\Http\Middleware\FilamentMiddleware::class
         ],
         'base' => [
             EncryptCookies::class,

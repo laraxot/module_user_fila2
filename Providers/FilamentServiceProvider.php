@@ -32,7 +32,11 @@ class FilamentServiceProvider extends ContextServiceProvider
         Filament::serving(function () {
             Filament::forContext('filament', function (){
                 Filament::registerNavigationItems([
-                    NavigationItem::make(static::$module)->label(static::$module.' Module')->url(route(static::$name.'.pages.dashboard'))->icon('heroicon-o-bookmark')->group('Modules')
+                    NavigationItem::make(static::$module)
+                        ->label(static::$module.'s ')
+                        ->url(route(static::$name.'.pages.dashboard'))
+                        ->icon('heroicon-o-users')
+                        ->group('Modules')
                 ]);
             });
             Filament::forContext(static::$name, function (){
