@@ -4,7 +4,7 @@ namespace Modules\User\Filament\Resources;
 
 use Modules\User\Filament\Resources\UserResource\Pages;
 use Modules\User\Filament\Resources\UserResource\RelationManagers;
-use App\Models\User;
+use Modules\LU\Models\User;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -80,22 +80,22 @@ class UserResource extends Resource
                 //Tables\Columns\TextColumn::make('photo'),
             ])
             ->filters([
-                Tables\Filters\SelectFilter::make('role') 
+                Tables\Filters\SelectFilter::make('role')
                 ->options([
                     Role::ROLE_USER => 'User',
                     Role::ROLE_OWNER => 'Owner',
                     Role::ROLE_ADMINISTRATOR => 'Administrator',
                 ])
-                ->attribute('role_id'), 
+                ->attribute('role_id'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\Action::make('changePassword') 
+                Tables\Actions\Action::make('changePassword')
                     ->action(function (User $record, array $data): void {
                         $record->update([
                             'password' => Hash::make($data['new_password']),
                         ]);
- 
+
                         Filament::notify('success', 'Password changed successfully.');
                     })
                     ->form([
@@ -107,7 +107,7 @@ class UserResource extends Resource
                         Forms\Components\TextInput::make('new_password_confirmation')
                             ->password()
                             ->label('Confirm New Password')
-                            ->rule('required', fn($get) => ! ! $get('new_password'))
+                            ->rule('required', fn ($get) => ! ! $get('new_password'))
                             ->same('new_password'),
                     ])
                     ->icon('heroicon-o-key')
@@ -118,21 +118,21 @@ class UserResource extends Resource
                     ->icon('heroicon-o-trash')
                     ->action(fn (User $record) => $record->delete())
                     //->visible(fn (User $record): bool => $record->role_id === Role::ROLE_ADMINISTRATOR)
-                    , 
+                    ,
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ])
-            ->defaultSort('created_at', 'desc'); 
+            ->defaultSort('created_at', 'desc');
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -140,5 +140,5 @@ class UserResource extends Resource
             'create' => Pages\CreateUser::route('/create'),
             //'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
-    }    
+    }
 }
