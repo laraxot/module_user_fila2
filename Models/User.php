@@ -10,9 +10,12 @@ use Laravel\Sanctum\HasApiTokens;
 use Filament\Models\Contracts\FilamentUser;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable  implements FilamentUser
+class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contracts\UserContract
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -44,11 +47,17 @@ class User extends Authenticatable  implements FilamentUser
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    
+
     public function canAccessFilament(): bool
     {
         //return $this->role_id === Role::ROLE_ADMINISTRATOR;
         return true;
     }
-    
+
+    public function profile(): HasOne
+    {
+        $profileClass=XotData::make()->getProfileClass();
+        return $this->hasOne($profileClass);
+    }
+
 }
