@@ -5,6 +5,7 @@ namespace Modules\User\Providers;
 use Filament\Facades\Filament;
 use Filament\Navigation\NavigationItem;
 use Savannabits\FilamentModules\ContextServiceProvider;
+use Filament\Navigation\UserMenuItem;
 
 class FilamentServiceProvider extends ContextServiceProvider
 {
@@ -42,6 +43,23 @@ class FilamentServiceProvider extends ContextServiceProvider
             Filament::forContext(static::$name, function (){
                 Filament::registerRenderHook('sidebar.start',fn():string => \Blade::render('<div class="p-2 px-6 bg-primary-100 font-black w-full">'.static::$module.' Module</div>'));
             });
+            $userMenuItems = [];
+            /*
+            $userMenuItems['team-settings'] = UserMenuItem::make()
+                            ->label(__('filament-jet::jet.user_menu.team_settings'))
+                            ->icon(config('filament-jet.user_menu.team_settings.icon', 'heroicon-o-cog'))
+                            ->sort(config('filament-jet.user_menu.team_settings.sort'))
+                            ->url(\Modules\User\Filament\Pages\TeamSettings::getUrl());
+            */
+            /*
+            $userMenuItems['create-team'] = UserMenuItem::make()
+                            ->label(__('filament-jet::jet.user_menu.create_team'))
+                            ->icon(config('filament-jet.user_menu.create_team.icon', 'heroicon-o-users'))
+                            ->sort(config('filament-jet.user_menu.create_team.sort'))
+                            ->url(\Modules\User\Filament\Pages\CreateTeam::getUrl());
+            
+            Filament::registerUserMenuItems($userMenuItems);
+            */
         });
     }
 }
