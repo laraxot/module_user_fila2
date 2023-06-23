@@ -11,6 +11,10 @@ use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Jetstream\HasTeams;
+
 
 class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contracts\UserContract
 {
@@ -18,6 +22,9 @@ class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contrac
     use HasFactory;
     use Notifiable;
     use HasRoles;
+    use HasProfilePhoto;
+    use HasTeams;
+    //use TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -38,6 +45,8 @@ class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contrac
     protected $hidden = [
         'password',
         'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
     ];
 
     /**
@@ -61,5 +70,14 @@ class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contrac
         $profileClass=XotData::make()->getProfileClass();
         return $this->hasOne($profileClass);
     }
+
+     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array<int, string>
+     */
+    protected $appends = [
+        'profile_photo_url',
+    ];
 
 }
