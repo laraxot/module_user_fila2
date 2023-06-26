@@ -2,7 +2,7 @@
 
 namespace Modules\User\Filament\Pages\Auth;
 
-use App\Actions\FilamentJet\CreateNewUser;
+use Modules\User\Actions\FilamentJet\CreateNewUser;
 use Modules\User\Features;
 use Modules\User\Filament\Pages\CardPage;
 use Modules\User\FilamentJet;

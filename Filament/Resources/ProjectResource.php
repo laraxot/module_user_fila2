@@ -2,9 +2,9 @@
 
 namespace Modules\User\Filament\Resources;
 
-use App\Filament\Resources\ProjectResource\Pages;
-use App\Filament\Resources\ProjectResource\RelationManagers;
-use App\Models\Project;
+use Modules\User\Filament\Resources\ProjectResource\Pages;
+use Modules\User\Filament\Resources\ProjectResource\RelationManagers;
+use Modules\User\Models\Project;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
