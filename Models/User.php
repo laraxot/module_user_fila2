@@ -21,9 +21,9 @@ use ArtMin96\FilamentJet\Traits\CanExportPersonalData;
 use ArtMin96\FilamentJet\Traits\HasProfilePhoto;
 use ArtMin96\FilamentJet\Traits\HasTeams;
 use ArtMin96\FilamentJet\Traits\TwoFactorAuthenticatable;
+use ArtMin96\FilamentJet\Contracts\HasTeamsContract;
 
-
-class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contracts\UserContract, HasAvatar, ExportsPersonalData
+class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contracts\UserContract, HasAvatar, ExportsPersonalData, HasTeamsContract
 {
     use HasApiTokens;
     use HasFactory;
@@ -33,7 +33,7 @@ class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contrac
     use TwoFactorAuthenticatable;
     use CanExportPersonalData;
 
-    
+
 
     /**
      * The attributes that are mass assignable.
@@ -89,6 +89,6 @@ class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contrac
         return $this->hasOne($profileClass);
     }
 
-     
+
 
 }
