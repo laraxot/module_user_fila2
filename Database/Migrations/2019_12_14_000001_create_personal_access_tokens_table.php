@@ -1,17 +1,20 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-return new class extends Migration
-{
+class CreatePersonalAccessTokensTable extends XotBaseMigration {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
-    {
-        Schema::create('personal_access_tokens', function (Blueprint $table) {
+    public function up() {
+        // -- CREATE --
+        $this->tableCreate(
+            function (Blueprint $table) {
             $table->id();
             $table->morphs('tokenable');
             $table->string('name');
@@ -21,13 +24,14 @@ return new class extends Migration
             $table->timestamp('expires_at')->nullable();
             $table->timestamps();
         });
-    }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('personal_access_tokens');
+        // -- UPDATE --
+        $this->tableUpdate(
+            function (Blueprint $table) {
+                // if (! $this->hasColumn('email')) {
+                //    $table->string('email')->nullable();
+                // }
+            }
+        );
     }
 };
