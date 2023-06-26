@@ -11,13 +11,29 @@ use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Filament\Models\Contracts\HasAvatar;
+use Spatie\PersonalDataExport\ExportsPersonalData;
+//use Laravel\Fortify\TwoFactorAuthenticatable;
+//use Laravel\Jetstream\HasProfilePhoto;
+//use Laravel\Jetstream\HasTeams;
 
-class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contracts\UserContract
+use ArtMin96\FilamentJet\Traits\CanExportPersonalData;
+use ArtMin96\FilamentJet\Traits\HasProfilePhoto;
+use ArtMin96\FilamentJet\Traits\HasTeams;
+use ArtMin96\FilamentJet\Traits\TwoFactorAuthenticatable;
+
+
+class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contracts\UserContract, HasAvatar, ExportsPersonalData
 {
     use HasApiTokens;
     use HasFactory;
+    use HasProfilePhoto;
+    use HasTeams;
     use Notifiable;
-    use HasRoles;
+    use TwoFactorAuthenticatable;
+    use CanExportPersonalData;
+
+    
 
     /**
      * The attributes that are mass assignable.
@@ -38,6 +54,8 @@ class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contrac
     protected $hidden = [
         'password',
         'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
     ];
 
     /**
@@ -48,6 +66,15 @@ class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contrac
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+    ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array<int, string>
+     */
+    protected $appends = [
+        'profile_photo_url',
     ];
 
     public function canAccessFilament(): bool
@@ -61,5 +88,7 @@ class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contrac
         $profileClass=XotData::make()->getProfileClass();
         return $this->hasOne($profileClass);
     }
+
+     
 
 }
