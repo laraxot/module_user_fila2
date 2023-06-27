@@ -92,7 +92,7 @@ return [
         'path' => base_path('Modules/'.$moduleName."/$contextPath/Widgets"),
         'register' => [
             Widgets\AccountWidget::class,
-            //Widgets\FilamentInfoWidget::class,
+            ////Widgets\FilamentInfoWidget::class,
         ],
     ],
 
