@@ -7,24 +7,25 @@ namespace Modules\User\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 // use Laravel\Sanctum\HasApiTokens;
-use ArtMin96\FilamentJet\Contracts\HasTeamsContract;
-use ArtMin96\FilamentJet\Traits\CanExportPersonalData;
-use ArtMin96\FilamentJet\Traits\HasProfilePhoto;
-use ArtMin96\FilamentJet\Traits\HasTeams;
-use ArtMin96\FilamentJet\Traits\TwoFactorAuthenticatable;
-use Filament\Models\Contracts\FilamentUser;
+use Modules\Xot\Datas\XotData;
+use Laravel\Passport\HasApiTokens;
 use Filament\Models\Contracts\HasAvatar;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
+use ArtMin96\FilamentJet\Traits\HasTeams;
+use Filament\Models\Contracts\FilamentUser;
+use ArtMin96\FilamentJet\Traits\HasProfilePhoto;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Spatie\PersonalDataExport\ExportsPersonalData;
 // use Laravel\Fortify\TwoFactorAuthenticatable;
 // use Laravel\Jetstream\HasProfilePhoto;
 // use Laravel\Jetstream\HasTeams;
 
+use ArtMin96\FilamentJet\Contracts\HasTeamsContract;
+use ArtMin96\FilamentJet\Traits\CanExportPersonalData;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
-use Modules\Xot\Datas\XotData;
-use Spatie\PersonalDataExport\ExportsPersonalData;
+use ArtMin96\FilamentJet\Traits\TwoFactorAuthenticatable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable implements
     FilamentUser,
@@ -91,4 +92,23 @@ class User extends Authenticatable implements
 
         return $this->hasOne($profileClass);
     }
+
+    public function hasModule(string $name):bool {
+        /*
+        $models=Module::get();
+        $modules=app('modules')->getByStatus(1);
+        foreach($modules as $mod){
+            $row=Module::firstOrCreate(['name'=>$mod->getName(),'name_low'=>$mod->getLowerName()]);
+            $this->modules()->attach($row);
+        }
+        module non puo' essere sushi per il belongstomany
+        */
+        $res=$this->modules()->firstWhere('name_low',$name);
+        return is_object($res);
+    }
+
+    public function modules():BelongsToMany{
+        return $this->belongsToMany(Module::class);
+    }
+    
 }

@@ -14,6 +14,7 @@ use Modules\Xot\Traits\Updater;
 abstract class BasePivot extends Pivot
 {
     use Updater;
+    // use Searchable;
     /**
      * Indicates whether attributes are snake cased on arrays.
      *
@@ -25,12 +26,10 @@ abstract class BasePivot extends Pivot
 
     protected $perPage = 30;
 
-    // use Searchable;
-
     /**
      * @var string
      */
-    protected $connection = 'mysql'; // this will use the specified database conneciton
+    protected $connection = 'mysql'; // this will use the specified database connection
     /**
      * @var array
      */
