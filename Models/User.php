@@ -1,30 +1,36 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Modules\Xot\Datas\XotData;
-use Laravel\Sanctum\HasApiTokens;
-use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Notifications\Notifiable;
-use Filament\Models\Contracts\FilamentUser;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Filament\Models\Contracts\HasAvatar;
-use Spatie\PersonalDataExport\ExportsPersonalData;
-//use Laravel\Fortify\TwoFactorAuthenticatable;
-//use Laravel\Jetstream\HasProfilePhoto;
-//use Laravel\Jetstream\HasTeams;
 
+// use Laravel\Sanctum\HasApiTokens;
+use ArtMin96\FilamentJet\Contracts\HasTeamsContract;
 use ArtMin96\FilamentJet\Traits\CanExportPersonalData;
 use ArtMin96\FilamentJet\Traits\HasProfilePhoto;
 use ArtMin96\FilamentJet\Traits\HasTeams;
 use ArtMin96\FilamentJet\Traits\TwoFactorAuthenticatable;
-use ArtMin96\FilamentJet\Contracts\HasTeamsContract;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasAvatar;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+// use Laravel\Fortify\TwoFactorAuthenticatable;
+// use Laravel\Jetstream\HasProfilePhoto;
+// use Laravel\Jetstream\HasTeams;
 
-class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contracts\UserContract, HasAvatar, ExportsPersonalData, HasTeamsContract
-{
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
+use Modules\Xot\Datas\XotData;
+use Spatie\PersonalDataExport\ExportsPersonalData;
+
+class User extends Authenticatable implements
+    FilamentUser,
+    \Modules\Xot\Contracts\UserContract,
+    HasAvatar,
+    ExportsPersonalData { /* , HasTeamsContract */
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
@@ -32,8 +38,6 @@ class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contrac
     use Notifiable;
     use TwoFactorAuthenticatable;
     use CanExportPersonalData;
-
-
 
     /**
      * The attributes that are mass assignable.
@@ -65,7 +69,7 @@ class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contrac
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        // 'password' => 'hashed', //Call to undefined cast [hashed] on column [password] in model [Modules\User\Models\User].
     ];
 
     /**
@@ -77,18 +81,14 @@ class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contrac
         'profile_photo_url',
     ];
 
-    public function canAccessFilament(): bool
-    {
-        //return $this->role_id === Role::ROLE_ADMINISTRATOR;
+    public function canAccessFilament(): bool {
+        // return $this->role_id === Role::ROLE_ADMINISTRATOR;
         return true;
     }
 
-    public function profile(): HasOne
-    {
-        $profileClass=XotData::make()->getProfileClass();
+    public function profile(): HasOne {
+        $profileClass = XotData::make()->getProfileClass();
+
         return $this->hasOne($profileClass);
     }
-
-
-
 }
