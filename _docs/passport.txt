@@ -1,2 +1,0 @@
-https://medium.com/@santhoshj/how-to-use-passport-with-laravel-modules-nwidart-566deadf651b
-
