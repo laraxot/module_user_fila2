@@ -41,6 +41,6 @@ class OauthAccessToken extends PassportToken {
     /**
      * @var string
      */
-    protected $connection = 'liveuser_general';
+    //protected $connection = 'liveuser_general';
     // protected $fillable = ['id', 'user_id', 'client_id', 'name', 'scopes', 'revoked', 'expires_at'];
 }
