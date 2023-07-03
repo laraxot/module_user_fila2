@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Http\Middleware\MirrorConfigToSubpackages;
@@ -17,8 +19,8 @@ $moduleName = 'User';
 $moduleNs = 'Modules\User';
 $contextNs = 'Modules\\User\\Filament';
 $contextPath = 'Filament';
-return [
 
+return [
     /*
     |--------------------------------------------------------------------------
     | Filament Path
@@ -92,7 +94,7 @@ return [
         'path' => base_path('Modules/'.$moduleName."/$contextPath/Widgets"),
         'register' => [
             Widgets\AccountWidget::class,
-            ////Widgets\FilamentInfoWidget::class,
+            // ////Widgets\FilamentInfoWidget::class,
         ],
     ],
 
@@ -140,8 +142,8 @@ return [
 
     'middleware' => [
         'auth' => [
-        //  Authenticate::class,
-            Modules\User\Http\Middleware\FilamentMiddleware::class
+            //  Authenticate::class,
+            Modules\User\Http\Middleware\FilamentMiddleware::class,
         ],
         'base' => [
             EncryptCookies::class,
