@@ -33,6 +33,9 @@ class UserResource extends Resource {
                     ->required()
                     ->maxLength(255)
                     ->unique(),
+                Forms\Components\Select::make('roles')
+                    ->multiple()
+                    ->relationship('roles', 'name'),
             ]);
     }
 

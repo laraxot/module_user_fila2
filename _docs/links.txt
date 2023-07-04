@@ -1,0 +1,8 @@
+https://packagist.org/packages/althinect/filament-spatie-roles-permissions
+
+
+https://github.com/chiiya/filament-access-control
+
+
+use Filament\Facades\Filament;
+return Filament::auth()->user()->can(static::getPermissionName());
