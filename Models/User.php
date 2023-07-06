@@ -25,6 +25,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use Modules\Xot\Datas\XotData;
 use Spatie\PersonalDataExport\ExportsPersonalData;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements
     FilamentUser,
@@ -38,6 +39,7 @@ class User extends Authenticatable implements
     use Notifiable;
     use TwoFactorAuthenticatable;
     use CanExportPersonalData;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.

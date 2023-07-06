@@ -35,7 +35,7 @@ abstract class BaseMorphPivot extends MorphPivot
     /*
      * @var string
 
-    ////protected $connection = 'liveuser_general'; // this will use the specified database conneciton
+    protected $connection = 'liveuser_general'; // this will use the specified database conneciton
     */
     /**
      * @var array

@@ -2,29 +2,31 @@
 
 namespace Modules\User\Filament\Pages\Auth;
 
+use Livewire\Redirector;
+use Modules\User\Features;
+use Modules\User\FilamentJet;
+use Filament\Facades\Filament;
+use Illuminate\Routing\Pipeline;
+use Illuminate\Support\HtmlString;
+use Illuminate\Support\Facades\Blade;
+use Filament\Forms\Components\Checkbox;
+use Illuminate\Database\Eloquent\Model;
+use Filament\Forms\Components\TextInput;
+use Filament\Notifications\Notification;
+use Modules\User\Filament\Pages\CardPage;
+use Phpsa\FilamentPasswordReveal\Password;
+use Illuminate\Contracts\Auth\Authenticatable;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Modules\User\Actions\Auth\AttemptToAuthenticate;
+use Savannabits\FilamentModules\Concerns\ContextualPage;
+use Filament\Http\Responses\Auth\Contracts\LoginResponse;
 use Modules\User\Actions\Auth\PrepareAuthenticatedSession;
 use Modules\User\Actions\Auth\RedirectIfTwoFactorAuthenticatable;
-use Modules\User\Features;
-use Modules\User\Filament\Pages\CardPage;
-use Modules\User\FilamentJet;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
-use DanHarrin\LivewireRateLimiting\WithRateLimiting;
-use Filament\Facades\Filament;
-use Filament\Forms\Components\Checkbox;
-use Filament\Forms\Components\TextInput;
-use Filament\Http\Responses\Auth\Contracts\LoginResponse;
-use Filament\Notifications\Notification;
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Routing\Pipeline;
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\HtmlString;
-use Livewire\Redirector;
-use Phpsa\FilamentPasswordReveal\Password;
 
 class Login extends CardPage
 {
+    use ContextualPage;
     use WithRateLimiting;
 
     protected static string $view = 'filament-jet::filament.pages.auth.login';

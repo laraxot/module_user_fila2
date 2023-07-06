@@ -55,6 +55,9 @@ class CreateRolesTable extends XotBaseMigration
         // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
+                if (! $this->hasColumn('team_id')) {
+                    $table->foreignId('team_id')->index();
+                }
             }
         );
     }
