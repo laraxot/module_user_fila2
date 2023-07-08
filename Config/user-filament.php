@@ -93,7 +93,7 @@ return [
         'namespace' => $contextNs.'\\Widgets',
         'path' => base_path('Modules/'.$moduleName."/$contextPath/Widgets"),
         'register' => [
-            Widgets\AccountWidget::class,
+            //Widgets\AccountWidget::class,
             // ////Widgets\FilamentInfoWidget::class,
         ],
     ],
