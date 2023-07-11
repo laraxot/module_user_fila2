@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\User\Policies;
+namespace Modules\User\Models\Policies;
 
 use Modules\User\Models\Team;
 use Modules\User\Models\User;

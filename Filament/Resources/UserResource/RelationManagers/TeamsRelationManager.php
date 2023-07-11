@@ -18,6 +18,7 @@ class TeamsRelationManager extends RelationManager {
     public static function form(Form $form): Form {
         return $form
             ->schema([
+                Forms\Components\TextInput::make('id'),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
@@ -27,6 +28,7 @@ class TeamsRelationManager extends RelationManager {
     public static function table(Table $table): Table {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id'),
                 Tables\Columns\TextColumn::make('name'),
             ])
             ->filters([

@@ -9,27 +9,28 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 use Filament\Forms;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Validation\Rules\Password;
-use Modules\User\Filament\Resources\UserResource\Pages;
-use Modules\User\Filament\Resources\UserResource\RelationManagers;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
 use Modules\User\Models\Role;
 use Modules\User\Models\User;
-use Savannabits\FilamentModules\Concerns\ContextualResource;
-
-
+use Filament\Resources\Resource;
+use Illuminate\Support\HtmlString;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Group;
-use Filament\Forms\Components\Placeholder;
-use Filament\Forms\Components\TextInput;
+use Illuminate\Support\Facades\Hash;
 
 
 use Filament\Tables\Columns\TextColumn;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\HtmlString;
+use Filament\Forms\Components\TextInput;
+use Illuminate\Validation\Rules\Password;
+use Filament\Forms\Components\Placeholder;
+
+
+use Filament\Tables\Columns\BooleanColumn;
+use Modules\User\Filament\Resources\UserResource\Pages;
+use Savannabits\FilamentModules\Concerns\ContextualResource;
+use Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 
 class UserResource extends Resource {
@@ -155,15 +156,17 @@ class UserResource extends Resource {
         return $table
             ->columns([
                 TextColumn::make('id')->sortable(),
-                Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
+                TextColumn::make('name')->searchable()->toggleable(),
                 TextColumn::make('email')->sortable()->searchable(),
+                TextColumn::make('profile.first_name')->label('first name')->sortable()->searchable()->toggleable(),
+                TextColumn::make('profile.last_name')->label('last name')->sortable()->searchable()->toggleable(),
+                TextColumn::make('teams.name')->sortable()->searchable()->toggleable(),
                 // Tables\Columns\TextColumn::make('email'),
                 // Tables\Columns\TextColumn::make('email_verified_at')
                 //    ->dateTime(),
-                Tables\Columns\TextColumn::make('role.name'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
+                TextColumn::make('role.name')->toggleable(),
+                TextColumn::make('roles.name')->toggleable(),
+                //Tables\Columns\TextColumn::make('created_at')->dateTime(),
                 // Tables\Columns\TextColumn::make('updated_at')
                 //    ->dateTime(),
                 // Tables\Columns\TextColumn::make('role_id'),
@@ -172,7 +175,7 @@ class UserResource extends Resource {
                 // Tables\Columns\TextColumn::make('phone_verified_at')
                 //    ->dateTime(),
                 // Tables\Columns\TextColumn::make('photo'),
-                Tables\Columns\BooleanColumn::make('email_verified_at')->sortable()->searchable(),
+                BooleanColumn::make('email_verified_at')->sortable()->searchable()->toggleable(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('role')
