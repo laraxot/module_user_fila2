@@ -2,10 +2,13 @@
 
 namespace Modules\User\Providers;
 
+use Livewire\Livewire;
 use Filament\Facades\Filament;
-use Filament\Navigation\NavigationItem;
-use Savannabits\FilamentModules\ContextServiceProvider;
 use Filament\Navigation\UserMenuItem;
+use Illuminate\Support\Facades\Blade;
+use Filament\Navigation\NavigationItem;
+use ArtMin96\FilamentJet\Http\Livewire\SwitchableTeam;
+use Savannabits\FilamentModules\ContextServiceProvider;
 
 class FilamentServiceProvider extends ContextServiceProvider
 {
@@ -41,7 +44,7 @@ class FilamentServiceProvider extends ContextServiceProvider
                 ]);
             });
             Filament::forContext(static::$name, function (){
-                Filament::registerRenderHook('sidebar.start',fn():string => \Blade::render('<div class="p-2 px-6 bg-primary-100 font-black w-full">'.static::$module.' Module</div>'));
+                Filament::registerRenderHook('sidebar.start',fn():string => \Blade::render('<div class="p-2 px-6 bg-primary-100 font-black w-full">'.static::$module.'s </div>'));
             });
             $userMenuItems = [];
             /*
@@ -59,6 +62,14 @@ class FilamentServiceProvider extends ContextServiceProvider
                             ->url(\Modules\User\Filament\Pages\CreateTeam::getUrl());
             
             Filament::registerUserMenuItems($userMenuItems);
+            */
+            /*
+            Livewire::component('switchable-team', SwitchableTeam::class);
+                
+            Filament::registerRenderHook(
+                'user-menu.start',
+                fn (): string => Blade::render('@livewire(\'switchable-team\')'),
+            );
             */
         });
     }

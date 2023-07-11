@@ -54,7 +54,7 @@ return [
     | register pages from. You may also register pages here.
     |
     */
-
+    /*
     'pages' => [
         'namespace' => $contextNs.'\\Pages',
         'path' => base_path('Modules/'.$moduleName."/$contextPath/Pages"),
@@ -62,7 +62,7 @@ return [
             Pages\Dashboard::class,
         ],
     ],
-
+    */
     /*
     |--------------------------------------------------------------------------
     | Resources
