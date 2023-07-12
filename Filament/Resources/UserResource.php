@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 use Filament\Forms;
-use Filament\Tables;
-use Filament\Resources\Form;
-use Filament\Resources\Table;
-use Modules\User\Models\Role;
-use Modules\User\Models\User;
-use Filament\Resources\Resource;
-use Illuminate\Support\HtmlString;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Group;
-use Illuminate\Support\Facades\Hash;
-
-
-use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\TextInput;
-use Illuminate\Validation\Rules\Password;
 use Filament\Forms\Components\Placeholder;
-
-
+use Filament\Forms\Components\TextInput;
+use Filament\Resources\Form;
+use Filament\Resources\Resource;
+use Filament\Resources\Table;
+use Filament\Tables;
 use Filament\Tables\Columns\BooleanColumn;
+use Filament\Tables\Columns\TextColumn;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\HtmlString;
+use Illuminate\Validation\Rules\Password;
 use Modules\User\Filament\Resources\UserResource\Pages;
-use Savannabits\FilamentModules\Concerns\ContextualResource;
 use Modules\User\Filament\Resources\UserResource\RelationManagers;
-
+use Modules\User\Filament\Resources\UserResource\Widgets;
+use Modules\User\Models\Role;
+use Modules\User\Models\User;
+use Savannabits\FilamentModules\Concerns\ContextualResource;
 
 class UserResource extends Resource {
     use ContextualResource;
@@ -39,9 +35,9 @@ class UserResource extends Resource {
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
-    protected static bool | Closure $enablePasswordUpdates = true;
+    protected static bool|Closure $enablePasswordUpdates = true;
 
-    protected static Closure | null $extendFormCallback = null;
+    protected static Closure|null $extendFormCallback = null;
 
     /*
     protected static function getNavigationLabel(): string
@@ -70,11 +66,15 @@ class UserResource extends Resource {
     }
     */
 
-    public static function extendForm(Closure $callback): void
-    {
-        static::$extendFormCallback = $callback;
+    public static function getWidgets(): array {
+        return [
+            Widgets\UserOverview::class,
+        ];
     }
 
+    public static function extendForm(Closure $callback): void {
+        static::$extendFormCallback = $callback;
+    }
 
     public static function formOld(Form $form): Form {
         return $form
@@ -93,8 +93,7 @@ class UserResource extends Resource {
             ]);
     }
 
-    public static function form(Form $form): Form
-    {
+    public static function form(Form $form): Form {
         return $form
             ->schema(function () {
                 $schema = [
@@ -113,7 +112,7 @@ class UserResource extends Resource {
                                 if(!empty($state)){
                                     return Hash::make($state);
                                 }
-            
+
                                 $user = User::find($form->getColumns());
                                 if($user){
                                     return $user->password;
@@ -132,18 +131,18 @@ class UserResource extends Resource {
                             'new_password_confirmation' => TextInput::make('new_password_confirmation')
                                 ->password()
                                 ->label('Confirm New Password')
-                                ->rule('required', fn ($get) => !! $get('new_password'))
+                                ->rule('required', fn ($get) => (bool) $get('new_password'))
                                 ->same('new_password')
                                 ->dehydrated(false),
-                        ])->visible(static::$enablePasswordUpdates)
+                        ])->visible(static::$enablePasswordUpdates),
                     ])->columnSpan(8),
                     'right' => Card::make([
                         'created_at' => Placeholder::make('created_at')
-                            ->content(fn ($record) => $record?->created_at?->diffForHumans() ?? new HtmlString('&mdash;'))
+                            ->content(fn ($record) => $record?->created_at?->diffForHumans() ?? new HtmlString('&mdash;')),
                     ])->columnSpan(4),
                 ];
 
-                if (static::$extendFormCallback !== null) {
+                if (null !== static::$extendFormCallback) {
                     $schema = value(static::$extendFormCallback, $schema);
                 }
 
@@ -166,7 +165,7 @@ class UserResource extends Resource {
                 //    ->dateTime(),
                 TextColumn::make('role.name')->toggleable(),
                 TextColumn::make('roles.name')->toggleable(),
-                //Tables\Columns\TextColumn::make('created_at')->dateTime(),
+                // Tables\Columns\TextColumn::make('created_at')->dateTime(),
                 // Tables\Columns\TextColumn::make('updated_at')
                 //    ->dateTime(),
                 // Tables\Columns\TextColumn::make('role_id'),
@@ -224,15 +223,14 @@ class UserResource extends Resource {
                 // ->visible(fn (User $record): bool => $record->role_id === Role::ROLE_ADMINISTRATOR)
                 ,
             ])
-            
+
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ])
              ->defaultSort('created_at', 'desc');
     }
 
-    public static function enablePasswordUpdates(bool | Closure $condition = true): void
-    {
+    public static function enablePasswordUpdates(bool|Closure $condition = true): void {
         static::$enablePasswordUpdates = $condition;
     }
 
