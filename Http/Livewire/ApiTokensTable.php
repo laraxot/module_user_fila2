@@ -27,6 +27,11 @@ class ApiTokensTable extends Component implements HasTable
     use InteractsWithTable;
     use HasSanctumPermissionsProperty;
 
+    /**
+     * Undocumented variable
+     *
+     * @var array<string, string>
+     */
     protected $listeners = [
         'tokenCreated' => '$refresh',
     ];

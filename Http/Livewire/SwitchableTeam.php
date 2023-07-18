@@ -2,19 +2,20 @@
 
 namespace Modules\User\Http\Livewire;
 
-use Modules\User\Events\TeamSwitched;
-use Modules\User\FilamentJet;
-use Modules\User\Http\Livewire\Traits\Properties\HasUserProperty;
-use Filament\Facades\Filament;
-use Filament\Notifications\Notification;
-use Illuminate\View\View;
 use Livewire\Component;
+use Illuminate\View\View;
+use Modules\User\FilamentJet;
+use Filament\Facades\Filament;
+use Modules\User\Events\TeamSwitched;
+use Filament\Notifications\Notification;
+use Illuminate\Database\Eloquent\Collection;
+use Modules\User\Http\Livewire\Traits\Properties\HasUserProperty;
 
 class SwitchableTeam extends Component
 {
     use HasUserProperty;
 
-    public $teams;
+    public Collection $teams;
 
     public function mount(): void
     {

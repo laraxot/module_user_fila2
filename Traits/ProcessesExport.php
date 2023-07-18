@@ -14,6 +14,7 @@ trait ProcessesExport
 
     /**
      * @throws \Throwable
+     * @return void
      */
     public function export()
     {
