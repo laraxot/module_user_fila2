@@ -7,7 +7,7 @@ namespace Modules\User\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 // use Laravel\Sanctum\HasApiTokens;
-use ArtMin96\FilamentJet\Contracts\HasTeamsContract;
+use ArtMin96\FilamentJet\Contracts\UserContract as UserJetContract;
 use ArtMin96\FilamentJet\Traits\CanExportPersonalData;
 use ArtMin96\FilamentJet\Traits\HasProfilePhoto;
 use ArtMin96\FilamentJet\Traits\HasTeams;
@@ -31,7 +31,7 @@ class User extends Authenticatable implements
     FilamentUser,
     \Modules\Xot\Contracts\UserContract,
     HasAvatar,
-    HasTeamsContract,
+    UserJetContract,
     ExportsPersonalData { /* , HasTeamsContract */
     use HasApiTokens;
     use HasFactory;
