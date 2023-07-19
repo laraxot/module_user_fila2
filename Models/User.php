@@ -31,6 +31,7 @@ class User extends Authenticatable implements
     FilamentUser,
     \Modules\Xot\Contracts\UserContract,
     HasAvatar,
+    HasTeamsContract,
     ExportsPersonalData { /* , HasTeamsContract */
     use HasApiTokens;
     use HasFactory;
