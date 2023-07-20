@@ -7,13 +7,15 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /**
  * Class CreateLiveuserUsersTable.
  */
-class CreateUsersTable extends XotBaseMigration {
+class CreateUsersTable extends XotBaseMigration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
+    public function up()
+    {
         // -- CREATE --
         $this->tableCreate(
             function (Blueprint $table) {
@@ -37,9 +39,13 @@ class CreateUsersTable extends XotBaseMigration {
                 if (! $this->hasColumn('profile_photo_path')) {
                     $table->string('profile_photo_path', 2048)->nullable();
                 }
+                if (! $this->hasColumn('lang')) {
+                    $table->string('lang', 3)->nullable();
+                }
+
             }
         );
     }
 
-   
+
 };

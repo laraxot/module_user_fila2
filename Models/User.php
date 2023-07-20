@@ -32,7 +32,8 @@ class User extends Authenticatable implements
     \Modules\Xot\Contracts\UserContract,
     HasAvatar,
     UserJetContract,
-    ExportsPersonalData { /* , HasTeamsContract */
+    ExportsPersonalData
+{ /* , HasTeamsContract */
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
@@ -51,6 +52,7 @@ class User extends Authenticatable implements
         'name',
         'email',
         'password',
+        'lang',
     ];
 
     /**
@@ -84,12 +86,14 @@ class User extends Authenticatable implements
         'profile_photo_url',
     ];
 
-    public function canAccessFilament(): bool {
+    public function canAccessFilament(): bool
+    {
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;
         return true;
     }
 
-    public function profile(): HasOne {
+    public function profile(): HasOne
+    {
         $profileClass = XotData::make()->getProfileClass();
 
         return $this->hasOne($profileClass);
