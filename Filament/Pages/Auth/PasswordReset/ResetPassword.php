@@ -2,22 +2,23 @@
 
 namespace Modules\User\Filament\Pages\Auth\PasswordReset;
 
-use Modules\User\Contracts\ResetsUserPasswords;
 use Modules\User\Features;
-use Modules\User\Filament\Pages\CardPage;
-use Modules\User\FilamentJet;
-use Modules\User\Http\Responses\Auth\Contracts\PasswordResetResponse;
-use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
-use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Filament\Facades\Filament;
+use ArtMin96\FilamentJet\FilamentJet;
+// use Modules\User\FilamentJet;
+use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
+use Illuminate\Support\Facades\Password;
+use Modules\User\Filament\Pages\CardPage;
+use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\CanResetPassword;
-use Illuminate\Contracts\Auth\PasswordBroker;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Password;
+use Modules\User\Contracts\ResetsUserPasswords;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Phpsa\FilamentPasswordReveal\Password as PasswordInput;
+use Modules\User\Http\Responses\Auth\Contracts\PasswordResetResponse;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class ResetPassword extends CardPage
 {
