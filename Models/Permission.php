@@ -35,11 +35,13 @@ use Spatie\Permission\Models\Permission as SpatiePermission;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\User> $users
  * @mixin \Eloquent
  */
-class Permission extends SpatiePermission {
+class Permission extends SpatiePermission
+{
     /**
      * @var string
      */
     //protected $connection = 'liveuser_general';
+    protected $connection = 'mysql';
 
     protected $fillable = ['id', 'name', 'guard_name', 'created_at', 'updated_at'];
 }
