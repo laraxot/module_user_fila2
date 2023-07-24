@@ -20,9 +20,6 @@ $moduleNs = 'Modules\User';
 $contextNs = 'Modules\\User\\Filament';
 $contextPath = 'Filament';
 
-
-$path = Str::of($contextPath)->slug()->replace('filament', 'admin');
-
 return [
     /*
     |--------------------------------------------------------------------------
@@ -34,7 +31,7 @@ return [
     |
     */
 
-    'path' => $path,
+    'path' => env('FILAMENT_PATH', 'admin'),
 
     /*
     |--------------------------------------------------------------------------
@@ -57,13 +54,15 @@ return [
     | register pages from. You may also register pages here.
     |
     */
-
+    
     'pages' => [
         'namespace' => $contextNs.'\\Pages',
         'path' => base_path('Modules/'.$moduleName."/$contextPath/Pages"),
-        'register' => [],
+        'register' => [
+            //Pages\Dashboard::class,
+        ],
     ],
-
+    
     /*
     |--------------------------------------------------------------------------
     | Resources
@@ -94,8 +93,8 @@ return [
         'namespace' => $contextNs.'\\Widgets',
         'path' => base_path('Modules/'.$moduleName."/$contextPath/Widgets"),
         'register' => [
-            Widgets\AccountWidget::class,
-            Widgets\FilamentInfoWidget::class,
+            //Widgets\AccountWidget::class,
+            // ////Widgets\FilamentInfoWidget::class,
         ],
     ],
 
