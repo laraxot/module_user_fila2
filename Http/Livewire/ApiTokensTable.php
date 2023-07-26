@@ -22,12 +22,13 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Laravel\Sanctum\Sanctum;
 use Livewire\Component;
-use Modules\User\Http\Livewire\Traits\Properties\HasSanctumPermissionsProperty;
+
+// use Modules\User\Http\Livewire\Traits\Properties\HasSanctumPermissionsProperty;
 
 class ApiTokensTable extends Component implements HasTable
 {
     use InteractsWithTable;
-    use HasSanctumPermissionsProperty;
+    // use HasSanctumPermissionsProperty;
 
     /**
      * Undocumented variable.
