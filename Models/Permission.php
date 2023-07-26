@@ -44,7 +44,6 @@ class Permission extends SpatiePermission
      * @var string
      */
     protected $connection = 'mysql';
-    protected $connection = 'mysql';
 
     protected $fillable = ['id', 'name', 'guard_name', 'created_at', 'updated_at'];
 }

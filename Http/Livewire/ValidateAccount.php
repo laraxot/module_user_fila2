@@ -17,6 +17,7 @@ class ValidateAccount extends Component implements HasForms
     use InteractsWithForms;
 
     public User $user;
+    public string $from;
 
     /**
      * @return void

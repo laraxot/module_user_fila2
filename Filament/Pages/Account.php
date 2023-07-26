@@ -23,10 +23,14 @@ use Modules\User\Filament\Traits\HasCachedAction;
 use Modules\User\Filament\Traits\HasHiddenAction;
 use Modules\User\Filament\Traits\HasTwoFactorAuthentication;
 use Modules\User\Http\Livewire\Traits\Properties\HasUserProperty;
+use Modules\User\Models\User;
 use Modules\User\Traits\ProcessesExport;
 use Phpsa\FilamentPasswordReveal\Password;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
+/**
+ * @property User $user
+ */
 class Account extends Page
 {
     use \Savannabits\FilamentModules\Concerns\ContextualPage;

@@ -13,7 +13,7 @@ class FilamentMiddleware extends Middleware
     public static string $context = 'filament';
 
     /**
-     * @return \Nwidart\Modules\Laravel\Module|Nwidart\Modules\Module
+     * @return \Nwidart\Modules\Laravel\Module|\Nwidart\Modules\Module
      */
     private function getModule()
     {
