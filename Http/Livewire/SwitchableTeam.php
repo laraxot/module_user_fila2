@@ -4,8 +4,8 @@ namespace Modules\User\Http\Livewire;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use Modules\User\FilamentJet;
 use Filament\Facades\Filament;
+use ArtMin96\FilamentJet\FilamentJet;
 use Modules\User\Events\TeamSwitched;
 use Filament\Notifications\Notification;
 use Illuminate\Database\Eloquent\Collection;
