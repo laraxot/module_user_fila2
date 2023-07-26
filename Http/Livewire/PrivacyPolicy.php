@@ -8,6 +8,8 @@ use ArtMin96\FilamentJet\FilamentJet;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
+use function Safe\file_get_contents;
+
 class PrivacyPolicy extends Component
 {
     /**

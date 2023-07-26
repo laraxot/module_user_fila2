@@ -7,6 +7,9 @@ namespace Modules\User\Support;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use Modules\User\Contracts\HasShieldPermissions;
+
+use function Safe\class_implements;
+
 use Webmozart\Assert\Assert;
 
 class Utils
@@ -36,7 +39,7 @@ class Utils
 
     public static function isResourceNavigationRegistered(): bool
     {
-        Assert::string($res = config('filament-shield.shield_resource.should_register_navigation', true));
+        Assert::boolean($res = config('filament-shield.shield_resource.should_register_navigation', true));
 
         return $res;
     }

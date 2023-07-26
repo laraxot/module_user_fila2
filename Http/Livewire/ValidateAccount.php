@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Http\Livewire;
 
 use Filament\Facades\Filament;
+use Filament\Forms\ComponentContainer;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
@@ -12,12 +13,14 @@ use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Modules\User\Models\User;
 
+/**
+ * @property ComponentContainer $form
+ */
 class ValidateAccount extends Component implements HasForms
 {
     use InteractsWithForms;
 
     public User $user;
-    public string $from;
 
     /**
      * @return void
