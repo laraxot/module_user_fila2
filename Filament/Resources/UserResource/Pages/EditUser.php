@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Filament\Resources\UserResource\Pages;
 
-use Modules\User\Filament\Resources\UserResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\Hash;
+use Modules\User\Filament\Resources\UserResource;
 
 class EditUser extends EditRecord
 {
@@ -18,7 +20,7 @@ class EditUser extends EditRecord
         ];
     }
 
-    public function beforeSave()
+    public function beforeSave(): void
     {
         if (! array_key_exists('new_password', $this->data) || ! filled($this->data['new_password'])) {
             return;

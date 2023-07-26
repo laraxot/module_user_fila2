@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Filament\Actions;
 
 use Filament\Forms;
@@ -7,7 +9,7 @@ use Filament\Pages\Actions\Action;
 
 class PasswordConfirmationAction extends Action
 {
-    protected function isPasswordSessionValid()
+    protected function isPasswordSessionValid(): bool
     {
         return session()->has('auth.password_confirmed_at') && (time() - session('auth.password_confirmed_at', 0)) < config('filament-jet.password_confirmation_seconds');
     }
@@ -33,7 +35,7 @@ class PasswordConfirmationAction extends Action
         }
     }
 
-    public function call(array $data = [])
+    public function call(array $data = []): void
     {
         // If the session already has a cookie and it's still valid, we don't want to reset the time on it.
         if ($this->isPasswordSessionValid()) {

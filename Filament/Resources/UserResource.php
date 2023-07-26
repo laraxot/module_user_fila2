@@ -29,15 +29,16 @@ use Modules\User\Models\Role;
 use Modules\User\Models\User;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
 
-class UserResource extends Resource {
+class UserResource extends Resource
+{
     use ContextualResource;
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
-    protected static bool|Closure $enablePasswordUpdates = true;
+    protected static bool|\Closure $enablePasswordUpdates = true;
 
-    protected static Closure|null $extendFormCallback = null;
+    protected static \Closure|null $extendFormCallback = null;
 
     /*
     protected static function getNavigationLabel(): string
@@ -66,17 +67,20 @@ class UserResource extends Resource {
     }
     */
 
-    public static function getWidgets(): array {
+    public static function getWidgets(): array
+    {
         return [
             Widgets\UserOverview::class,
         ];
     }
 
-    public static function extendForm(Closure $callback): void {
+    public static function extendForm(\Closure $callback): void
+    {
         static::$extendFormCallback = $callback;
     }
 
-    public static function formOld(Form $form): Form {
+    public static function formOld(Form $form): Form
+    {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
@@ -93,7 +97,8 @@ class UserResource extends Resource {
             ]);
     }
 
-    public static function form(Form $form): Form {
+    public static function form(Form $form): Form
+    {
         return $form
             ->schema(function () {
                 $schema = [
@@ -151,7 +156,8 @@ class UserResource extends Resource {
             ->columns(12);
     }
 
-    public static function table(Table $table): Table {
+    public static function table(Table $table): Table
+    {
         return $table
             ->columns([
                 TextColumn::make('id')->sortable(),
@@ -230,7 +236,8 @@ class UserResource extends Resource {
              ->defaultSort('created_at', 'desc');
     }
 
-    public static function enablePasswordUpdates(bool|Closure $condition = true): void {
+    public static function enablePasswordUpdates(bool|\Closure $condition = true): void
+    {
         static::$enablePasswordUpdates = $condition;
     }
 
@@ -241,7 +248,8 @@ class UserResource extends Resource {
     }
     */
 
-    public static function getRelations(): array {
+    public static function getRelations(): array
+    {
         return [
             RelationManagers\TeamsRelationManager::class,
             RelationManagers\ProfileRelationManager::class,
@@ -249,7 +257,8 @@ class UserResource extends Resource {
         ];
     }
 
-    public static function getPages(): array {
+    public static function getPages(): array
+    {
         return [
             'index' => Pages\ListUsers::route('/'),
             'create' => Pages\CreateUser::route('/create'),

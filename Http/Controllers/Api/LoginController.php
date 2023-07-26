@@ -8,14 +8,18 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Modules\Xot\Http\Controllers\XotBaseController;
+use Webmozart\Assert\Assert;
 
-class LoginController extends XotBaseController {
+class LoginController extends XotBaseController
+{
     /**
-     * Login api
+     * Login api.
      */
-    public function __invoke(Request $request): JsonResponse {
+    public function __invoke(Request $request): JsonResponse
+    {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            $user = Auth::user();
+            Assert::notNull($user = Auth::user(), 'wip');
+
             $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['name'] = $user->name;
 

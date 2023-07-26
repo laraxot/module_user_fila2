@@ -1,14 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Filament\Pages;
 
-use Modules\User\Contracts\CreatesTeams;
-use Modules\User\Http\Livewire\Traits\Properties\HasUserProperty;
-use Modules\User\Traits\RedirectsActions;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Livewire\Redirector;
+use Modules\User\Contracts\CreatesTeams;
+use Modules\User\Http\Livewire\Traits\Properties\HasUserProperty;
+use Modules\User\Traits\RedirectsActions;
+use Webmozart\Assert\Assert;
 
 class CreateTeam extends Page
 {
@@ -22,7 +25,9 @@ class CreateTeam extends Page
 
     protected static function shouldRegisterNavigation(): bool
     {
-        return config('filament-jet.should_register_navigation.create_team');
+        Assert::boolean($res = config('filament-jet.should_register_navigation.create_team'));
+
+        return $res;
     }
 
     protected function getForms(): array

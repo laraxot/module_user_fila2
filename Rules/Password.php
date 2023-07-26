@@ -1,9 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Str;
+
+use function Safe\preg_match;
 
 class Password implements Rule
 {
@@ -45,8 +49,8 @@ class Password implements Rule
     /**
      * Determine if the validation rule passes.
      *
-     * @param  string  $attribute
-     * @param  mixed  $value
+     * @param string $attribute
+     *
      * @return bool
      */
     public function passes($attribute, $value)
@@ -139,7 +143,6 @@ class Password implements Rule
     /**
      * Set the minimum length of the password.
      *
-     * @param  int  $length
      * @return $this
      */
     public function length(int $length)
@@ -188,7 +191,6 @@ class Password implements Rule
     /**
      * Set the message that should be used when the rule fails.
      *
-     * @param  string  $message
      * @return $this
      */
     public function withMessage(string $message)

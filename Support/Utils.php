@@ -29,12 +29,16 @@ class Utils
 
     public static function getResourceSlug(): string
     {
-        return (string) config('filament-shield.shield_resource.slug');
+        Assert::string($res = config('filament-shield.shield_resource.slug'), 'wip');
+
+        return $res;
     }
 
     public static function isResourceNavigationRegistered(): bool
     {
-        return config('filament-shield.shield_resource.should_register_navigation', true);
+        Assert::string($res = config('filament-shield.shield_resource.should_register_navigation', true));
+
+        return $res;
     }
 
     public static function getResourceNavigationSort(): ?int

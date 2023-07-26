@@ -6,6 +6,8 @@ namespace Modules\User\Http\Middleware;
 
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Support\Str;
+use Webmozart\Assert\Assert;
 
 class FilamentMiddleware extends Middleware
 {
@@ -30,13 +32,13 @@ class FilamentMiddleware extends Middleware
             throw new \Exception('Context has to be defined in your class');
         }
 
-        return \Str::of($module->getLowerName())->append('-')->append(\Str::slug(static::$context))->kebab()->toString();
+        return Str::of($module->getLowerName())->append('-')->append(\Str::slug(static::$context))->kebab()->toString();
     }
 
     protected function authenticate($request, array $guards): void
     {
         $context = $this->getContextName();
-        $guardName = config("$context.auth.guard");
+        Assert::string($guardName = config("$context.auth.guard"), 'wip');
         $guard = $this->auth->guard($guardName);
 
         if (! $guard->check()) {

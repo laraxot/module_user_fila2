@@ -11,7 +11,7 @@ use Modules\User\Jobs\CreatePersonalDataExportJob;
 trait ProcessesExport
 {
     /**
-     * @var string|int
+     * @var int<min, -1>|int<1, max>|string
      */
     public $exportBatchId;
 
@@ -44,6 +44,9 @@ trait ProcessesExport
         return Bus::findBatch($this->exportBatchId);
     }
 
+    /**
+     * @return void
+     */
     public function updateExportProgress()
     {
         $this->exportProgress = $this->exportBatch->progress();
