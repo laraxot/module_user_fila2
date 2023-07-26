@@ -9,17 +9,18 @@ use Spatie\Permission\Models\Permission as SpatiePermission;
 /**
  * Modules\User\Models\Permission.
  *
- * @property int                                                                    $id
- * @property string                                                                 $name
- * @property string                                                                 $guard_name
- * @property \Illuminate\Support\Carbon|null                                        $created_at
- * @property \Illuminate\Support\Carbon|null                                        $updated_at
- * @property \Illuminate\Database\Eloquent\Collection<int, Permission>              $permissions
- * @property int|null                                                               $permissions_count
+ * @property int                                                                      $id
+ * @property string                                                                   $name
+ * @property string                                                                   $guard_name
+ * @property \Illuminate\Support\Carbon|null                                          $created_at
+ * @property \Illuminate\Support\Carbon|null                                          $updated_at
+ * @property \Illuminate\Database\Eloquent\Collection<int, Permission>                $permissions
+ * @property int|null                                                                 $permissions_count
  * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Role> $roles
- * @property int|null                                                               $roles_count
+ * @property int|null                                                                 $roles_count
  * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\User> $users
- * @property int|null                                                               $users_count
+ * @property int|null                                                                 $users_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Permission newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Permission newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Permission permission($permissions)
@@ -30,9 +31,11 @@ use Spatie\Permission\Models\Permission as SpatiePermission;
  * @method static \Illuminate\Database\Eloquent\Builder|Permission whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Permission whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Permission whereUpdatedAt($value)
- * @property-read \Illuminate\Database\Eloquent\Collection<int, SpatiePermission> $permissions
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Spatie\Permission\Models\Role> $roles
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\User> $users
+ *
+ * @property \Illuminate\Database\Eloquent\Collection<int, SpatiePermission>               $permissions
+ * @property \Illuminate\Database\Eloquent\Collection<int, \Spatie\Permission\Models\Role> $roles
+ * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\User>      $users
+ *
  * @mixin \Eloquent
  */
 class Permission extends SpatiePermission
@@ -40,7 +43,7 @@ class Permission extends SpatiePermission
     /**
      * @var string
      */
-    //protected $connection = 'liveuser_general';
+    protected $connection = 'mysql';
     protected $connection = 'mysql';
 
     protected $fillable = ['id', 'name', 'guard_name', 'created_at', 'updated_at'];

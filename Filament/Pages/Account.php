@@ -1,7 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Filament\Pages;
 
+use ArtMin96\FilamentJet\FilamentJet;
+use Filament\Facades\Filament;
+use Filament\Forms\Components\Actions\Action;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\TextInput;
+use Filament\Notifications\Notification;
+use Filament\Pages\Page;
+use Illuminate\Support\Facades\Storage;
+use Livewire\Redirector;
 use Modules\User\Actions\DisableTwoFactorAuthentication;
 use Modules\User\Contracts\UpdatesUserPasswords;
 use Modules\User\Contracts\UpdatesUserProfileInformation;
@@ -11,17 +22,8 @@ use Modules\User\Filament\Traits\CanLogoutOtherBrowserSessions;
 use Modules\User\Filament\Traits\HasCachedAction;
 use Modules\User\Filament\Traits\HasHiddenAction;
 use Modules\User\Filament\Traits\HasTwoFactorAuthentication;
-use Modules\User\FilamentJet;
 use Modules\User\Http\Livewire\Traits\Properties\HasUserProperty;
 use Modules\User\Traits\ProcessesExport;
-use Filament\Facades\Filament;
-use Filament\Forms\Components\Actions\Action;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\TextInput;
-use Filament\Notifications\Notification;
-use Filament\Pages\Page;
-use Illuminate\Support\Facades\Storage;
-use Livewire\Redirector;
 use Phpsa\FilamentPasswordReveal\Password;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
@@ -50,8 +52,8 @@ class Account extends Page
     {
         $this->updateProfileInformationForm->fill($this->user->withoutRelations()->toArray());
 
-        if (Features::optionEnabled(Features::twoFactorAuthentication(), 'confirm') &&
-            is_null($this->user->two_factor_confirmed_at)) {
+        if (Features::optionEnabled(Features::twoFactorAuthentication(), 'confirm')
+            && is_null($this->user->two_factor_confirmed_at)) {
             app(DisableTwoFactorAuthentication::class)($this->user);
         }
     }
@@ -100,7 +102,7 @@ class Account extends Page
                         ->icon(config('filament-jet.profile.login_field.hint_action.icon'))
                         : null
                 )
-                ->email(fn (): bool => FilamentJet::username() === 'email')
+                ->email(fn (): bool => 'email' === FilamentJet::username())
                 ->unique(
                     table: FilamentJet::userModel(),
                     column: FilamentJet::username(),

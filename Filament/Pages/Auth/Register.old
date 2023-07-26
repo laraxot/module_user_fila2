@@ -5,7 +5,7 @@ namespace Modules\User\Filament\Pages\Auth;
 use Modules\User\Actions\FilamentJet\CreateNewUser;
 use Modules\User\Features;
 use Modules\User\Filament\Pages\CardPage;
-use Modules\User\FilamentJet;
+use ArtMin96\FilamentJet\FilamentJet;
 use Modules\User\Traits\RedirectsActions;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;

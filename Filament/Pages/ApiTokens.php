@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Filament\Pages;
 
-use Modules\User\Filament\Traits\HasCachedAction;
-use Modules\User\FilamentJet;
-use Modules\User\Http\Livewire\Traits\Properties\HasSanctumPermissionsProperty;
-use Modules\User\Http\Livewire\Traits\Properties\HasUserProperty;
+use ArtMin96\FilamentJet\FilamentJet;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\Page;
+use Modules\User\Filament\Traits\HasCachedAction;
+use Modules\User\Http\Livewire\Traits\Properties\HasSanctumPermissionsProperty;
+use Modules\User\Http\Livewire\Traits\Properties\HasUserProperty;
 
 class ApiTokens extends Page
 {
@@ -26,15 +28,11 @@ class ApiTokens extends Page
 
     /**
      * The create API token permissions.
-     *
-     * @var array
      */
     public array $permissions;
 
     /**
      * The plain text token value.
-     *
-     * @var string|null
      */
     public null|string $plainTextToken = '';
 

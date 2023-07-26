@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Http\Livewire;
 
-use Modules\User\FilamentJet;
-use Modules\User\Http\Livewire\Traits\Properties\HasSanctumPermissionsProperty;
+use ArtMin96\FilamentJet\FilamentJet;
 use Filament\Facades\Filament;
 use Filament\Forms\ComponentContainer;
 use Filament\Forms\Components\CheckboxList;
@@ -21,6 +22,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Laravel\Sanctum\Sanctum;
 use Livewire\Component;
+use Modules\User\Http\Livewire\Traits\Properties\HasSanctumPermissionsProperty;
 
 class ApiTokensTable extends Component implements HasTable
 {
@@ -28,7 +30,7 @@ class ApiTokensTable extends Component implements HasTable
     use HasSanctumPermissionsProperty;
 
     /**
-     * Undocumented variable
+     * Undocumented variable.
      *
      * @var array<string, string>
      */

@@ -12,20 +12,27 @@ use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Modules\User\Models\User;
 
-class ValidateAccount extends Component implements HasForms {
+class ValidateAccount extends Component implements HasForms
+{
     use InteractsWithForms;
 
     public User $user;
 
-    public function mount() {
+    /**
+     * @return void
+     */
+    public function mount()
+    {
         $this->form->fill();
     }
 
-    public function render(): View {
+    public function render(): View
+    {
         return view('user::livewire.validate-account');
     }
 
-    public function getFormSchema(): array {
+    public function getFormSchema(): array
+    {
         return [
             TextInput::make('password')
                 ->password()
@@ -42,7 +49,8 @@ class ValidateAccount extends Component implements HasForms {
         ];
     }
 
-    public function validateAccount(): void {
+    public function validateAccount(): void
+    {
         $data = $this->form->getState();
         $this->user->creation_token = null;
         $this->user->password = bcrypt($data['password']);

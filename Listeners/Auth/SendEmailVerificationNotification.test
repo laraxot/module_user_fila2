@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Listeners\Auth;
 
-use Modules\User\FilamentJet;
-use Modules\User\Notifications\Auth\VerifyEmail;
-use Exception;
+use ArtMin96\FilamentJet\FilamentJet;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification as BaseListener;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Modules\User\Notifications\Auth\VerifyEmail;
 
 class SendEmailVerificationNotification extends BaseListener
 {
@@ -24,7 +25,7 @@ class SendEmailVerificationNotification extends BaseListener
         if (! method_exists($event->user, 'notify')) {
             $userClass = $event->user::class;
 
-            throw new Exception("Model [{$userClass}] does not have a [notify()] method.");
+            throw new \Exception("Model [{$userClass}] does not have a [notify()] method.");
         }
 
         $notification = new VerifyEmail();

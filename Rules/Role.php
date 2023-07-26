@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Rules;
 
-use Modules\User\FilamentJet;
+use ArtMin96\FilamentJet\FilamentJet;
 use Illuminate\Contracts\Validation\Rule;
 
 class Role implements Rule
@@ -10,8 +12,8 @@ class Role implements Rule
     /**
      * Determine if the validation rule passes.
      *
-     * @param  string  $attribute
-     * @param  mixed  $value
+     * @param string $attribute
+     *
      * @return bool
      */
     public function passes($attribute, $value)

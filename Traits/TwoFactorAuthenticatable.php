@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Traits;
 
-use Modules\User\Contracts\TwoFactorAuthenticationProvider;
-use Modules\User\FilamentJet;
-use Modules\User\RecoveryCode;
+use ArtMin96\FilamentJet\FilamentJet;
 use BaconQrCode\Renderer\Color\Rgb;
 use BaconQrCode\Renderer\Image\SvgImageBackEnd;
 use BaconQrCode\Renderer\ImageRenderer;
 use BaconQrCode\Renderer\RendererStyle\Fill;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\Writer;
+use Modules\User\Contracts\TwoFactorAuthenticationProvider;
+use Modules\User\RecoveryCode;
 
 trait TwoFactorAuthenticatable
 {
@@ -22,8 +24,8 @@ trait TwoFactorAuthenticatable
     public function hasEnabledTwoFactorAuthentication()
     {
         if (FilamentJet::confirmsTwoFactorAuthentication()) {
-            return ! is_null($this->two_factor_secret) &&
-                ! is_null($this->two_factor_confirmed_at);
+            return ! is_null($this->two_factor_secret)
+                && ! is_null($this->two_factor_confirmed_at);
         }
 
         return ! is_null($this->two_factor_secret);
@@ -51,7 +53,8 @@ trait TwoFactorAuthenticatable
     /**
      * Replace the given recovery code with a new one in the user's stored codes.
      *
-     * @param  string  $code
+     * @param string $code
+     *
      * @return void
      */
     public function replaceRecoveryCode($code)
@@ -75,7 +78,7 @@ trait TwoFactorAuthenticatable
         $svg = (new Writer(
             new ImageRenderer(
                 new RendererStyle(192, 0, null, null, Fill::uniformColor(new Rgb(255, 255, 255), new Rgb(45, 55, 72))),
-                new SvgImageBackEnd
+                new SvgImageBackEnd()
             )
         ))->writeString($this->twoFactorQrCodeUrl());
 

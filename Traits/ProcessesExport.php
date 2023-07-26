@@ -1,19 +1,28 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Traits;
 
-use Modules\User\Jobs\CreatePersonalDataExportJob;
 use Illuminate\Bus\Batch;
 use Illuminate\Support\Facades\Bus;
+use Modules\User\Jobs\CreatePersonalDataExportJob;
 
 trait ProcessesExport
 {
-    public $exportBatchId = null;
+    /**
+     * @var string|int
+     */
+    public $exportBatchId;
 
+    /**
+     * @var int
+     */
     public $exportProgress = 0;
 
     /**
      * @throws \Throwable
+     *
      * @return void
      */
     public function export()

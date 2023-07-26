@@ -2,7 +2,7 @@
 
 namespace Modules\User\Http\Livewire\Traits\Properties;
 
-use Modules\User\FilamentJet;
+use ArtMin96\FilamentJet\FilamentJet;
 
 trait HasSanctumPermissionsProperty
 {

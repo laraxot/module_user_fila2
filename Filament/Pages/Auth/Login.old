@@ -4,7 +4,7 @@ namespace Modules\User\Filament\Pages\Auth;
 
 use Livewire\Redirector;
 use Modules\User\Features;
-use Modules\User\FilamentJet;
+use ArtMin96\FilamentJet\FilamentJet;
 use Filament\Facades\Filament;
 use Illuminate\Routing\Pipeline;
 use Illuminate\Support\HtmlString;

@@ -9,13 +9,14 @@ use Laravel\Passport\AuthCode as PassportAuthCode;
 /**
  * Modules\User\Models\OauthAuthCode.
  *
- * @property string                              $id
- * @property int                                 $user_id
- * @property int                                 $client_id
- * @property string|null                         $scopes
- * @property bool                                $revoked
- * @property \Illuminate\Support\Carbon|null     $expires_at
+ * @property string                                $id
+ * @property int                                   $user_id
+ * @property int                                   $client_id
+ * @property string|null                           $scopes
+ * @property bool                                  $revoked
+ * @property \Illuminate\Support\Carbon|null       $expires_at
  * @property \Modules\User\Models\OauthClient|null $client
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAuthCode newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAuthCode newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAuthCode query()
@@ -25,12 +26,14 @@ use Laravel\Passport\AuthCode as PassportAuthCode;
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAuthCode whereRevoked($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAuthCode whereScopes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAuthCode whereUserId($value)
+ *
  * @mixin \Eloquent
  */
-class OauthAuthCode extends PassportAuthCode {
+class OauthAuthCode extends PassportAuthCode
+{
     /**
      * @var string
      */
-    //protected $connection = 'liveuser_general';
+    protected $connection = 'mysql';
     // protected $fillable = ['id', 'user_id', 'client_id', 'scopes', 'revoked', 'expires_at'];
 }

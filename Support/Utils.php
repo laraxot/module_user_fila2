@@ -1,16 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Support;
 
-use Modules\User\Contracts\HasShieldPermissions;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
+use Modules\User\Contracts\HasShieldPermissions;
+use Webmozart\Assert\Assert;
 
 class Utils
 {
     public static function getFilamentAuthGuard(): string
     {
-        return (string) config('filament.auth.guard');
+        Assert::string($res = config('filament.auth.guard'), 'wip');
+
+        return $res;
     }
 
     public static function isResourcePublished(): bool
@@ -119,7 +124,7 @@ class Utils
     }
 
     /**
-     * Widget Entity Status
+     * Widget Entity Status.
      */
     public static function isWidgetEntityEnabled(): bool
     {

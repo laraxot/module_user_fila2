@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Traits;
 
 use Illuminate\Http\Response;
@@ -11,7 +13,7 @@ trait RedirectsActions
      *
      * @param object $action
      */
-    public function redirectPath($action)
+    public function redirectPath($action): Response
     {
         if (method_exists($action, 'redirectTo')) {
             $response = $action->redirectTo();

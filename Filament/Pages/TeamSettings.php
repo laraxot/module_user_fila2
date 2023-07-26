@@ -1,23 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Filament\Pages;
 
-use Modules\User\Models\Team;
-use Modules\User\Actions\UpdateTeamMemberRole;
-use Modules\User\Actions\ValidateTeamDeletion;
-use Modules\User\Contracts\AddsTeamMembers;
-use Modules\User\Contracts\DeletesTeams;
-use Modules\User\Contracts\InvitesTeamMembers;
-use Modules\User\Contracts\RemovesTeamMembers;
-use Modules\User\Contracts\UpdatesTeamNames;
-use Modules\User\Features;
-use Modules\User\Filament\Actions\AlwaysAskPasswordConfirmationAction;
-use Modules\User\Filament\Traits\HasCachedAction;
-use Modules\User\FilamentJet;
-use Modules\User\Http\Livewire\Traits\Properties\HasUserProperty;
-use Modules\User\Role;
-use Modules\User\Traits\RedirectsActions;
-use Closure;
+use ArtMin96\FilamentJet\FilamentJet;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
@@ -29,8 +16,21 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Unique;
 use Livewire\Redirector;
+use Modules\User\Actions\UpdateTeamMemberRole;
+use Modules\User\Actions\ValidateTeamDeletion;
+use Modules\User\Contracts\AddsTeamMembers;
+use Modules\User\Contracts\DeletesTeams;
+use Modules\User\Contracts\InvitesTeamMembers;
+use Modules\User\Contracts\RemovesTeamMembers;
+use Modules\User\Contracts\UpdatesTeamNames;
+use Modules\User\Features;
+use Modules\User\Filament\Actions\AlwaysAskPasswordConfirmationAction;
+use Modules\User\Filament\Traits\HasCachedAction;
+use Modules\User\Http\Livewire\Traits\Properties\HasUserProperty;
+use Modules\User\Models\Team;
+use Modules\User\Role;
+use Modules\User\Traits\RedirectsActions;
 use Suleymanozev\FilamentRadioButtonField\Forms\Components\RadioButton;
-
 
 class TeamSettings extends Page
 {
@@ -129,7 +129,7 @@ class TeamSettings extends Page
                                 Features::sendsTeamInvitations()
                                     ? '' : Rule::exists(table: FilamentJet::userModel(), column: 'email'),
                                 function () {
-                                    return function (string $attribute, $value, Closure $fail) {
+                                    return function (string $attribute, $value, \Closure $fail) {
                                         if ($this->team->hasUserWithEmail($value)) {
                                             $fail(__('filament-jet::teams/add-member.messages.already_belongs_to_team'));
                                         }
@@ -151,7 +151,7 @@ class TeamSettings extends Page
                             )
                             ->columns(1)
                             ->rules(FilamentJet::hasRoles()
-                                ? ['required', 'string', new \Modules\User\Rules\Role]
+                                ? ['required', 'string', new \Modules\User\Rules\Role()]
                                 : []
                             ),
                     ]),
@@ -193,7 +193,7 @@ class TeamSettings extends Page
                         )
                         ->columns(1)
                         ->rules(FilamentJet::hasRoles()
-                            ? ['required', 'string', new \Modules\User\Rules\Role]
+                            ? ['required', 'string', new \Modules\User\Rules\Role()]
                             : []
                         ),
                 ]),
@@ -250,8 +250,6 @@ class TeamSettings extends Page
 
     /**
      * Cancel a pending team member invitation.
-     *
-     * @param  int  $invitationId
      */
     public function cancelTeamInvitation(int $invitationId): void
     {
@@ -271,9 +269,6 @@ class TeamSettings extends Page
 
     /**
      * Delete the team.
-     *
-     * @param  ValidateTeamDeletion  $validator
-     * @param  DeletesTeams  $deleter
      */
     public function deleteTeam(ValidateTeamDeletion $validator, DeletesTeams $deleter): Redirector
     {
@@ -291,9 +286,6 @@ class TeamSettings extends Page
 
     /**
      * Remove a team member from the team.
-     *
-     * @param int                $userId
-     * @param RemovesTeamMembers $remover
      */
     public function removeTeamMember(int $userId, RemovesTeamMembers $remover): void
     {
@@ -313,8 +305,6 @@ class TeamSettings extends Page
 
     /**
      * Remove the currently authenticated user from the team.
-     *
-     * @param  RemovesTeamMembers  $remover
      */
     public function leaveTeam(RemovesTeamMembers $remover): Redirector
     {
@@ -338,8 +328,6 @@ class TeamSettings extends Page
 
     /**
      * Allow the given user's role to be managed.
-     *
-     * @param  int  $userId
      */
     public function manageRole(int $userId): void
     {
@@ -352,8 +340,6 @@ class TeamSettings extends Page
 
     /**
      * Save the role for the user being managed.
-     *
-     * @param  UpdateTeamMemberRole  $updater
      */
     public function updateRole(UpdateTeamMemberRole $updater): void
     {

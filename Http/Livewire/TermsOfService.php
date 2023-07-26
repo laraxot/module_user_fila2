@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Http\Livewire;
 
-use Modules\User\FilamentJet;
+use ArtMin96\FilamentJet\FilamentJet;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
@@ -18,7 +20,7 @@ class TermsOfService extends Component
         $termsFile = FilamentJet::localizedMarkdownPath('terms.md');
 
         $view = view('filament-jet::livewire.terms-of-service', [
-            'terms' => Str::markdown(file_get_contents($termsFile) ?? '---' ),
+            'terms' => Str::markdown(file_get_contents($termsFile) ?? '---'),
         ]);
 
         $view->layout('filament::components.layouts.base', [

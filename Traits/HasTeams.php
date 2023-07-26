@@ -1,18 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Traits;
 
-use Modules\User\FilamentJet;
-use Modules\User\OwnerRole;
+use ArtMin96\FilamentJet\FilamentJet;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
+use Modules\User\OwnerRole;
 
 trait HasTeams
 {
     /**
      * Determine if the given team is the current team.
      *
-     * @param  mixed  $team
      * @return bool
      */
     public function isCurrentTeam($team)
@@ -37,7 +38,6 @@ trait HasTeams
     /**
      * Switch the user's context to the given team.
      *
-     * @param  mixed  $team
      * @return bool
      */
     public function switchTeam($team)
@@ -101,7 +101,6 @@ trait HasTeams
     /**
      * Determine if the user owns the given team.
      *
-     * @param  mixed  $team
      * @return bool
      */
     public function ownsTeam($team)
@@ -116,7 +115,6 @@ trait HasTeams
     /**
      * Determine if the user belongs to the given team.
      *
-     * @param  mixed  $team
      * @return bool
      */
     public function belongsToTeam($team)
@@ -133,13 +131,12 @@ trait HasTeams
     /**
      * Get the role that the user has on the team.
      *
-     * @param  mixed  $team
      * @return \Modules\User\Role|null
      */
     public function teamRole($team)
     {
         if ($this->ownsTeam($team)) {
-            return new OwnerRole;
+            return new OwnerRole();
         }
 
         if (! $this->belongsToTeam($team)) {
@@ -158,8 +155,6 @@ trait HasTeams
     /**
      * Determine if the user has the given role on the given team.
      *
-     * @param  mixed  $team
-     * @param  string  $role
      * @return bool
      */
     public function hasTeamRole($team, string $role)
@@ -176,7 +171,6 @@ trait HasTeams
     /**
      * Get the user's permissions for the given team.
      *
-     * @param  mixed  $team
      * @return array
      */
     public function teamPermissions($team)
@@ -195,8 +189,6 @@ trait HasTeams
     /**
      * Determine if the user has the given permission on the given team.
      *
-     * @param  mixed  $team
-     * @param  string  $permission
      * @return bool
      */
     public function hasTeamPermission($team, string $permission)
@@ -209,17 +201,17 @@ trait HasTeams
             return false;
         }
 
-        if (in_array(HasApiTokens::class, class_uses_recursive($this)) &&
-            ! $this->tokenCan($permission) &&
-            $this->currentAccessToken() !== null) {
+        if (in_array(HasApiTokens::class, class_uses_recursive($this))
+            && ! $this->tokenCan($permission)
+            && null !== $this->currentAccessToken()) {
             return false;
         }
 
         $permissions = $this->teamPermissions($team);
 
-        return in_array($permission, $permissions) ||
-            in_array('*', $permissions) ||
-            (Str::endsWith($permission, ':create') && in_array('*:create', $permissions)) ||
-            (Str::endsWith($permission, ':update') && in_array('*:update', $permissions));
+        return in_array($permission, $permissions)
+            || in_array('*', $permissions)
+            || (Str::endsWith($permission, ':create') && in_array('*:create', $permissions))
+            || (Str::endsWith($permission, ':update') && in_array('*:update', $permissions));
     }
 }

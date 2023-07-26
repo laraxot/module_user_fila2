@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Http\Livewire;
 
-use Modules\User\FilamentJet;
+use ArtMin96\FilamentJet\FilamentJet;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
