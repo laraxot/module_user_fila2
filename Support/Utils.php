@@ -8,11 +8,15 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use Modules\User\Contracts\HasShieldPermissions;
 use Modules\User\Datas\FilamentShieldData;
-
-use function Safe\class_implements;
-
 use Webmozart\Assert\Assert;
 
+use function Safe\class_implements;
+use function Safe\class_uses;
+
+
+/**
+ * ---
+ */
 class Utils
 {
     public static function getFilamentAuthGuard(): string
