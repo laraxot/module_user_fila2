@@ -21,6 +21,7 @@ namespace Modules\User\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|TeamUser whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TeamUser whereUserId($value)
  * @mixin \Eloquent
+ * @mixin IdeHelperTeamUser
  */
 class TeamUser extends BasePivot
 {

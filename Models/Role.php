@@ -27,6 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @mixin IdeHelperRole
  */
 class Role extends \Spatie\Permission\Models\Role{
     use HasFactory;

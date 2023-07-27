@@ -32,6 +32,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereUserId($value)
  * @mixin \Eloquent
+ * @mixin IdeHelperTeam
  */
 class Team extends FilamentJetTeam {
     use HasFactory;

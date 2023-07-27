@@ -16,6 +16,7 @@ namespace Modules\User\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|RoleHasPermission wherePermissionId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RoleHasPermission whereRoleId($value)
  * @mixin \Eloquent
+ * @mixin IdeHelperRoleHasPermission
  */
 class RoleHasPermission extends BasePivot
 {
