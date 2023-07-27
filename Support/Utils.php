@@ -110,37 +110,44 @@ class Utils
 
     public static function isFilamentUserRoleEnabled(): bool
     {
-        return (bool) config('filament-shield.filament_user.enabled', true);
+        //return (bool) config('filament-shield.filament_user.enabled', true);
+        return FilamentShieldData::make()->filament_user->enabled;
     }
 
     public static function getFilamentUserRoleName(): string
     {
-        return (string) config('filament-shield.filament_user.name');
+        //return (string) config('filament-shield.filament_user.name');
+        return FilamentShieldData::make()->filament_user->name;
     }
 
     public static function getGeneralResourcePermissionPrefixes(): array
     {
-        return config('filament-shield.permission_prefixes.resource');
+        Assert::isArray($res=config('filament-shield.permission_prefixes.resource'),'wip');
+        return $res;
     }
 
     public static function getPagePermissionPrefix(): string
     {
-        return (string) config('filament-shield.permission_prefixes.page');
+        Assert::string($res= config('filament-shield.permission_prefixes.page'));
+        return $res;
     }
 
     public static function getWidgetPermissionPrefix(): string
     {
-        return (string) config('filament-shield.permission_prefixes.widget');
+        Assert::string($res= config('filament-shield.permission_prefixes.widget'));
+        return $res;
     }
 
     public static function isResourceEntityEnabled(): bool
     {
-        return (bool) config('filament-shield.entities.resources', true);
+        Assert::boolean($res= config('filament-shield.entities.resources', true));
+        return $res;
     }
 
     public static function isPageEntityEnabled(): bool
     {
-        return (bool) config('filament-shield.entities.pages', true);
+        Assert::boolean($res= config('filament-shield.entities.pages', true));
+        return $res;
     }
 
     /**
@@ -148,22 +155,26 @@ class Utils
      */
     public static function isWidgetEntityEnabled(): bool
     {
-        return (bool) config('filament-shield.entities.widgets', true);
+        Assert::boolean($res= config('filament-shield.entities.widgets', true));
+        return $res;
     }
 
     public static function isCustomPermissionEntityEnabled(): bool
     {
-        return (bool) config('filament-shield.entities.custom_permissions', false);
+        Assert::boolean($res= config('filament-shield.entities.custom_permissions', false));
+        return $res;
     }
 
     public static function getGeneratorOption(): string
     {
-        return (string) config('filament-shield.generator.option', 'policies_and_permissions');
+        Assert::string($res= config('filament-shield.generator.option', 'policies_and_permissions'));
+        return $res;
     }
 
     public static function isGeneralExcludeEnabled(): bool
     {
-        return (bool) config('filament-shield.exclude.enabled', true);
+        Assert::boolean($res= config('filament-shield.exclude.enabled', true));
+        return $res;
     }
 
     public static function enableGeneralExclude(): void
@@ -193,7 +204,8 @@ class Utils
 
     public static function isRolePolicyRegistered(): bool
     {
-        return (bool) config('filament-shield.register_role_policy', true);
+        Assert::boolean($res= config('filament-shield.register_role_policy', true));
+        return $res;
     }
 
     public static function doesResourceHaveCustomPermissions(string $resourceClass): bool
@@ -217,11 +229,13 @@ class Utils
 
     public static function getRoleModel(): string
     {
-        return config('permission.models.role', 'Spatie\\Permission\\Models\\Role');
+        Assert::string($res= config('permission.models.role', 'Spatie\\Permission\\Models\\Role'));
+        return $res;
     }
 
     public static function getPermissionModel(): string
     {
-        return config('permission.models.permission', 'Spatie\\Permission\\Models\\Permission');
+        Assert::string(config('permission.models.permission', 'Spatie\\Permission\\Models\\Permission'));
+        return $res;
     }
 }
