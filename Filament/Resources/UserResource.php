@@ -9,25 +9,26 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 use Filament\Forms;
-use Filament\Forms\Components\Card;
-use Filament\Forms\Components\Group;
-use Filament\Forms\Components\Placeholder;
-use Filament\Forms\Components\TextInput;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
-use Filament\Tables\Columns\BooleanColumn;
-use Filament\Tables\Columns\TextColumn;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\HtmlString;
-use Illuminate\Validation\Rules\Password;
-use Modules\User\Filament\Resources\UserResource\Pages;
-use Modules\User\Filament\Resources\UserResource\RelationManagers;
-use Modules\User\Filament\Resources\UserResource\Widgets;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
 use Modules\User\Models\Role;
 use Modules\User\Models\User;
+use Filament\Resources\Resource;
+use Illuminate\Support\HtmlString;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Group;
+use Illuminate\Support\Facades\Hash;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
+use Illuminate\Validation\Rules\Password;
+use Filament\Forms\Components\Placeholder;
+use Filament\Tables\Columns\BooleanColumn;
+use Modules\User\Filament\Resources\UserResource\Pages;
+use Modules\User\Filament\Resources\UserResource\Widgets;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
+use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
+use Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 class UserResource extends Resource
 {

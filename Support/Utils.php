@@ -7,6 +7,7 @@ namespace Modules\User\Support;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use Modules\User\Contracts\HasShieldPermissions;
+use Modules\User\Datas\FilamentShieldData;
 
 use function Safe\class_implements;
 
@@ -46,7 +47,8 @@ class Utils
 
     public static function getResourceNavigationSort(): ?int
     {
-        return config('filament-shield.shield_resource.navigation_sort');
+        //return config('filament-shield.shield_resource.navigation_sort');
+        return FilamentShieldData::make()->shield_resource->navigation_sort;
     }
 
     public static function isResourceNavigationBadgeEnabled(): bool

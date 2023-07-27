@@ -23,7 +23,7 @@ class RegisterController extends XotBaseController {
         ]);
 
         if ($validator->fails()) {
-            return $this->sendError('Validation Error.', $validator->errors());
+            return $this->sendError('Validation Error.', $validator->errors()->all());
         }
 
         $input = $request->all();
