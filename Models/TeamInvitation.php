@@ -27,10 +27,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|TeamInvitation whereTeamId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TeamInvitation whereUpdatedAt($value)
  * @mixin IdeHelperTeamInvitation
- * @property-read \Modules\Quaeris\Models\Customer $team
+ * @property-read \Modules\User\Models\Team $team
  * @mixin \Eloquent
  */
-class TeamInvitation extends FilamentJetTeamInvitation {
+class TeamInvitation extends FilamentJetTeamInvitation
+{
     /**
      * The attributes that are mass assignable.
      *
@@ -44,7 +45,8 @@ class TeamInvitation extends FilamentJetTeamInvitation {
     /**
      * Get the team that the invitation belongs to.
      */
-    public function team(): BelongsTo {
+    public function team(): BelongsTo
+    {
         return $this->belongsTo(FilamentJet::teamModel());
     }
 }
