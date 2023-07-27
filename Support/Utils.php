@@ -53,17 +53,20 @@ class Utils
 
     public static function isResourceNavigationBadgeEnabled(): bool
     {
-        return config('filament-shield.shield_resource.navigation_badge', true);
+        //return config('filament-shield.shield_resource.navigation_badge', true);
+        return FilamentShieldData::make()->shield_resource->navigation_badge;
     }
 
     public static function isResourceNavigationGroupEnabled(): bool
     {
-        return config('filament-shield.shield_resource.navigation_group', true);
+        //return config('filament-shield.shield_resource.navigation_group', true);
+        return FilamentShieldData::make()->shield_resource->navigation_group;
     }
 
     public static function isResourceGloballySearchable(): bool
     {
-        return config('filament-shield.shield_resource.is_globally_searchable', false);
+        //return config('filament-shield.shield_resource.is_globally_searchable', false);
+        return FilamentShieldData::make()->shield_resource->is_globally_searchable;
     }
 
     public static function getAuthProviderFQCN()

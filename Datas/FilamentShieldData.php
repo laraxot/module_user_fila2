@@ -16,6 +16,8 @@ class FilamentShieldData extends Data
 {
     public ShieldResourceData $shield_resource;
 
+    public SuperAdminData $super_admin;
+
     public static function make(): self
     {
         $xot = config('filament-shield');
