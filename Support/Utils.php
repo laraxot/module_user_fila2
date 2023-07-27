@@ -82,22 +82,26 @@ class Utils
 
     public static function isSuperAdminEnabled(): bool
     {
-        return (bool) config('filament-shield.super_admin.enabled', true);
+        //return (bool) config('filament-shield.super_admin.enabled', true);
+        return FilamentShieldData::make()->super_admin->enabled;
     }
 
     public static function getSuperAdminName(): string
     {
-        return (string) config('filament-shield.super_admin.name');
+        //return (string) config('filament-shield.super_admin.name');
+        return FilamentShieldData::make()->super_admin->name;
     }
 
     public static function isSuperAdminDefinedViaGate(): bool
     {
-        return (bool) static::isSuperAdminEnabled() && config('filament-shield.super_admin.define_via_gate', false);
+        //return (bool) static::isSuperAdminEnabled() && config('filament-shield.super_admin.define_via_gate', false);
+        return FilamentShieldData::make()->super_admin->define_via_gate;
     }
 
     public static function getSuperAdminGateInterceptionStatus(): string
     {
-        return (string) config('filament-shield.super_admin.intercept_gate');
+        //return (string) config('filament-shield.super_admin.intercept_gate');
+        return FilamentShieldData::make()->super_admin->intercept_gate;
     }
 
     public static function isFilamentUserRoleEnabled(): bool

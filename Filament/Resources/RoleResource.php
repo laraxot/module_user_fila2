@@ -247,7 +247,7 @@ class RoleResource extends Resource
     | Resource Related Logic Start     |
     *----------------------------------*/
 
-    public static function getResourceEntitiesSchema(): ?array
+    public static function getResourceEntitiesSchema(): array
     {
         if (blank(static::$permissionsCollection)) {
             static::$permissionsCollection = Utils::getPermissionModel()::all();

@@ -24,6 +24,7 @@ use Filament\Forms\Components\TextInput;
 use Illuminate\Validation\Rules\Password;
 use Filament\Forms\Components\Placeholder;
 use Filament\Tables\Columns\BooleanColumn;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Modules\User\Filament\Resources\UserResource\Pages;
 use Modules\User\Filament\Resources\UserResource\Widgets;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
