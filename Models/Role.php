@@ -26,8 +26,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereUpdatedAt($value)
- * @mixin \Eloquent
  * @mixin IdeHelperRole
+ * @property int $team_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Role whereTeamId($value)
+ * @mixin \Eloquent
  */
 class Role extends \Spatie\Permission\Models\Role{
     use HasFactory;

@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire;
 
-use ArtMin96\FilamentJet\FilamentJet;
-use Illuminate\Support\Str;
 use Livewire\Component;
+use Illuminate\Support\Str;
+use Webmozart\Assert\Assert;
 
 use function Safe\file_get_contents;
+use ArtMin96\FilamentJet\FilamentJet;
 
 class PrivacyPolicy extends Component
 {
@@ -19,7 +20,7 @@ class PrivacyPolicy extends Component
      */
     public function render()
     {
-        $policyFile = FilamentJet::localizedMarkdownPath('policy.md');
+        Assert::string($policyFile = FilamentJet::localizedMarkdownPath('policy.md'),'wip');
 
         $view = view('filament-jet::livewire.privacy-policy', [
             'terms' => Str::markdown(file_get_contents($policyFile)),

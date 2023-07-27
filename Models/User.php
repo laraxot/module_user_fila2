@@ -73,8 +73,16 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorRecoveryCodes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorSecret($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
- * @mixin \Eloquent
  * @mixin IdeHelperUser
+ * @property string|null $lang
+ * @property-read \Modules\Quaeris\Models\Customer|null $currentTeam
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Quaeris\Models\Customer> $ownedTeams
+ * @property-read int|null $owned_teams_count
+ * @property-read \Modules\Quaeris\Models\Profile|null $profile
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Quaeris\Models\Customer> $teams
+ * @property-read int|null $teams_count
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLang($value)
+ * @mixin \Eloquent
  */
 class User extends Authenticatable implements
     FilamentUser,

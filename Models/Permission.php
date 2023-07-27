@@ -33,8 +33,8 @@ use Spatie\Permission\Models\Permission as SpatiePermission;
  * @property \Illuminate\Database\Eloquent\Collection<int, SpatiePermission>               $permissions
  * @property \Illuminate\Database\Eloquent\Collection<int, \Spatie\Permission\Models\Role> $roles
  * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\User>      $users
- * @mixin \Eloquent
  * @mixin IdeHelperPermission
+ * @mixin \Eloquent
  */
 class Permission extends SpatiePermission
 {

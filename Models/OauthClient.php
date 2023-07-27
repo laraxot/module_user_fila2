@@ -43,8 +43,8 @@ use Laravel\Passport\Client as PassportClient;
  * @method static \Illuminate\Database\Eloquent\Builder|OauthClient  whereUserId($value)
  * @property \Illuminate\Database\Eloquent\Collection<int, \Laravel\Passport\AuthCode> $authCodes
  * @property \Illuminate\Database\Eloquent\Collection<int, \Laravel\Passport\Token>    $tokens
- * @mixin \Eloquent
  * @mixin IdeHelperOauthClient
+ * @mixin \Eloquent
  */
 class OauthClient extends PassportClient
 {

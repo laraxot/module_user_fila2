@@ -23,8 +23,8 @@ namespace Modules\User\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset whereToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset whereUpdatedBy($value)
- * @mixin \Eloquent
  * @mixin IdeHelperPasswordReset
+ * @mixin \Eloquent
  */
 class PasswordReset extends BaseModel {
     protected $fillable = ['email', 'token', 'created_at', 'updated_at', 'created_by', 'updated_by'];

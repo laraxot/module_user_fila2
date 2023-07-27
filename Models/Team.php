@@ -31,8 +31,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @method static \Illuminate\Database\Eloquent\Builder|Team wherePersonalTeam($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereUserId($value)
- * @mixin \Eloquent
  * @mixin IdeHelperTeam
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\TeamInvitation> $teamInvitations
+ * @property-read int|null $team_invitations_count
+ * @mixin \Eloquent
  */
 class Team extends FilamentJetTeam {
     use HasFactory;

@@ -26,9 +26,9 @@ class ModelHasRoleFactory extends Factory {
 
 
         return [
-            'role_id' => $this->faker->integer,
+            'role_id' => $this->faker->integer(),
             'model_type' => $this->faker->word,
-            'model_id' => $this->faker->integer
+            'model_id' => $this->faker->integer()
         ];
     }
 }

@@ -26,8 +26,10 @@ use ArtMin96\FilamentJet\Models\Membership as FilamentJetMembership;
  * @method static \Illuminate\Database\Eloquent\Builder|Membership whereTeamId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Membership whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Membership whereUserId($value)
- * @mixin \Eloquent
  * @mixin IdeHelperMembership
+ * @property string|null $customer_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Membership whereCustomerId($value)
+ * @mixin \Eloquent
  */
 class Membership extends FilamentJetMembership
 {
