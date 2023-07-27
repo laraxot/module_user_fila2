@@ -88,7 +88,7 @@ class RoleResource extends Resource
                                     ]),
                             ]),
                         Forms\Components\Tabs\Tab::make(__('filament-shield::filament-shield.pages'))
-                            ->visible(fn (): bool => (bool) Utils::isPageEntityEnabled() && (count(FilamentShield::getPages()) > 0 ? true : false))
+                            //->visible(fn (): bool => (bool) Utils::isPageEntityEnabled() && (count(FilamentShield::getPages()) > 0 ? true : false))
                             ->reactive()
                             ->schema([
                                 Forms\Components\Grid::make([
@@ -432,7 +432,7 @@ class RoleResource extends Resource
     | Page Related Logic Start       |
     *----------------------------------*/
 
-    protected static function getPageEntityPermissionsSchema(): ?array
+    protected static function getPageEntityPermissionsSchema(): array
     {
         return collect(FilamentShield::getPages())->sortKeys()->reduce(function ($pages, $page) {
             $pages[] = Forms\Components\Grid::make()
