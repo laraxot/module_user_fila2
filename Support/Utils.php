@@ -13,7 +13,6 @@ use Webmozart\Assert\Assert;
 use function Safe\class_implements;
 use function Safe\class_uses;
 
-
 /**
  * ---
  */
@@ -73,9 +72,10 @@ class Utils
         return FilamentShieldData::make()->shield_resource->is_globally_searchable;
     }
 
-    public static function getAuthProviderFQCN()
+    public static function getAuthProviderFQCN(): string
     {
-        return config('filament-shield.auth_provider_model.fqcn');
+        Assert::string($res=config('filament-shield.auth_provider_model.fqcn'));
+        return $res;
     }
 
     public static function isAuthProviderConfigured(): bool
@@ -122,7 +122,7 @@ class Utils
 
     public static function getGeneralResourcePermissionPrefixes(): array
     {
-        Assert::isArray($res=config('filament-shield.permission_prefixes.resource'),'wip');
+        Assert::isArray($res=config('filament-shield.permission_prefixes.resource'), 'wip');
         return $res;
     }
 
@@ -189,17 +189,20 @@ class Utils
 
     public static function getExcludedResouces(): array
     {
-        return config('filament-shield.exclude.resources');
+        Assert::isArray($res=config('filament-shield.exclude.resources'));
+        return $res;
     }
 
     public static function getExcludedPages(): array
     {
-        return config('filament-shield.exclude.pages');
+        Assert::isArray($res=config('filament-shield.exclude.pages'));
+        return $res;
     }
 
     public static function getExcludedWidgets(): array
     {
-        return config('filament-shield.exclude.widgets');
+        Assert::isArray($res=config('filament-shield.exclude.widgets'));
+        return $res;
     }
 
     public static function isRolePolicyRegistered(): bool
@@ -235,7 +238,7 @@ class Utils
 
     public static function getPermissionModel(): string
     {
-        Assert::string(config('permission.models.permission', 'Spatie\\Permission\\Models\\Permission'));
+        Assert::string($res=config('permission.models.permission', 'Spatie\\Permission\\Models\\Permission'));
         return $res;
     }
 }
