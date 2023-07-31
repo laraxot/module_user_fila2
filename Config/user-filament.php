@@ -13,6 +13,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Support\Str;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 $moduleName = 'User';
@@ -20,8 +21,8 @@ $moduleNs = 'Modules\User';
 $contextNs = 'Modules\\User\\Filament';
 $contextPath = 'Filament';
 
-
-$path = Str::of($contextPath)->slug()->replace('filament', 'admin');
+// $path = Str::of($contextPath)->slug()->replace('filament', 'admin');
+$path = 'admin';
 
 return [
     /*
