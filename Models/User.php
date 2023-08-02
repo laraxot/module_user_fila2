@@ -75,13 +75,13 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin IdeHelperUser
  * @property string|null $lang
-
-
  * @property-read int|null $owned_teams_count
-
-
  * @property-read int|null $teams_count
  * @method static \Illuminate\Database\Eloquent\Builder|User whereLang($value)
+ * @property-read \Modules\User\Models\Team|null $currentTeam
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Team> $ownedTeams
+ * @property-read \Modules\EWall\Models\Profile|null $profile
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Team> $teams
  * @mixin \Eloquent
  */
 class User extends Authenticatable implements
