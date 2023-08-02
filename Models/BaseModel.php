@@ -14,7 +14,8 @@ use Modules\Xot\Traits\Updater;
 /**
  * Class BaseModel.
  */
-abstract class BaseModel extends Model {
+abstract class BaseModel extends Model
+{
     // use Searchable;
     // use Cachable;
     use HasFactory;
@@ -31,7 +32,7 @@ abstract class BaseModel extends Model {
 
     protected $perPage = 30;
 
-    protected $connection = 'user';
+    protected $connection = 'mysql';
 
     /**
      * @var array<string, string>
@@ -70,7 +71,8 @@ abstract class BaseModel extends Model {
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
-    protected static function newFactory() {
+    protected static function newFactory()
+    {
         return FactoryService::newFactory(static::class);
     }
 }

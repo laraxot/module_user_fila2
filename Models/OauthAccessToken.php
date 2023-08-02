@@ -21,7 +21,6 @@ use Laravel\Passport\Token as PassportToken;
  * @property \Illuminate\Support\Carbon|null       $expires_at
  * @property \Modules\User\Models\OauthClient|null $client
  * @property \Modules\User\Models\User|null        $user
- *
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAccessToken newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAccessToken newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAccessToken query()
@@ -34,14 +33,14 @@ use Laravel\Passport\Token as PassportToken;
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAccessToken whereScopes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAccessToken whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAccessToken whereUserId($value)
- *
  * @mixin IdeHelperOauthAccessToken
  * @mixin \Eloquent
  */
-class OauthAccessToken extends PassportToken {
+class OauthAccessToken extends PassportToken
+{
     /**
      * @var string
      */
-    protected $connection = 'user';
+    protected $connection = 'mysql';
     // protected $fillable = ['id', 'user_id', 'client_id', 'name', 'scopes', 'revoked', 'expires_at'];
 }

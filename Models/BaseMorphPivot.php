@@ -12,7 +12,8 @@ use Modules\Xot\Traits\Updater;
 /**
  * Class BaseMorphPivot.
  */
-abstract class BaseMorphPivot extends MorphPivot {
+abstract class BaseMorphPivot extends MorphPivot
+{
     use HasFactory;
     use Updater;
     /**
@@ -31,11 +32,11 @@ abstract class BaseMorphPivot extends MorphPivot {
      */
     protected $perPage = 30;
 
-    /**
+    /*
      * @var string
-     */
-    protected $connection = 'user'; // this will use the specified database conneciton
 
+    protected $connection = 'liveuser_general'; // this will use the specified database conneciton
+    */
     /**
      * @var array
      */
@@ -84,7 +85,8 @@ abstract class BaseMorphPivot extends MorphPivot {
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
-    protected static function newFactory() {
+    protected static function newFactory()
+    {
         return FactoryService::newFactory(static::class);
     }
 }
