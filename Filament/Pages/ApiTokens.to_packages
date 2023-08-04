@@ -9,11 +9,7 @@ use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\Page;
 use Modules\User\Filament\Traits\HasCachedAction;
-<<<<<<< HEAD:Filament/Pages/ApiTokens.to_packages
 // use Modules\User\Http\Livewire\Traits\Properties\HasSanctumPermissionsProperty;
-=======
-use Modules\User\Http\Livewire\Traits\Properties\HasSanctumPermissionsProperty;
->>>>>>> 1903df6 (up):Filament/Pages/ApiTokens.php
 use Modules\User\Http\Livewire\Traits\Properties\HasUserProperty;
 
 class ApiTokens extends Page

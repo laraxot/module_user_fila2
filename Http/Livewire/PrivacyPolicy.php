@@ -4,17 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire;
 
-<<<<<<< HEAD
-=======
 use ArtMin96\FilamentJet\FilamentJet;
 use Illuminate\Support\Str;
->>>>>>> 1903df6 (up)
 use Livewire\Component;
-use Illuminate\Support\Str;
 use Webmozart\Assert\Assert;
-
 use function Safe\file_get_contents;
-use ArtMin96\FilamentJet\FilamentJet;
+
 
 class PrivacyPolicy extends Component
 {

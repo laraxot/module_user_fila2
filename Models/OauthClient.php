@@ -46,10 +46,7 @@ use Laravel\Passport\Client as PassportClient;
  * @property \Illuminate\Database\Eloquent\Collection<int, \Laravel\Passport\AuthCode> $authCodes
  * @property \Illuminate\Database\Eloquent\Collection<int, \Laravel\Passport\Token>    $tokens
  *
-<<<<<<< HEAD
  * @mixin IdeHelperOauthClient
-=======
->>>>>>> 1903df6 (up)
  * @mixin \Eloquent
  */
 class OauthClient extends PassportClient
@@ -57,11 +54,7 @@ class OauthClient extends PassportClient
     /**
      * @var string
      */
-<<<<<<< HEAD
     protected $connection = 'user';
-=======
-    protected $connection = 'mysql';
->>>>>>> 1903df6 (up)
 
     // class OauthClient extends BaseModel {
     /*
