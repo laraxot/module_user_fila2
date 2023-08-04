@@ -6,8 +6,11 @@ namespace Modules\User\Http\Middleware;
 
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+<<<<<<< HEAD
 use Illuminate\Support\Str;
 use Webmozart\Assert\Assert;
+=======
+>>>>>>> 1903df6 (up)
 
 class FilamentMiddleware extends Middleware
 {
@@ -15,7 +18,11 @@ class FilamentMiddleware extends Middleware
     public static string $context = 'filament';
 
     /**
+<<<<<<< HEAD
      * @return \Nwidart\Modules\Laravel\Module|\Nwidart\Modules\Module
+=======
+     * @return \Nwidart\Modules\Laravel\Module|Nwidart\Modules\Module
+>>>>>>> 1903df6 (up)
      */
     private function getModule()
     {
@@ -32,7 +39,11 @@ class FilamentMiddleware extends Middleware
             throw new \Exception('Context has to be defined in your class');
         }
 
+<<<<<<< HEAD
         return Str::of($module->getLowerName())->append('-')->append(\Str::slug(static::$context))->kebab()->toString();
+=======
+        return \Str::of($module->getLowerName())->append('-')->append(\Str::slug(static::$context))->kebab()->toString();
+>>>>>>> 1903df6 (up)
     }
 
     protected function authenticate($request, array $guards): void

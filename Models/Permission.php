@@ -36,14 +36,22 @@ use Spatie\Permission\Models\Permission as SpatiePermission;
  * @property \Illuminate\Database\Eloquent\Collection<int, \Spatie\Permission\Models\Role> $roles
  * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\User>      $users
  *
+<<<<<<< HEAD
  * @mixin IdeHelperPermission
+=======
+>>>>>>> 1903df6 (up)
  * @mixin \Eloquent
  */
 class Permission extends SpatiePermission {
     /**
      * @var string
      */
+<<<<<<< HEAD
     protected $connection = 'user';
+=======
+    protected $connection = 'mysql';
+    protected $connection = 'mysql';
+>>>>>>> 1903df6 (up)
 
     protected $fillable = ['id', 'name', 'guard_name', 'created_at', 'updated_at'];
 }

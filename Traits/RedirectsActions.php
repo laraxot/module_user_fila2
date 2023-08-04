@@ -15,7 +15,7 @@ trait RedirectsActions
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function redirectPath($action)
+    public function redirectPath($action): Response
     {
         if (method_exists($action, 'redirectTo')) {
             $response = $action->redirectTo();

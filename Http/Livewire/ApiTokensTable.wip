@@ -22,6 +22,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Laravel\Sanctum\Sanctum;
 use Livewire\Component;
+use Modules\User\Http\Livewire\Traits\Properties\HasSanctumPermissionsProperty;
 
 // use Modules\User\Http\Livewire\Traits\Properties\HasSanctumPermissionsProperty;
 

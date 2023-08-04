@@ -13,9 +13,12 @@ use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Modules\User\Models\User;
 
+<<<<<<< HEAD:Http/Livewire/ValidateAccount.wip
 /**
  * @property ComponentContainer $form
  */
+=======
+>>>>>>> 1903df6 (up):Http/Livewire/ValidateAccount.php
 class ValidateAccount extends Component implements HasForms
 {
     use InteractsWithForms;
