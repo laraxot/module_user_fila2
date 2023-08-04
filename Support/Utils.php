@@ -7,10 +7,7 @@ namespace Modules\User\Support;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use Modules\User\Contracts\HasShieldPermissions;
-<<<<<<< HEAD
 use Modules\User\Datas\FilamentShieldData;
-=======
->>>>>>> 1903df6 (up)
 use Webmozart\Assert\Assert;
 
 use function Safe\class_implements;

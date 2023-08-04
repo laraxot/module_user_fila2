@@ -23,10 +23,7 @@ use Laravel\Passport\PersonalAccessClient as PassportPersonalAccessClient;
  * @method static \Illuminate\Database\Eloquent\Builder|OauthPersonalAccessClient whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OauthPersonalAccessClient whereUpdatedAt($value)
  *
-<<<<<<< HEAD
  * @mixin IdeHelperOauthPersonalAccessClient
-=======
->>>>>>> 1903df6 (up)
  * @mixin \Eloquent
  */
 class OauthPersonalAccessClient extends PassportPersonalAccessClient
@@ -34,10 +31,6 @@ class OauthPersonalAccessClient extends PassportPersonalAccessClient
     /**
      * @var string
      */
-<<<<<<< HEAD
     protected $connection = 'user';
-=======
-    protected $connection = 'mysql';
->>>>>>> 1903df6 (up)
     // protected $fillable = ['id', 'client_id'];
 }
