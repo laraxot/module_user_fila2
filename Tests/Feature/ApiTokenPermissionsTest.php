@@ -2,19 +2,22 @@
 
 namespace Modules\User\Tests\Feature;
 
-use Modules\User\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
 use Laravel\Jetstream\Http\Livewire\ApiTokenManager;
 use Livewire\Livewire;
+use Modules\User\Models\User;
 use Tests\TestCase;
 
 class ApiTokenPermissionsTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_api_token_permissions_can_be_updated(): void
+    /**
+     * @test
+     */
+    public function api_token_permissions_can_be_updated(): void
     {
         if (! Features::hasApiFeatures()) {
             $this->markTestSkipped('API support is not enabled.');

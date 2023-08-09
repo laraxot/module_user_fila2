@@ -2,17 +2,20 @@
 
 namespace Modules\User\Tests\Feature;
 
-use Modules\User\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Jetstream\Http\Livewire\TeamMemberManager;
 use Livewire\Livewire;
+use Modules\User\Models\User;
 use Tests\TestCase;
 
 class RemoveTeamMemberTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_team_members_can_be_removed_from_teams(): void
+    /**
+     * @test
+     */
+    public function team_members_can_be_removed_from_teams(): void
     {
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
@@ -27,7 +30,10 @@ class RemoveTeamMemberTest extends TestCase
         $this->assertCount(0, $user->currentTeam->fresh()->users);
     }
 
-    public function test_only_team_owner_can_remove_team_members(): void
+    /**
+     * @test
+     */
+    public function only_team_owner_can_remove_team_members(): void
     {
         $user = User::factory()->withPersonalTeam()->create();
 

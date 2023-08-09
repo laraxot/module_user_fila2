@@ -37,7 +37,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *
  * @mixin \Eloquent
  */
-class Role extends \Spatie\Permission\Models\Role {
+class Role extends \Spatie\Permission\Models\Role
+{
     use HasFactory;
 
     public const ROLE_ADMINISTRATOR = 1;

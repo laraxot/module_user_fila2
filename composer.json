@@ -32,13 +32,14 @@
         "laravel/passport": "*"
     },
     "require-dev": {
-        "psalm/plugin-laravel": "*",
-        "thecodingmachine/phpstan-safe-rule": "*",
         "nunomaduro/larastan": "*",
         "orchestra/testbench": "*",
         "pestphp/pest": "*",
         "pestphp/pest-plugin-laravel": "*",
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "*",
+        "psalm/plugin-laravel": "*",
+        "thecodingmachine/phpstan-safe-rule": "*",
+        "tightenco/duster": "*"
     },
     "repositories": [{
         "type": "vcs",

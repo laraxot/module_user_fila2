@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use ArtMin96\FilamentJet\FilamentJet;
 use ArtMin96\FilamentJet\Models\TeamInvitation as FilamentJetTeamInvitation;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Modules\User\Models\TeamInvitation.
@@ -34,13 +32,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  *
  * @mixin \Eloquent
  */
-class TeamInvitation extends FilamentJetTeamInvitation {
+class TeamInvitation extends FilamentJetTeamInvitation
+{
     /**
      * @var string
      */
     protected $connection = 'user';
-
-
-
 
 }

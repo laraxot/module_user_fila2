@@ -13,6 +13,7 @@ namespace Modules\User\Models;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null                     $created_by
  * @property string|null                     $updated_by
+ *
  * @method static \Modules\User\Database\Factories\PasswordResetFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset newQuery()
@@ -23,10 +24,12 @@ namespace Modules\User\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset whereToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset whereUpdatedBy($value)
+ *
  * @mixin IdeHelperPasswordReset
  * @mixin \Eloquent
  */
-class PasswordReset extends BaseModel {
+class PasswordReset extends BaseModel
+{
     /**
      * @var string[]
      *

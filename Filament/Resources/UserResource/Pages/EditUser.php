@@ -13,13 +13,6 @@ class EditUser extends EditRecord
 {
     protected static string $resource = UserResource::class;
 
-    protected function getActions(): array
-    {
-        return [
-            Actions\DeleteAction::make(),
-        ];
-    }
-
     public function beforeSave(): void
     {
         if (! array_key_exists('new_password', $this->data) || ! filled($this->data['new_password'])) {
@@ -27,5 +20,12 @@ class EditUser extends EditRecord
         }
 
         $this->record->password = Hash::make($this->data['new_password']);
+    }
+
+    protected function getActions(): array
+    {
+        return [
+            Actions\DeleteAction::make(),
+        ];
     }
 }

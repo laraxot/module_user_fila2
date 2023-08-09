@@ -2,17 +2,20 @@
 
 namespace Modules\User\Tests\Feature;
 
-use Modules\User\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Jetstream\Http\Livewire\CreateTeamForm;
 use Livewire\Livewire;
+use Modules\User\Models\User;
 use Tests\TestCase;
 
 class CreateTeamTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_teams_can_be_created(): void
+    /**
+     * @test
+     */
+    public function teams_can_be_created(): void
     {
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 

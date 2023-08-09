@@ -2,17 +2,20 @@
 
 namespace Modules\User\Tests\Feature;
 
-use Modules\User\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Jetstream\Http\Livewire\LogoutOtherBrowserSessionsForm;
 use Livewire\Livewire;
+use Modules\User\Models\User;
 use Tests\TestCase;
 
 class BrowserSessionsTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_other_browser_sessions_can_be_logged_out(): void
+    /**
+     * @test
+     */
+    public function other_browser_sessions_can_be_logged_out(): void
     {
         $this->actingAs($user = User::factory()->create());
 
