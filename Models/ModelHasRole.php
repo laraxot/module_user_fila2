@@ -22,5 +22,10 @@ namespace Modules\User\Models;
  */
 class ModelHasRole extends BaseMorphPivot
 {
+    /**
+     * @var string[]
+     *
+     * @psalm-var list{'role_id', 'model_type', 'model_id'}
+     */
     protected $fillable = ['role_id', 'model_type', 'model_id'];
 }

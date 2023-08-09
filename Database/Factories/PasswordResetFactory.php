@@ -18,9 +18,12 @@ class PasswordResetFactory extends Factory {
     protected $model = PasswordReset::class;
 
     /**
+     *
      * Define the model's default state.
      *
-     * @return array
+     * @return (\DateTime|string)[]
+     *
+     * @psalm-return array{email: string, token: string, created_at: \DateTime}
      */
     public function definition() {
 

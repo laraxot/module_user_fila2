@@ -1,15 +1,16 @@
 {
-    "name": "nwidart/user",
+    "name": "laraxot/module_user",
     "description": "",
-    "authors": [
-        {
-            "name": "Nicolas Widart",
-            "email": "n.widart@gmail.com"
-        }
-    ],
+    "authors": [{
+        "name": "Marco Sottana",
+        "email": "marco.sottana@gmail.com"
+    }],
     "extra": {
         "laravel": {
-            "providers": [],
+            "providers": [
+                "Livewire\\LivewireServiceProvider",
+                "Modules\\User\\Providers\\UserServiceProvider"
+            ],
             "aliases": {
 
             }
@@ -19,5 +20,48 @@
         "psr-4": {
             "Modules\\User\\": ""
         }
-    }
+    },
+    "require": {
+        "artmin96/filament-jet": "*",
+        "thecodingmachine/safe": "*",
+        "laraxot/module_xot": "dev-master",
+        "livewire/livewire": "*",
+        "spatie/laravel-personal-data-export": "*",
+        "filament/filament": "*",
+        "savannabits/filament-modules": "dev-main",
+        "laravel/passport": "*"
+    },
+    "require-dev": {
+        "psalm/plugin-laravel": "*",
+        "thecodingmachine/phpstan-safe-rule": "*",
+        "nunomaduro/larastan": "*",
+        "orchestra/testbench": "*",
+        "pestphp/pest": "*",
+        "pestphp/pest-plugin-laravel": "*",
+        "phpunit/phpunit": "*"
+    },
+    "repositories": [{
+        "type": "vcs",
+        "url": "https://github.com/laraxot/filament-jet.git"
+    }],
+    "scripts": {
+        "post-autoload-dump": [
+            "@php vendor/bin/testbench package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate"
+        ],
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "./vendor/bin/pest --no-coverage",
+        "test-coverage": "vendor/bin/pest --coverage-html coverage",
+        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

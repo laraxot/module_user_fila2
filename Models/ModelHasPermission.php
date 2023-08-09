@@ -16,5 +16,10 @@ namespace Modules\User\Models;
  */
 class ModelHasPermission extends BaseMorphPivot
 {
+    /**
+     * @var string[]
+     *
+     * @psalm-var list{'permission_id', 'model_type', 'model_id'}
+     */
     protected $fillable = ['permission_id', 'model_type', 'model_id'];
 }

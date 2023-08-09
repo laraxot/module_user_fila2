@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Facade;
  */
 class FilamentShield extends Facade
 {
+    /**
+     * @return string
+     *
+     * @psalm-return 'filament-shield'
+     */
     protected static function getFacadeAccessor(): string
     {
         return 'filament-shield';

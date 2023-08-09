@@ -40,20 +40,7 @@ class TeamInvitation extends FilamentJetTeamInvitation {
      */
     protected $connection = 'user';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'email',
-        'role',
-    ];
 
-    /**
-     * Get the team that the invitation belongs to.
-     */
-    public function team(): BelongsTo {
-        return $this->belongsTo(FilamentJet::teamModel());
-    }
+
+
 }

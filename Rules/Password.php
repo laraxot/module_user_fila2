@@ -140,63 +140,13 @@ class Password implements Rule
         }
     }
 
-    /**
-     * Set the minimum length of the password.
-     *
-     * @return $this
-     */
-    public function length(int $length)
-    {
-        $this->length = $length;
 
-        return $this;
-    }
 
-    /**
-     * Indicate that at least one uppercase character is required.
-     *
-     * @return $this
-     */
-    public function requireUppercase()
-    {
-        $this->requireUppercase = true;
 
-        return $this;
-    }
 
-    /**
-     * Indicate that at least one numeric digit is required.
-     *
-     * @return $this
-     */
-    public function requireNumeric()
-    {
-        $this->requireNumeric = true;
 
-        return $this;
-    }
 
-    /**
-     * Indicate that at least one special character is required.
-     *
-     * @return $this
-     */
-    public function requireSpecialCharacter()
-    {
-        $this->requireSpecialCharacter = true;
 
-        return $this;
-    }
 
-    /**
-     * Set the message that should be used when the rule fails.
-     *
-     * @return $this
-     */
-    public function withMessage(string $message)
-    {
-        $this->message = $message;
 
-        return $this;
-    }
 }

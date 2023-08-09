@@ -153,6 +153,7 @@ class User extends Authenticatable implements
         'profile_photo_url',
     ];
 
+
     public function canAccessFilament(): bool {
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;
         return true;
@@ -163,4 +164,6 @@ class User extends Authenticatable implements
 
         return $this->hasOne($profileClass);
     }
+
+
 }

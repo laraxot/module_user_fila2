@@ -31,7 +31,7 @@ class Utils
 
         $filesystem = new Filesystem();
 
-        return (bool) $filesystem->exists($roleResourcePath);
+        return $filesystem->exists($roleResourcePath);
     }
 
     public static function getResourceSlug(): string
@@ -48,7 +48,7 @@ class Utils
         return $res;
     }
 
-    public static function getResourceNavigationSort(): ?int
+    public static function getResourceNavigationSort(): int
     {
         //return config('filament-shield.shield_resource.navigation_sort');
         return FilamentShieldData::make()->shield_resource->navigation_sort;
@@ -216,6 +216,11 @@ class Utils
         return in_array(HasShieldPermissions::class, class_implements($resourceClass));
     }
 
+    /**
+     * @return class-string|string
+     *
+     * @psalm-return ''|class-string
+     */
     public static function showModelPath(string $resourceFQCN): string
     {
         return config('filament-shield.shield_resource.show_model_path', true)

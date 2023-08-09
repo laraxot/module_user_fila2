@@ -3,25 +3,25 @@
 namespace Modules\User\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
+use ArtMin96\FilamentJet\Contracts\TeamContract;
+use ArtMin96\FilamentJet\Contracts\UserContract;
 
 abstract class TwoFactorAuthenticationEvent
 {
     use Dispatchable;
 
     /**
-     * The user instance.
+     * The team member being added.
      *
-     * @var \Modules\User\Models\User
      */
-    public $user;
+    public UserContract $user;
 
     /**
      * Create a new event instance.
      *
-     * @param  \Modules\User\Models\User  $user
      * @return void
      */
-    public function __construct($user)
+    public function __construct(UserContract $user)
     {
         $this->user = $user;
     }

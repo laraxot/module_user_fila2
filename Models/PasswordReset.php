@@ -27,6 +27,11 @@ namespace Modules\User\Models;
  * @mixin \Eloquent
  */
 class PasswordReset extends BaseModel {
+    /**
+     * @var string[]
+     *
+     * @psalm-var list{'email', 'token', 'created_at', 'updated_at', 'created_by', 'updated_by'}
+     */
     protected $fillable = ['email', 'token', 'created_at', 'updated_at', 'created_by', 'updated_by'];
 
     /**

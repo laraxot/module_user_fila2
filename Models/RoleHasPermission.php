@@ -20,5 +20,10 @@ namespace Modules\User\Models;
  */
 class RoleHasPermission extends BasePivot
 {
+    /**
+     * @var string[]
+     *
+     * @psalm-var list{'permission_id', 'role_id'}
+     */
     protected $fillable = ['permission_id', 'role_id'];
 }

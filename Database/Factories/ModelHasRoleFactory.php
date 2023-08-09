@@ -18,9 +18,12 @@ class ModelHasRoleFactory extends Factory {
     protected $model = ModelHasRole::class;
 
     /**
+     *
      * Define the model's default state.
      *
-     * @return array
+     * @return (int|string)[]
+     *
+     * @psalm-return array{role_id: int, model_type: string, model_id: int}
      */
     public function definition() {
 

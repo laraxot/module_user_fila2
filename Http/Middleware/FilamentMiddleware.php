@@ -4,27 +4,24 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Middleware;
 
-use Filament\Models\Contracts\FilamentUser;
-use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Support\Str;
 use Webmozart\Assert\Assert;
+use Filament\Models\Contracts\FilamentUser;
+use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Modules\Xot\Http\Middleware\XotBaseFilamentMiddleware;
 
-class FilamentMiddleware extends Middleware
+class FilamentMiddleware extends XotBaseFilamentMiddleware
 {
     public static string $module = 'User';
     public static string $context = 'filament';
 
-    /**
-     * @return \Nwidart\Modules\Laravel\Module|\Nwidart\Modules\Module
-     */
+    /*
     private function getModule()
     {
         return app('modules')->findOrFail(static::$module);
     }
 
-    /**
-     * @throws \Exception
-     */
+
     private function getContextName(): string
     {
         $module = $this->getModule();
@@ -66,4 +63,5 @@ class FilamentMiddleware extends Middleware
 
         return route("$context.auth.login");
     }
+    */
 }

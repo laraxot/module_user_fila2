@@ -18,9 +18,12 @@ class ModelHasPermissionFactory extends Factory {
     protected $model = ModelHasPermission::class;
 
     /**
+     *
      * Define the model's default state.
      *
      * @return array
+     *
+     * @psalm-return array<never, never>
      */
     public function definition() {
 

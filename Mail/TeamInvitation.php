@@ -17,23 +17,7 @@ class TeamInvitation extends Mailable
      */
     public TeamInvitationModel $invitation;
 
-    /**
-     * Create a new message instance.
-     *
-     * @param  \Modules\User\Models\TeamInvitation  $invitation
-     */
-    public function __construct(TeamInvitationModel $invitation)
-    {
-        $this->invitation = $invitation;
-    }
 
-    /**
-     * Build the message.
-     */
-    public function build(): static
-    {
-        return $this->markdown('filament-jet::mail.team-invitation', ['acceptUrl' => URL::signedRoute('team-invitations.accept', [
-            'invitation' => $this->invitation,
-        ])])->subject(__('filament-jet::teams/invitation-mail.subject'));
-    }
+
+
 }
