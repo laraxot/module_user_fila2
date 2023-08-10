@@ -14,9 +14,9 @@ use Modules\User\Support\Utils;
 
 class EditRole extends EditRecord
 {
-    protected static string $resource = RoleResource::class;
 
     public Collection $permissions;
+    protected static string $resource = RoleResource::class;
 
     protected function getActions(): array
     {

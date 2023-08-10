@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Middleware;
 
-use Filament\Models\Contracts\FilamentUser;
-use Illuminate\Support\Str;
 use Modules\Xot\Http\Middleware\XotBaseFilamentMiddleware;
-use Webmozart\Assert\Assert;
 
 class FilamentMiddleware extends XotBaseFilamentMiddleware
 {

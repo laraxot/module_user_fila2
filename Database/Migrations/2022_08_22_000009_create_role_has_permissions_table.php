@@ -39,7 +39,8 @@ class CreateRoleHasPermissionsTable extends XotBaseMigration
                 $table->primary(
                     [
                         PermissionRegistrar::$pivotPermission,
-                        PermissionRegistrar::$pivotRole, ],
+                        PermissionRegistrar::$pivotRole,
+                    ],
                     'role_has_permissions_permission_id_role_id_primary'
                 );
                 // */

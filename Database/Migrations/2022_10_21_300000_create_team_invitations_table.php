@@ -24,7 +24,8 @@ class CreateTeamInvitationsTable extends XotBaseMigration
                 $table->timestamps();
 
                 $table->unique(['team_id', 'email']);
-            });
+            }
+        );
 
         // -- UPDATE --
         $this->tableUpdate(

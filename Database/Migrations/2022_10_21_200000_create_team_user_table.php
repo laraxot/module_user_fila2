@@ -24,7 +24,8 @@ class CreateTeamUserTable extends XotBaseMigration
                 $table->timestamps();
 
                 $table->unique(['team_id', 'user_id']);
-            });
+            }
+        );
 
         // -- UPDATE --
         $this->tableUpdate(

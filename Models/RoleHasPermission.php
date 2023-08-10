@@ -23,7 +23,7 @@ namespace Modules\User\Models;
 class RoleHasPermission extends BasePivot
 {
     /**
-     * @var string[]
+     * @var array<string>
      *
      * @psalm-var list{'permission_id', 'role_id'}
      */

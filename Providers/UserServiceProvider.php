@@ -14,11 +14,11 @@ use Modules\Xot\Providers\XotBaseServiceProvider;
 
 class UserServiceProvider extends XotBaseServiceProvider
 {
+
+    public string $module_name = 'user';
     protected string $module_dir = __DIR__;
 
     protected string $module_ns = __NAMESPACE__;
-
-    public string $module_name = 'user';
 
     public function bootCallback(): void
     {

@@ -31,7 +31,7 @@ namespace Modules\User\Models;
 class PasswordReset extends BaseModel
 {
     /**
-     * @var string[]
+     * @var array<string>
      *
      * @psalm-var list{'email', 'token', 'created_at', 'updated_at', 'created_by', 'updated_by'}
      */

@@ -109,7 +109,7 @@ trait HasTeams
             return false;
         }
 
-        return $this->id == $team->{$this->getForeignKey()};
+        return $this->id === $team->{$this->getForeignKey()};
     }
 
     /**
@@ -136,7 +136,7 @@ trait HasTeams
     public function teamRole($team)
     {
         if ($this->ownsTeam($team)) {
-            return new OwnerRole;
+            return new OwnerRole();
         }
 
         if (! $this->belongsToTeam($team)) {
@@ -164,7 +164,8 @@ trait HasTeams
         }
 
         return $this->belongsToTeam($team) && optional(FilamentJet::findRole($team->users->where(
-            'id', $this->id
+            'id',
+            $this->id
         )->first()->membership->role))->key === $role;
     }
 
@@ -203,7 +204,7 @@ trait HasTeams
 
         if (in_array(HasApiTokens::class, class_uses_recursive($this))
             && ! $this->tokenCan($permission)
-            && null !== $this->currentAccessToken()) {
+            && $this->currentAccessToken() !== null) {
             return false;
         }
 

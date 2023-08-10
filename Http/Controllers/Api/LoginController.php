@@ -23,8 +23,7 @@ class LoginController extends XotBaseController
             $success['name'] = $user->name;
 
             return $this->sendResponse('User login successfully.', $success);
-        } else {
-            return $this->sendError('Unauthorised.', ['error' => 'Unauthorised']);
         }
+        return $this->sendError('Unauthorised.', ['error' => 'Unauthorised']);
     }
 }

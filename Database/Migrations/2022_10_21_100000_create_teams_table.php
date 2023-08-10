@@ -22,7 +22,8 @@ class CreateTeamsTable extends XotBaseMigration
                 $table->string('name');
                 $table->boolean('personal_team');
                 $table->timestamps();
-            });
+            }
+        );
 
         // -- UPDATE --
         $this->tableUpdate(

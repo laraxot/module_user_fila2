@@ -29,6 +29,7 @@ class RecoveryCodeReplaced
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  string  $code
+     *
      * @return void
      */
     public function __construct($user, $code)

@@ -151,7 +151,7 @@ class UserResource extends Resource
                     ])->columnSpan(4),
                 ];
 
-                if (null !== static::$extendFormCallback) {
+                if (static::$extendFormCallback !== null) {
                     $schema = value(static::$extendFormCallback, $schema);
                 }
 

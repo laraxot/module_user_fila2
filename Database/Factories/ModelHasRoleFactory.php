@@ -19,7 +19,7 @@ class ModelHasRoleFactory extends Factory
     /**
      * Define the model's default state.
      *
-     * @return (int|string)[]
+     * @return array<int|string>
      *
      * @psalm-return array{role_id: int, model_type: string, model_id: int}
      */

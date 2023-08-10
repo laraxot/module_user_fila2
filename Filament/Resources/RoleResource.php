@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Modules\User\Contracts\HasShieldPermissions;
 use Modules\User\Facades\FilamentShield;
 use Modules\User\Filament\Resources\RoleResource\Pages;
 use Modules\User\Support\Utils;
@@ -187,64 +186,12 @@ class RoleResource extends Resource
         return Utils::getRoleModel();
     }
 
-    /*
-    public static function getModelLabel(): string
-    {
-        return __('filament-shield::filament-shield.resource.label.role');
-    }
-
-
-    public static function getPluralModelLabel(): string
-    {
-        return __('filament-shield::filament-shield.resource.label.roles');
-    }
-
-    protected static function shouldRegisterNavigation(): bool
-    {
-        return Utils::isResourceNavigationRegistered();
-    }
-
-    protected static function getNavigationGroup(): ?string
-    {
-        return Utils::isResourceNavigationGroupEnabled()
-            ? __('filament-shield::filament-shield.nav.group')
-            : '';
-    }
-
-    protected static function getNavigationLabel(): string
-    {
-        return __('filament-shield::filament-shield.nav.role.label');
-    }
-
-    protected static function getNavigationIcon(): string
-    {
-        return __('filament-shield::filament-shield.nav.role.icon');
-    }
-
-    protected static function getNavigationSort(): ?int
-    {
-        return Utils::getResourceNavigationSort();
-    }
-
-    public static function getSlug(): string
-    {
-        return Utils::getResourceSlug();
-    }
-    */
-
-    protected static function getNavigationBadge(): ?string
-    {
-        return Utils::isResourceNavigationBadgeEnabled()
-            ? strval(static::getModel()::count())
-            : null;
-    }
-
     public static function canGloballySearch(): bool
     {
         return Utils::isResourceGloballySearchable() && count(static::getGloballySearchableAttributes()) && static::canViewAny();
     }
 
-    /**--------------------------------*
+    /*--------------------------------*
     | Resource Related Logic Start     |
     *----------------------------------*/
 
@@ -327,6 +274,58 @@ class RoleResource extends Resource
             ->toArray();
     }
 
+    /*
+    public static function getModelLabel(): string
+    {
+        return __('filament-shield::filament-shield.resource.label.role');
+    }
+
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('filament-shield::filament-shield.resource.label.roles');
+    }
+
+    protected static function shouldRegisterNavigation(): bool
+    {
+        return Utils::isResourceNavigationRegistered();
+    }
+
+    protected static function getNavigationGroup(): ?string
+    {
+        return Utils::isResourceNavigationGroupEnabled()
+            ? __('filament-shield::filament-shield.nav.group')
+            : '';
+    }
+
+    protected static function getNavigationLabel(): string
+    {
+        return __('filament-shield::filament-shield.nav.role.label');
+    }
+
+    protected static function getNavigationIcon(): string
+    {
+        return __('filament-shield::filament-shield.nav.role.icon');
+    }
+
+    protected static function getNavigationSort(): ?int
+    {
+        return Utils::getResourceNavigationSort();
+    }
+
+    public static function getSlug(): string
+    {
+        return Utils::getResourceSlug();
+    }
+    */
+
+    protected static function getNavigationBadge(): ?string
+    {
+        return Utils::isResourceNavigationBadgeEnabled()
+            ? strval(static::getModel()::count())
+            : null;
+    }
+
     protected static function refreshSelectAllStateViaEntities(Closure $set, Closure $get): void
     {
         $entitiesStates = collect(FilamentShield::getResources())
@@ -341,11 +340,11 @@ class RoleResource extends Resource
                 return (bool) $get($entity);
             });
 
-        if (false === $entitiesStates->containsStrict(false)) {
+        if ($entitiesStates->containsStrict(false) === false) {
             $set('select_all', true);
         }
 
-        if (true === $entitiesStates->containsStrict(false)) {
+        if ($entitiesStates->containsStrict(false) === true) {
             $set('select_all', false);
         }
     }
@@ -385,11 +384,11 @@ class RoleResource extends Resource
                 return (bool) $get($permission . '_' . $entity['resource']);
             });
 
-        if (false === $permissionStates->containsStrict(false)) {
+        if ($permissionStates->containsStrict(false) === false) {
             $set($entity['resource'], true);
         }
 
-        if (true === $permissionStates->containsStrict(false)) {
+        if ($permissionStates->containsStrict(false) === true) {
             $set($entity['resource'], false);
         }
     }
@@ -425,11 +424,11 @@ class RoleResource extends Resource
             $set('select_all', false);
         }
     }
-    /**--------------------------------*
+    /*--------------------------------*
     | Resource Related Logic End       |
     *----------------------------------*/
 
-    /**--------------------------------*
+    /*--------------------------------*
     | Page Related Logic Start       |
     *----------------------------------*/
 
@@ -466,11 +465,11 @@ class RoleResource extends Resource
             return $pages;
         }, []);
     }
-    /**--------------------------------*
+    /*--------------------------------*
     | Page Related Logic End          |
     *----------------------------------*/
 
-    /**--------------------------------*
+    /*--------------------------------*
     | Widget Related Logic Start       |
     *----------------------------------*/
 
@@ -507,7 +506,7 @@ class RoleResource extends Resource
             return $widgets;
         }, []);
     }
-    /**--------------------------------*
+    /*--------------------------------*
     | Widget Related Logic End          |
     *----------------------------------*/
 

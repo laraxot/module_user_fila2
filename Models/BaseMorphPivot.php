@@ -16,6 +16,16 @@ abstract class BaseMorphPivot extends MorphPivot
 {
     use HasFactory;
     use Updater;
+
+    /**
+     * @var bool
+     */
+    public $incrementing = true;
+
+    /**
+     * @var bool
+     */
+    public $timestamps = true;
     /**
      * Indicates whether attributes are snake cased on arrays.
      *
@@ -46,19 +56,9 @@ abstract class BaseMorphPivot extends MorphPivot
      */
     protected $primaryKey = 'id';
 
-    /**
-     * @var bool
-     */
-    public $incrementing = true;
-
-    /**
-     * @var bool
-     */
-    public $timestamps = true;
-
     // protected $attributes = ['related_type' => 'cuisine_cat'];
     /**
-     * @var string[]
+     * @var array<string>
      */
     protected $dates = [
         'created_at',
@@ -68,7 +68,7 @@ abstract class BaseMorphPivot extends MorphPivot
     ];
 
     /**
-     * @var string[]
+     * @var array<string>
      */
     protected $fillable = [
         'id',

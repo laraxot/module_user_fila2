@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserOverview extends Widget
 {
-    protected static string $view = 'user::filament.resources.user-resource.widgets.user-overview';
 
     public ?Model $record = null;
+    protected static string $view = 'user::filament.resources.user-resource.widgets.user-overview';
 }
