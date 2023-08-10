@@ -12,7 +12,8 @@ use Modules\Xot\Traits\Updater;
 /**
  * Class BaseMorphPivot.
  */
-abstract class BaseMorphPivot extends MorphPivot {
+abstract class BaseMorphPivot extends MorphPivot
+{
     use HasFactory;
     use Updater;
     /**
@@ -21,7 +22,7 @@ abstract class BaseMorphPivot extends MorphPivot {
      * @see  https://laravel-news.com/6-eloquent-secrets
      *
      * @var bool
-     public static $snakeAttributes = true;
+     *           public static $snakeAttributes = true;
      */
 
     /**
@@ -56,7 +57,6 @@ abstract class BaseMorphPivot extends MorphPivot {
     public $timestamps = true;
 
     // protected $attributes = ['related_type' => 'cuisine_cat'];
-
     /**
      * @var string[]
      */
@@ -83,7 +83,8 @@ abstract class BaseMorphPivot extends MorphPivot {
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
-    protected static function newFactory() {
+    protected static function newFactory()
+    {
         return FactoryService::newFactory(static::class);
     }
 }

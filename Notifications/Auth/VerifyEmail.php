@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Notifications\Auth;
 
 use Illuminate\Auth\Notifications\VerifyEmail as BaseNotification;

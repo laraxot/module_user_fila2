@@ -22,10 +22,10 @@ class CreateRolesTable extends XotBaseMigration
         $columnNames = config('permission.column_names');
         $teams = config('permission.teams');
         if (! is_array($tableNames)) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new Exception('[' . __LINE__ . '][' . __FILE__ . ']');
         }
         if (! is_array($columnNames)) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new Exception('[' . __LINE__ . '][' . __FILE__ . ']');
         }
         if (! is_array($teams)) {
             // throw new Exception('['.__LINE__.']['.__FILE__.']');

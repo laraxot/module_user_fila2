@@ -10,11 +10,13 @@ use Illuminate\Support\Facades\Validator;
 use Modules\User\Models\User;
 use Modules\Xot\Http\Controllers\XotBaseController;
 
-class RegisterController extends XotBaseController {
+class RegisterController extends XotBaseController
+{
     /**
-     * Register api
+     * Register api.
      */
-    public function __invoke(Request $request): JsonResponse {
+    public function __invoke(Request $request): JsonResponse
+    {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',

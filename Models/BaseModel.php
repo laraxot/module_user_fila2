@@ -14,7 +14,8 @@ use Modules\Xot\Traits\Updater;
 /**
  * Class BaseModel.
  */
-abstract class BaseModel extends Model {
+abstract class BaseModel extends Model
+{
     // use Searchable;
     // //use Cachable;
     use HasFactory;
@@ -53,6 +54,7 @@ abstract class BaseModel extends Model {
      * @var string
      */
     protected $primaryKey = 'id';
+
     /**
      * @var bool
      */
@@ -63,6 +65,7 @@ abstract class BaseModel extends Model {
     protected $hidden = [
         // 'password'
     ];
+
     /**
      * @var bool
      */
@@ -73,7 +76,8 @@ abstract class BaseModel extends Model {
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
-    protected static function newFactory() {
+    protected static function newFactory()
+    {
         return FactoryService::newFactory(static::class);
     }
 }

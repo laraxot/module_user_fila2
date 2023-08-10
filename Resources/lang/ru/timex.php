@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'model' => [
         'label' => 'Событие',
@@ -12,7 +14,7 @@ return [
         'edit' => 'Редактировать',
     ],
     'events' => [
-        'empty' => 'Нет событий'
+        'empty' => 'Нет событий',
     ],
     'event' => [
         'subject' => 'Тема',
@@ -27,7 +29,7 @@ return [
     'event-list' => [
         'author' => 'Автор: :name',
         'start' => 'Начало: :start',
-        'end' => 'Окончание: :end'
+        'end' => 'Окончание: :end',
     ],
     'labels' => [
         'navigation' => 'TiMEX',
@@ -35,5 +37,4 @@ return [
         'title' => 'TiMEX',
         'today' => 'Сегодня',
     ],
-
 ];

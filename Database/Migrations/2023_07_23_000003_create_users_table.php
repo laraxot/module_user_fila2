@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
+declare(strict_types=1);
 
+use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /**
@@ -42,10 +43,7 @@ class CreateUsersTable extends XotBaseMigration
                 if (! $this->hasColumn('lang')) {
                     $table->string('lang', 3)->nullable();
                 }
-
             }
         );
     }
-
-
-};
+}
