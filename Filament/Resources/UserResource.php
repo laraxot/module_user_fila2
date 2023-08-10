@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Closure;
 use Filament\Facades\Filament;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
@@ -40,9 +39,9 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
-    protected static bool|Closure $enablePasswordUpdates = true;
+    protected static bool|\Closure $enablePasswordUpdates = true;
 
-    protected static ?Closure $extendFormCallback = null;
+    protected static ?\Closure $extendFormCallback = null;
 
     /*
     protected static function getNavigationLabel(): string
@@ -78,7 +77,7 @@ class UserResource extends Resource
         ];
     }
 
-    public static function extendForm(Closure $callback): void
+    public static function extendForm(\Closure $callback): void
     {
         static::$extendFormCallback = $callback;
     }
@@ -151,7 +150,7 @@ class UserResource extends Resource
                     ])->columnSpan(4),
                 ];
 
-                if (static::$extendFormCallback !== null) {
+                if (null !== static::$extendFormCallback) {
                     $schema = value(static::$extendFormCallback, $schema);
                 }
 
@@ -240,7 +239,7 @@ class UserResource extends Resource
             ->defaultSort('created_at', 'desc');
     }
 
-    public static function enablePasswordUpdates(bool|Closure $condition = true): void
+    public static function enablePasswordUpdates(bool|\Closure $condition = true): void
     {
         static::$enablePasswordUpdates = $condition;
     }

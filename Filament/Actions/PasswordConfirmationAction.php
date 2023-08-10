@@ -9,7 +9,6 @@ use Filament\Pages\Actions\Action;
 
 class PasswordConfirmationAction extends Action
 {
-
     protected function setUp(): void
     {
         if ($this->isPasswordSessionValid()) {
@@ -41,6 +40,7 @@ class PasswordConfirmationAction extends Action
 
         parent::call($data);
     }
+
     protected function isPasswordSessionValid(): bool
     {
         return session()->has('auth.password_confirmed_at') && (time() - session('auth.password_confirmed_at', 0)) < config('filament-jet.password_confirmation_seconds');

@@ -6,6 +6,7 @@ namespace Modules\User\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Str;
+
 use function Safe\preg_match;
 
 class Password implements Rule
@@ -48,7 +49,7 @@ class Password implements Rule
     /**
      * Determine if the validation rule passes.
      *
-     * @param  string  $attribute
+     * @param string $attribute
      *
      * @return bool
      */
