@@ -1,3 +1,2 @@
 providers:
   - Modules\User\Providers\UserServiceProvider
-  - Livewire\LivewireServiceProvider

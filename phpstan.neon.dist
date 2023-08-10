@@ -3,7 +3,8 @@ includes:
     - ./vendor/nunomaduro/larastan/extension.neon
 
 parameters:
-    level: 4
+
+    level: max
 
     paths:
         - .
@@ -20,9 +21,22 @@ parameters:
         - ./Tests/*
         - ./_ide_helper.php
 
-    tmpDir: build/phpstan
+    bootstrapFiles:
+    #    - ./Services/vendor/autoload.php
+    #    - ./phpstan_constants.php
+
+    scanFiles:
+    #    - ./Helpers/Helper.php
+    #   - ./vendor/amenadiel/jpgraph/src/config.inc.php
+
+    editorUrl: 'vscode://file/%%file%%:%%line%%'
+
+    tmpDir: ./build/phpstan
+    checkUnusedViews: false
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    treatPhpDocTypesAsCertain: false
     reportUnmatchedIgnoredErrors: false
     checkOctaneCompatibility: false
     checkModelProperties: false
-    checkMissingIterableValueType: false
-    checkGenericClassInNonGenericObjectType: false
+
