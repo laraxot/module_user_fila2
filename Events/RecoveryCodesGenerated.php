@@ -2,13 +2,16 @@
 
 namespace Modules\User\Events;
 
-use ArtMin96\FilamentJet\Contracts\UserContract;
 use Illuminate\Foundation\Events\Dispatchable;
+use ArtMin96\FilamentJet\Contracts\UserContract;
 
 class RecoveryCodesGenerated
 {
     use Dispatchable;
 
+    /**
+     *
+     */
     public UserContract $user;
 
     /**

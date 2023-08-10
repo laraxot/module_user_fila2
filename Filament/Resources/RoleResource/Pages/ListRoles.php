@@ -2,9 +2,9 @@
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
+use Modules\User\Filament\Resources\RoleResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
-use Modules\User\Filament\Resources\RoleResource;
 
 class ListRoles extends ListRecords
 {

@@ -8,7 +8,7 @@ class AddingTeam
 {
     use Dispatchable;
 
-    /**
+     /**
      * The team owner.
      *
      * @var mixed

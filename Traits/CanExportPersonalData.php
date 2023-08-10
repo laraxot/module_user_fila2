@@ -2,8 +2,8 @@
 
 namespace Modules\User\Traits;
 
-use Illuminate\Support\Str;
 use Modules\User\Features;
+use Illuminate\Support\Str;
 use Spatie\PersonalDataExport\PersonalDataSelection;
 
 trait CanExportPersonalData

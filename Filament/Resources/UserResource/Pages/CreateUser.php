@@ -2,8 +2,9 @@
 
 namespace Modules\User\Filament\Resources\UserResource\Pages;
 
-use Filament\Resources\Pages\CreateRecord;
 use Modules\User\Filament\Resources\UserResource;
+use Filament\Pages\Actions;
+use Filament\Resources\Pages\CreateRecord;
 
 class CreateUser extends CreateRecord
 {

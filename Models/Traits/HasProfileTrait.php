@@ -2,6 +2,6 @@
 
 namespace Modules\User\Models\Traits;
 
-trait HasProfileTrait
-{
+trait HasProfileTrait {
+    
 }

@@ -2,10 +2,10 @@
 
 return [
     'model' => [
-        'label' => 'Agendamento',
-        'pluralLabel' => 'Agendamentos',
+      'label' => 'Agendamento',
+      'pluralLabel' => 'Agendamentos',
     ],
-
+    
     'modal' => [
         'submit' => 'Criar',
         'cancel' => 'Cancelar',
@@ -14,31 +14,31 @@ return [
     ],
 
     'events' => [
-        'empty' => 'Nenhum evento futuro',
+        'empty' => 'Nenhum evento futuro'
     ],
 
     'event' => [
-        'subject' => 'Título',
-        'body' => 'Mensagem',
-        'category' => 'Categoria',
-        'allDay' => 'Dia todo',
-        'start' => 'Começo',
-        'end' => 'Término',
-        'participants' => 'Participantes',
-        'attachments' => 'Anexos',
+      'subject' => 'Título',
+      'body' => 'Mensagem',
+      'category' => 'Categoria',
+      'allDay' => 'Dia todo',
+      'start' => 'Começo',
+      'end' => 'Término',
+      'participants' => 'Participantes',
+      'attachments' => 'Anexos',
 
     ],
 
     'event-list' => [
         'author' => 'Author: :name',
         'start' => 'Start: :start',
-        'end' => 'End: :end',
+        'end' => 'End: :end'
     ],
 
     'labels' => [
-        'navigation' => 'TiMEX',
-        'breadcrumbs' => 'TiMEX',
-        'title' => 'TiMEX',
-        'today' => 'Hoje',
+      'navigation' => 'TiMEX',
+      'breadcrumbs' => 'TiMEX',
+      'title' => 'TiMEX',
+      'today' => 'Hoje',
     ],
 ];

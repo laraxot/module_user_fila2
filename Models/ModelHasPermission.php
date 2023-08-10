@@ -8,12 +8,10 @@ namespace Modules\User\Models;
  * Modules\User\Models\ModelHasPermission
  *
  * @mixin IdeHelperModelHasPermission
- *
  * @method static \Modules\User\Database\Factories\ModelHasPermissionFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|ModelHasPermission newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ModelHasPermission newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ModelHasPermission query()
- *
  * @mixin \Eloquent
  */
 class ModelHasPermission extends BaseMorphPivot

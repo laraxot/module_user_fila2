@@ -2,10 +2,11 @@
 
 namespace Modules\User\Mail;
 
+use Modules\User\Models\TeamInvitation as TeamInvitationModel;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Modules\User\Models\TeamInvitation as TeamInvitationModel;
+use Illuminate\Support\Facades\URL;
 
 class TeamInvitation extends Mailable
 {
@@ -15,5 +16,8 @@ class TeamInvitation extends Mailable
      * The team invitation instance.
      */
     public TeamInvitationModel $invitation;
+
+
+
 
 }

@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Middleware;
 
-use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Support\Str;
-use Modules\Xot\Http\Middleware\XotBaseFilamentMiddleware;
 use Webmozart\Assert\Assert;
+use Filament\Models\Contracts\FilamentUser;
+use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Modules\Xot\Http\Middleware\XotBaseFilamentMiddleware;
 
 class FilamentMiddleware extends XotBaseFilamentMiddleware
 {

@@ -10,15 +10,13 @@ use Webmozart\Assert\Assert;
 /**
  * Undocumented class.
  */
-class FilamentShieldData extends Data
-{
+class FilamentShieldData extends Data {
     public ShieldResourceData $shield_resource;
 
     public SuperAdminData $super_admin;
     public FilamentUserData $filament_user;
 
-    public static function make(): self
-    {
+    public static function make(): self {
         Assert::isArray($xot = config('filament-shield'), 'check config [filament-shield] ');
 
         return self::from($xot);

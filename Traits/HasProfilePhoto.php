@@ -2,8 +2,9 @@
 
 namespace Modules\User\Traits;
 
-use Illuminate\Support\Facades\Storage;
 use Modules\User\Features;
+use Filament\Facades\Filament;
+use Illuminate\Support\Facades\Storage;
 
 trait HasProfilePhoto
 {
@@ -14,8 +15,10 @@ trait HasProfilePhoto
 
     /**
      * Update the user's profile photo.
+     *
+     * @param  string|null  $photo
      */
-    public function updateProfilePhoto(?string $photo): void
+    public function updateProfilePhoto(null|string $photo): void
     {
         tap($this->profile_photo_path, function ($previous) use ($photo) {
             $this->forceFill([

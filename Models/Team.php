@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use ArtMin96\FilamentJet\Events\TeamCreated;
+use ArtMin96\FilamentJet\Events\TeamDeleted;
+use ArtMin96\FilamentJet\Events\TeamUpdated;
 use ArtMin96\FilamentJet\Models\Team as FilamentJetTeam;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -37,13 +40,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *
  * @mixin \Eloquent
  */
-class Team extends FilamentJetTeam
-{
+class Team extends FilamentJetTeam {
     use HasFactory;
 
     /**
      * @var string
      */
     protected $connection = 'user';
+
+
+
+
+
 
 }

@@ -2,13 +2,13 @@
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
+use Modules\User\Filament\Resources\RoleResource;
+use Modules\User\Support\Utils;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Modules\User\Filament\Resources\RoleResource;
-use Modules\User\Support\Utils;
 
 class EditRole extends EditRecord
 {
