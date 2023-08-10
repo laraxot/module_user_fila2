@@ -23,22 +23,27 @@
     },
     "require": {
         "artmin96/filament-jet": "*",
-        "thecodingmachine/safe": "*",
         "laraxot/module_xot_fila": "dev-master",
-        "livewire/livewire": "*",
         "spatie/laravel-personal-data-export": "*",
-        "filament/filament": "*",
-        "savannabits/filament-modules": "dev-main",
         "laravel/passport": "*"
     },
     "require-dev": {
-        "psalm/plugin-laravel": "*",
-        "thecodingmachine/phpstan-safe-rule": "*",
+        "barryvdh/laravel-ide-helper": "*",
+        "fakerphp/faker": "*",
+        "friendsofphp/php-cs-fixer": "*",
+        "laravel/pint": "*",
+        "nunomaduro/collision": "*",
         "nunomaduro/larastan": "*",
         "orchestra/testbench": "*",
         "pestphp/pest": "*",
+        "pestphp/pest-plugin-arch": "*",
         "pestphp/pest-plugin-laravel": "*",
-        "phpunit/phpunit": "*"
+        "phpstan/phpstan-deprecation-rules": "*",
+        "phpstan/phpstan-phpunit": "*",
+        "psalm/plugin-laravel": "^2.8",
+        "spatie/laravel-ray": "*",
+        "thecodingmachine/phpstan-safe-rule": "*",
+        "tightenco/duster": "^2.2"
     },
     "repositories": [{
         "type": "vcs",
