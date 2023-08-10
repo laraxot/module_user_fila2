@@ -38,12 +38,7 @@ class CreatePermissionTables extends XotBaseMigration
             ->forget($cache_key);
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
+     public function down(): void
     {
         /** @var array $tableNames */
         $tableNames = config('permission.table_names');
