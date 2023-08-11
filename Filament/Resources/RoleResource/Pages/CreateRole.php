@@ -14,6 +14,7 @@ use Modules\User\Support\Utils;
 class CreateRole extends CreateRecord
 {
     public Collection $permissions;
+
     protected static string $resource = RoleResource::class;
 
     protected function mutateFormDataBeforeCreate(array $data): array
