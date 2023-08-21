@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -24,7 +22,8 @@ class UpdateTeamMemberRoleTest extends TestCase
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
         $user->currentTeam->users()->attach(
-            $otherUser = User::factory()->create(), ['role' => 'admin']
+            $otherUser = User::factory()->create(),
+            ['role' => 'admin']
         );
 
         $component = Livewire::test(TeamMemberManager::class, ['team' => $user->currentTeam])
@@ -33,7 +32,8 @@ class UpdateTeamMemberRoleTest extends TestCase
             ->call('updateRole');
 
         $this->assertTrue($otherUser->fresh()->hasTeamRole(
-            $user->currentTeam->fresh(), 'editor'
+            $user->currentTeam->fresh(),
+            'editor'
         ));
     }
 
@@ -45,7 +45,8 @@ class UpdateTeamMemberRoleTest extends TestCase
         $user = User::factory()->withPersonalTeam()->create();
 
         $user->currentTeam->users()->attach(
-            $otherUser = User::factory()->create(), ['role' => 'admin']
+            $otherUser = User::factory()->create(),
+            ['role' => 'admin']
         );
 
         $this->actingAs($otherUser);
@@ -57,67 +58,8 @@ class UpdateTeamMemberRoleTest extends TestCase
             ->assertStatus(403);
 
         $this->assertTrue($otherUser->fresh()->hasTeamRole(
-            $user->currentTeam->fresh(), 'admin'
+            $user->currentTeam->fresh(),
+            'admin'
         ));
     }
 }
-=======
-=======
->>>>>>> c3ef5a0 (up)
-<?php
-
-namespace Modules\User\Tests\Feature;
-
-use Modules\User\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Laravel\Jetstream\Http\Livewire\TeamMemberManager;
-use Livewire\Livewire;
-use Tests\TestCase;
-
-class UpdateTeamMemberRoleTest extends TestCase
-{
-    use RefreshDatabase;
-
-    public function test_team_member_roles_can_be_updated(): void
-    {
-        $this->actingAs($user = User::factory()->withPersonalTeam()->create());
-
-        $user->currentTeam->users()->attach(
-            $otherUser = User::factory()->create(), ['role' => 'admin']
-        );
-
-        $component = Livewire::test(TeamMemberManager::class, ['team' => $user->currentTeam])
-            ->set('managingRoleFor', $otherUser)
-            ->set('currentRole', 'editor')
-            ->call('updateRole');
-
-        $this->assertTrue($otherUser->fresh()->hasTeamRole(
-            $user->currentTeam->fresh(), 'editor'
-        ));
-    }
-
-    public function test_only_team_owner_can_update_team_member_roles(): void
-    {
-        $user = User::factory()->withPersonalTeam()->create();
-
-        $user->currentTeam->users()->attach(
-            $otherUser = User::factory()->create(), ['role' => 'admin']
-        );
-
-        $this->actingAs($otherUser);
-
-        $component = Livewire::test(TeamMemberManager::class, ['team' => $user->currentTeam])
-            ->set('managingRoleFor', $otherUser)
-            ->set('currentRole', 'editor')
-            ->call('updateRole')
-            ->assertStatus(403);
-
-        $this->assertTrue($otherUser->fresh()->hasTeamRole(
-            $user->currentTeam->fresh(), 'admin'
-        ));
-    }
-}
-<<<<<<< HEAD
->>>>>>> d1783f5 (up)
-=======
->>>>>>> c3ef5a0 (up)

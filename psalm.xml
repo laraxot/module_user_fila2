@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 <?xml version="1.0"?>
 <psalm
     errorLevel="4"
@@ -45,31 +43,3 @@
         </ignoreFiles>
     </projectFiles>
 <plugins><pluginClass class="Psalm\LaravelPlugin\Plugin"/></plugins></psalm>
-=======
-=======
->>>>>>> c3ef5a0 (up)
-<?xml version="1.0"?>
-<psalm
-    errorLevel="7"
-    resolveFromConfigFile="true"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="https://getpsalm.org/schema/config"
-    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
-    findUnusedBaselineEntry="true"
-    findUnusedCode="true"
->
-    <projectFiles>
-        <directory name="." />
-        <ignoreFiles>
-            <directory name="vendor"/>
-            <directory name="Tests"/>
-        </ignoreFiles>
-    </projectFiles>
-    <plugins>
-        <pluginClass class="Psalm\LaravelPlugin\Plugin"/>
-    </plugins>
-</psalm>
-<<<<<<< HEAD
->>>>>>> d1783f5 (up)
-=======
->>>>>>> c3ef5a0 (up)

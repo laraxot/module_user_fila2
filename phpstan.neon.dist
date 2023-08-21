@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 includes:
     - phpstan-baseline.neon
     - ./vendor/nunomaduro/larastan/extension.neon
@@ -22,10 +20,6 @@ parameters:
         - ./docs/*
         - ./Tests/*
         - ./_ide_helper.php
-        # pacchetti validati separatamente
-        - ./packages/*
-        # plugin filament shield
-        - ./Filament/Resources/RoleResource.php
 
     bootstrapFiles:
     #    - ./Services/vendor/autoload.php
@@ -46,38 +40,3 @@ parameters:
     checkOctaneCompatibility: false
     checkModelProperties: false
 
-=======
-=======
->>>>>>> c3ef5a0 (up)
-includes:
-    - phpstan-baseline.neon
-    - ./vendor/nunomaduro/larastan/extension.neon
-
-parameters:
-    level: 4
-
-    paths:
-        - .
-
-    ignoreErrors:
-    #    - '#Unsafe usage of new static#'
-        - '#PHPDoc tag @mixin contains unknown class #'
-
-    excludePaths:
-        - ./build/*
-        - ./vendor/*
-        - ./*/vendor/*
-        - ./docs/*
-        - ./Tests/*
-        - ./_ide_helper.php
-
-    tmpDir: build/phpstan
-    reportUnmatchedIgnoredErrors: false
-    checkOctaneCompatibility: false
-    checkModelProperties: false
-    checkMissingIterableValueType: false
-    checkGenericClassInNonGenericObjectType: false
-<<<<<<< HEAD
->>>>>>> d1783f5 (up)
-=======
->>>>>>> c3ef5a0 (up)
