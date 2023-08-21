@@ -47,8 +47,8 @@
         "tightenco/duster": "^2.2"
     },
     "repositories": [{
-        "type": "vcs",
-        "url": "https://github.com/laraxot/filament-jet.git"
+        "type": "path",
+        "url": "./packages/artmin96/filament-jet"
     }],
     "scripts": {
         "post-autoload-dump": [

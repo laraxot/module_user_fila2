@@ -20,6 +20,10 @@ parameters:
         - ./docs/*
         - ./Tests/*
         - ./_ide_helper.php
+        # pacchetti validati separatamente
+        - ./packages/*
+        # plugin filament shield
+        - ./Filament/Resources/RoleResource.php
 
     bootstrapFiles:
     #    - ./Services/vendor/autoload.php
