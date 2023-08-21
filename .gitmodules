@@ -1,0 +1,4 @@
+#packages
+[submodule "packages/artmin96/filament-jet"]
+	path = packages/artmin96/filament-jet
+	url = https://github.com/laraxot/filament-jet.git
