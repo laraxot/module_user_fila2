@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -75,6 +76,8 @@ class InviteTeamMemberTest extends TestCase
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 namespace Modules\User\Tests\Feature;
@@ -142,4 +145,7 @@ class InviteTeamMemberTest extends TestCase
         $this->assertCount(0, $user->currentTeam->fresh()->teamInvitations);
     }
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

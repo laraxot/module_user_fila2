@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -52,6 +53,8 @@ class Role extends \Spatie\Permission\Models\Role
     protected $connection = 'user';
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 declare(strict_types=1);
@@ -103,4 +106,7 @@ class Role extends \Spatie\Permission\Models\Role {
      */
     protected $connection = 'user';
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

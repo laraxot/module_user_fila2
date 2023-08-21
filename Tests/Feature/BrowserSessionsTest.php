@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -29,6 +30,8 @@ class BrowserSessionsTest extends TestCase
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 namespace Modules\User\Tests\Feature;
@@ -53,4 +56,7 @@ class BrowserSessionsTest extends TestCase
             ->assertSuccessful();
     }
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

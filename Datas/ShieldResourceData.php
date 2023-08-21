@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -18,6 +19,8 @@ class ShieldResourceData extends Data
     public bool $is_globally_searchable; // = false;
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 declare(strict_types=1);
@@ -42,4 +45,7 @@ class ShieldResourceData extends Data
     public bool $is_globally_searchable;// = false;
 
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

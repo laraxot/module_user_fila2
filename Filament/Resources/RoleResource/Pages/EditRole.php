@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -49,6 +50,8 @@ class EditRole extends EditRecord
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
@@ -96,4 +99,7 @@ class EditRole extends EditRecord
         $this->record->syncPermissions($permissionModels);
     }
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

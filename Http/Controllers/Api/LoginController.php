@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -30,6 +31,8 @@ class LoginController extends XotBaseController
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 declare(strict_types=1);
@@ -61,4 +64,7 @@ class LoginController extends XotBaseController
         }
     }
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

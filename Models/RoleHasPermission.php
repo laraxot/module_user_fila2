@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -31,6 +32,8 @@ class RoleHasPermission extends BasePivot
     protected $fillable = ['permission_id', 'role_id'];
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 declare(strict_types=1);
@@ -60,4 +63,7 @@ class RoleHasPermission extends BasePivot
      */
     protected $fillable = ['permission_id', 'role_id'];
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

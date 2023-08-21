@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -46,6 +47,8 @@ class CreateApiTokenTest extends TestCase
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 namespace Modules\User\Tests\Feature;
@@ -87,4 +90,7 @@ class CreateApiTokenTest extends TestCase
         $this->assertFalse($user->fresh()->tokens->first()->can('delete'));
     }
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

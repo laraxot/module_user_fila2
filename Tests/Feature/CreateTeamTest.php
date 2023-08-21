@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -31,6 +32,8 @@ class CreateTeamTest extends TestCase
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 namespace Modules\User\Tests\Feature;
@@ -57,4 +60,7 @@ class CreateTeamTest extends TestCase
         $this->assertEquals('Test Team', $user->fresh()->ownedTeams()->latest('id')->first()->name);
     }
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -52,6 +53,8 @@ class ApiTokenPermissionsTest extends TestCase
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 namespace Modules\User\Tests\Feature;
@@ -99,4 +102,7 @@ class ApiTokenPermissionsTest extends TestCase
         $this->assertFalse($user->fresh()->tokens->first()->can('missing-permission'));
     }
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -160,6 +161,8 @@ class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contrac
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 declare(strict_types=1);
@@ -329,4 +332,7 @@ class User extends Authenticatable implements
 
 
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

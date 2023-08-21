@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -50,6 +51,8 @@ class Permission extends SpatiePermission
     protected $fillable = ['id', 'name', 'guard_name', 'created_at', 'updated_at'];
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 declare(strict_types=1);
@@ -99,4 +102,7 @@ class Permission extends SpatiePermission {
 
     protected $fillable = ['id', 'name', 'guard_name', 'created_at', 'updated_at'];
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

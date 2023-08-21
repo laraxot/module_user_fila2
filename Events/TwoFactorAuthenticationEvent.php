@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -28,6 +29,8 @@ abstract class TwoFactorAuthenticationEvent
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 namespace Modules\User\Events;
@@ -56,4 +59,7 @@ abstract class TwoFactorAuthenticationEvent
         $this->user = $user;
     }
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

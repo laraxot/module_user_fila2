@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -44,6 +45,8 @@ class PasswordReset extends BaseModel
     protected $table = 'password_resets';
 }// end class PasswordReset
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 declare(strict_types=1);
@@ -85,4 +88,7 @@ class PasswordReset extends BaseModel {
      */
     protected $table = 'password_resets';
 }// end class PasswordReset
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

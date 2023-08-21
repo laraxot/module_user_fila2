@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 /**
  * @see https://github.com/ryangjchandler/filament-user-resource/blob/main/src/Resources/UserResource.php
@@ -272,6 +273,8 @@ class UserResource extends Resource
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 /**
  * @see https://github.com/ryangjchandler/filament-user-resource/blob/main/src/Resources/UserResource.php
@@ -543,4 +546,7 @@ class UserResource extends Resource
         ];
     }
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

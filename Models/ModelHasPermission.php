@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -27,6 +28,8 @@ class ModelHasPermission extends BaseMorphPivot
     protected $fillable = ['permission_id', 'model_type', 'model_id'];
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 declare(strict_types=1);
@@ -52,4 +55,7 @@ class ModelHasPermission extends BaseMorphPivot
      */
     protected $fillable = ['permission_id', 'model_type', 'model_id'];
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

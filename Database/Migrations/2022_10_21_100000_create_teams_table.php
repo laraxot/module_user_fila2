@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -37,6 +38,8 @@ class CreateTeamsTable extends XotBaseMigration
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -72,4 +75,7 @@ class CreateTeamsTable extends XotBaseMigration {
     
     }
 };
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

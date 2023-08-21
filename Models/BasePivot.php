@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -57,6 +58,8 @@ abstract class BasePivot extends Pivot
     protected $primaryKey = 'id';
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 declare(strict_types=1);
@@ -112,4 +115,7 @@ abstract class BasePivot extends Pivot {
      */
     public $incrementing = true;
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

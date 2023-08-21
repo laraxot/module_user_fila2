@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -13,6 +14,8 @@ class CreatePersonalDataExportJob extends BaseCreatePersonalDataExportJob
     use Batchable;
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 namespace Modules\User\Jobs;
@@ -24,4 +27,7 @@ class CreatePersonalDataExportJob extends BaseCreatePersonalDataExportJob
 {
     use Batchable;
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

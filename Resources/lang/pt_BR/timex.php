@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -45,6 +46,8 @@ return [
     ],
 ];
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 return [
@@ -89,4 +92,7 @@ return [
       'today' => 'Hoje',
     ],
 ];
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

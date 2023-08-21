@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -23,6 +24,8 @@ class UserDatabaseSeeder extends Seeder
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 namespace Modules\User\Database\Seeders;
@@ -44,4 +47,7 @@ class UserDatabaseSeeder extends Seeder
         // $this->call("OthersTableSeeder");
     }
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

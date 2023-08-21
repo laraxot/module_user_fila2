@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -49,6 +50,8 @@ class CreateUsersTable extends XotBaseMigration
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 use Illuminate\Database\Schema\Blueprint;
@@ -100,4 +103,7 @@ class CreateUsersTable extends XotBaseMigration
 
 
 };
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

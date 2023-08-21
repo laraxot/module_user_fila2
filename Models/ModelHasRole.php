@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -34,6 +35,8 @@ class ModelHasRole extends BaseMorphPivot
     protected $fillable = ['role_id', 'model_type', 'model_id'];
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 declare(strict_types=1);
@@ -65,4 +68,7 @@ class ModelHasRole extends BaseMorphPivot
      */
     protected $fillable = ['role_id', 'model_type', 'model_id'];
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

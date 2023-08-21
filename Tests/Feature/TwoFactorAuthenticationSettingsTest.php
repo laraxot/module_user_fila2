@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -93,6 +94,8 @@ class TwoFactorAuthenticationSettingsTest extends TestCase
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 namespace Modules\User\Tests\Feature;
@@ -175,4 +178,7 @@ class TwoFactorAuthenticationSettingsTest extends TestCase
         $this->assertNull($user->fresh()->two_factor_secret);
     }
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

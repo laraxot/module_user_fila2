@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -21,6 +22,8 @@ class ViewRole extends ViewRecord
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
@@ -40,4 +43,7 @@ class ViewRole extends ViewRecord
         ];
     }
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

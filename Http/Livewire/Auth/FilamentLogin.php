@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -13,6 +14,8 @@ class FilamentLogin extends BaseLogin
     public static string $module = 'User';
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 namespace Modules\User\Http\Livewire\Auth;
@@ -24,4 +27,7 @@ class FilamentLogin extends BaseLogin
     public static string $context = 'filament';
     public static string $module = 'User';
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

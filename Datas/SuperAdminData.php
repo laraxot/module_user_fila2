@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -18,6 +19,8 @@ class SuperAdminData extends Data
     public string $intercept_gate; // ' => 'before', // after
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 declare(strict_types=1);
@@ -39,4 +42,7 @@ class SuperAdminData extends Data
     public bool $define_via_gate;//' => false,
     public string $intercept_gate;//' => 'before', // after
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

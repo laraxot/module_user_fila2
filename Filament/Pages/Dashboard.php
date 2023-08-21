@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -16,6 +17,8 @@ class Dashboard extends Page
     protected static string $view = 'user::filament.pages.dashboard';
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 namespace Modules\User\Filament\Pages;
@@ -30,4 +33,7 @@ class Dashboard extends Page
 
     protected static string $view = 'user::filament.pages.dashboard';
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

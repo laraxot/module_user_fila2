@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -19,6 +20,8 @@ Route::prefix('user')->group(function() {
 });
 */
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 /*
@@ -35,5 +38,9 @@ Route::prefix('user')->group(function() {
 Route::prefix('user')->group(function() {
     Route::get('/', 'UserController@index');
 });
+<<<<<<< HEAD
 */
 >>>>>>> d1783f5 (up)
+=======
+*/
+>>>>>>> c3ef5a0 (up)

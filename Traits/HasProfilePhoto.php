@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -91,6 +92,8 @@ trait HasProfilePhoto
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 namespace Modules\User\Traits;
@@ -183,4 +186,7 @@ trait HasProfilePhoto
         return config('filament-jet.profile_photo_directory', 'profile-photos');
     }
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

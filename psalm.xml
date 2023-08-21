@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?xml version="1.0"?>
 <psalm
     errorLevel="4"
@@ -45,6 +46,8 @@
     </projectFiles>
 <plugins><pluginClass class="Psalm\LaravelPlugin\Plugin"/></plugins></psalm>
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?xml version="1.0"?>
 <psalm
     errorLevel="7"
@@ -66,4 +69,7 @@
         <pluginClass class="Psalm\LaravelPlugin\Plugin"/>
     </plugins>
 </psalm>
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)

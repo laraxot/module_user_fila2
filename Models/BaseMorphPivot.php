@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -90,6 +91,8 @@ abstract class BaseMorphPivot extends MorphPivot
     }
 }
 =======
+=======
+>>>>>>> c3ef5a0 (up)
 <?php
 
 declare(strict_types=1);
@@ -179,4 +182,7 @@ abstract class BaseMorphPivot extends MorphPivot {
         return FactoryService::newFactory(static::class);
     }
 }
+<<<<<<< HEAD
 >>>>>>> d1783f5 (up)
+=======
+>>>>>>> c3ef5a0 (up)
