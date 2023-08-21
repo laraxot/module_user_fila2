@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -17,3 +18,22 @@ trait HasUserProperty
         return Filament::auth()->user();
     }
 }
+=======
+<?php
+
+namespace Modules\User\Http\Livewire\Traits\Properties;
+
+use Filament\Facades\Filament;
+use Illuminate\Contracts\Auth\Authenticatable;
+
+trait HasUserProperty
+{
+    /**
+     * Get the current user of the application.
+     */
+    public function getUserProperty(): ?Authenticatable
+    {
+        return Filament::auth()->user();
+    }
+}
+>>>>>>> d1783f5 (up)

@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 providers:
   - Modules\User\Providers\UserServiceProvider
+=======
+providers:
+  - Modules\User\Providers\UserServiceProvider
+  - Livewire\LivewireServiceProvider
+>>>>>>> d1783f5 (up)

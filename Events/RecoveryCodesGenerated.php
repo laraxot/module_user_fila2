@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -23,3 +24,31 @@ class RecoveryCodesGenerated
         $this->user = $user;
     }
 }
+=======
+<?php
+
+namespace Modules\User\Events;
+
+use Illuminate\Foundation\Events\Dispatchable;
+use ArtMin96\FilamentJet\Contracts\UserContract;
+
+class RecoveryCodesGenerated
+{
+    use Dispatchable;
+
+    /**
+     *
+     */
+    public UserContract $user;
+
+    /**
+     * Create a new event instance.
+     *
+     * @return void
+     */
+    public function __construct(UserContract $user)
+    {
+        $this->user = $user;
+    }
+}
+>>>>>>> d1783f5 (up)

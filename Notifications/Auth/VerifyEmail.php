@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -15,3 +16,20 @@ class VerifyEmail extends BaseNotification
         return $this->url;
     }
 }
+=======
+<?php
+
+namespace Modules\User\Notifications\Auth;
+
+use Illuminate\Auth\Notifications\VerifyEmail as BaseNotification;
+
+class VerifyEmail extends BaseNotification
+{
+    public string $url;
+
+    protected function verificationUrl($notifiable): string
+    {
+        return $this->url;
+    }
+}
+>>>>>>> d1783f5 (up)
