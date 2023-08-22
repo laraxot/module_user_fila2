@@ -7,7 +7,7 @@ namespace Modules\User\Tests\Feature;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\User\Models\User;
-use Tests\TestCase;
+use Modules\User\Tests\TestCase;
 
 class AuthenticationTest extends TestCase
 {

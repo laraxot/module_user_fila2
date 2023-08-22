@@ -6,7 +6,7 @@ namespace Modules\User\Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\User\Models\User;
-use Tests\TestCase;
+use Modules\User\Tests\TestCase;
 
 class PasswordConfirmationTest extends TestCase
 {

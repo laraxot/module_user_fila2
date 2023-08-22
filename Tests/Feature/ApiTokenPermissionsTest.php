@@ -1,4 +1,7 @@
 <?php
+/**
+ * @see https://github.com/nWidart/laravel-modules/blob/master/tests/BaseTestCase.php
+ */
 
 declare(strict_types=1);
 
@@ -10,7 +13,10 @@ use Laravel\Jetstream\Features;
 use Laravel\Jetstream\Http\Livewire\ApiTokenManager;
 use Livewire\Livewire;
 use Modules\User\Models\User;
-use Tests\TestCase;
+use Modules\User\Tests\TestCase;
+
+// use Nwidart\Modules\Tests\BaseTestCase;
+// use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 class ApiTokenPermissionsTest extends TestCase
 {
