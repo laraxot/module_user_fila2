@@ -18,15 +18,13 @@ use Modules\User\Filament\Resources\RoleResource\Pages;
 use Modules\User\Support\Utils;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
 
-class RoleResource extends Resource
-{ /* implements HasShieldPermissions */
+class RoleResource extends Resource { /* implements HasShieldPermissions */
     use ContextualResource;
     protected static ?string $recordTitleAttribute = 'name';
 
     protected static Collection $permissionsCollection;
 
-    public static function getPermissionPrefixes(): array
-    {
+    public static function getPermissionPrefixes(): array {
         return [
             'view',
             'view_any',
@@ -37,8 +35,7 @@ class RoleResource extends Resource
         ];
     }
 
-    public static function form(Form $form): Form
-    {
+    public static function form(Form $form): Form {
         return $form
             ->schema([
                 Forms\Components\Grid::make()
@@ -134,8 +131,7 @@ class RoleResource extends Resource
             ]);
     }
 
-    public static function table(Table $table): Table
-    {
+    public static function table(Table $table): Table {
         return $table
             ->columns([
                 Tables\Columns\BadgeColumn::make('name')
@@ -164,14 +160,12 @@ class RoleResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
+    public static function getRelations(): array {
         return [
         ];
     }
 
-    public static function getPages(): array
-    {
+    public static function getPages(): array {
         return [
             'index' => Pages\ListRoles::route('/'),
             'create' => Pages\CreateRole::route('/create'),
@@ -180,13 +174,11 @@ class RoleResource extends Resource
         ];
     }
 
-    public static function getModel(): string
-    {
+    public static function getModel(): string {
         return Utils::getRoleModel();
     }
 
-    public static function canGloballySearch(): bool
-    {
+    public static function canGloballySearch(): bool {
         return Utils::isResourceGloballySearchable() && count(static::getGloballySearchableAttributes()) && static::canViewAny();
     }
 
@@ -194,8 +186,7 @@ class RoleResource extends Resource
     | Resource Related Logic Start     |
     *----------------------------------*/
 
-    public static function getResourceEntitiesSchema(): array
-    {
+    public static function getResourceEntitiesSchema(): array {
         if (blank(static::$permissionsCollection)) {
             static::$permissionsCollection = Utils::getPermissionModel()::all();
         }
@@ -238,8 +229,7 @@ class RoleResource extends Resource
             ->toArray();
     }
 
-    public static function getResourceEntityPermissionsSchema($entity): ?array
-    {
+    public static function getResourceEntityPermissionsSchema($entity): ?array {
         return collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))->reduce(function ($permissions /* @phpstan ignore-line */, $permission) use ($entity) {
             $permissions[] = Forms\Components\Checkbox::make($permission.'_'.$entity['resource'])
                 ->label(FilamentShield::getLocalizedResourcePermissionLabel($permission))
@@ -318,15 +308,13 @@ class RoleResource extends Resource
     }
     */
 
-    protected static function getNavigationBadge(): ?string
-    {
+    protected static function getNavigationBadge(): ?string {
         return Utils::isResourceNavigationBadgeEnabled()
             ? strval(static::getModel()::count())
             : null;
     }
 
-    protected static function refreshSelectAllStateViaEntities(\Closure $set, \Closure $get): void
-    {
+    protected static function refreshSelectAllStateViaEntities(\Closure $set, \Closure $get): void {
         $entitiesStates = collect(FilamentShield::getResources())
             ->when(Utils::isPageEntityEnabled(), fn ($entities) => $entities->merge(FilamentShield::getPages()))
             ->when(Utils::isWidgetEntityEnabled(), fn ($entities) => $entities->merge(FilamentShield::getWidgets()))
@@ -348,8 +336,7 @@ class RoleResource extends Resource
         }
     }
 
-    protected static function refreshEntitiesStatesViaSelectAll(\Closure $set, $state): void
-    {
+    protected static function refreshEntitiesStatesViaSelectAll(\Closure $set, $state): void {
         collect(FilamentShield::getResources())->each(function ($entity) use ($set, $state) {
             $set($entity['resource'], $state);
             collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))->each(function ($permission) use ($entity, $set, $state) {
@@ -376,8 +363,7 @@ class RoleResource extends Resource
         });
     }
 
-    protected static function refreshResourceEntityStateAfterUpdate(\Closure $set, \Closure $get, array $entity): void
-    {
+    protected static function refreshResourceEntityStateAfterUpdate(\Closure $set, \Closure $get, array $entity): void {
         $permissionStates = collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))
             ->map(function ($permission) use ($get, $entity) {
                 return (bool) $get($permission.'_'.$entity['resource']);
@@ -392,8 +378,7 @@ class RoleResource extends Resource
         }
     }
 
-    protected static function refreshResourceEntityStateAfterHydrated(Model $record, \Closure $set, array $entity): void
-    {
+    protected static function refreshResourceEntityStateAfterHydrated(Model $record, \Closure $set, array $entity): void {
         $entities = $record->permissions->pluck('name')
             ->reduce(function ($roles, $role) {
                 $roles[$role] = Str::afterLast($role, '_');
@@ -431,8 +416,7 @@ class RoleResource extends Resource
     | Page Related Logic Start       |
     *----------------------------------*/
 
-    protected static function getPageEntityPermissionsSchema(): array
-    {
+    protected static function getPageEntityPermissionsSchema(): array {
         return collect(FilamentShield::getPages())->sortKeys()->reduce(function ($pages, $page) {
             $pages[] = Forms\Components\Grid::make()
                 ->schema([
@@ -472,8 +456,7 @@ class RoleResource extends Resource
     | Widget Related Logic Start       |
     *----------------------------------*/
 
-    protected static function getWidgetEntityPermissionSchema(): ?array
-    {
+    protected static function getWidgetEntityPermissionSchema(): ?array {
         return collect(FilamentShield::getWidgets())->reduce(function ($widgets, $widget) {
             $widgets[] = Forms\Components\Grid::make()
                 ->schema([
@@ -509,8 +492,7 @@ class RoleResource extends Resource
     | Widget Related Logic End          |
     *----------------------------------*/
 
-    protected static function getCustomEntities(): ?Collection
-    {
+    protected static function getCustomEntities(): ?Collection {
         $resourcePermissions = collect();
         collect(FilamentShield::getResources())->each(function ($entity) use ($resourcePermissions) {
             collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))->map(function ($permission) use ($resourcePermissions, $entity) {
@@ -526,8 +508,7 @@ class RoleResource extends Resource
         return static::$permissionsCollection->whereNotIn('name', $entitiesPermissions)->pluck('name');
     }
 
-    protected static function getCustomEntitiesPermisssionSchema(): ?array
-    {
+    protected static function getCustomEntitiesPermisssionSchema(): ?array {
         return collect(static::getCustomEntities())->reduce(function ($customEntities, $customPermission) {
             $customEntities[] = Forms\Components\Grid::make()
                 ->schema([
