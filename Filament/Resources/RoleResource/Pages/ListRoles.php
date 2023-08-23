@@ -1,12 +1,10 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
+use RoleResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
-use Modules\User\Filament\Resources\RoleResource;
 
 class ListRoles extends ListRecords
 {

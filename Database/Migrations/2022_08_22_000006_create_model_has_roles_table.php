@@ -22,7 +22,7 @@ class CreateModelHasRolesTable extends XotBaseMigration
         /** @var array $columnNames */
         $columnNames = config('permission.column_names');
         /** @var array $teams */
-        $teams = config('permission.teams');
+        $teams = true; // config('permission.teams');
 
         // -- CREATE --
         $this->tableCreate(
