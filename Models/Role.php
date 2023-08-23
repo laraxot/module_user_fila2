@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Permission\Models\Role as SpatieRole;
 
 /**
  * Modules\User\Models\Role.
@@ -37,7 +38,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *
  * @mixin \Eloquent
  */
-class Role extends \Spatie\Permission\Models\Role
+class Role extends SpatieRole
 {
     use HasFactory;
 

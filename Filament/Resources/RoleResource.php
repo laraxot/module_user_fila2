@@ -15,12 +15,14 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Modules\User\Facades\FilamentShield;
 use Modules\User\Filament\Resources\RoleResource\Pages;
+use Modules\User\Models\Role;
 use Modules\User\Support\Utils;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
 
 class RoleResource extends Resource
 { /* implements HasShieldPermissions */
     use ContextualResource;
+    protected static ?string $model = Role::class;
     protected static ?string $recordTitleAttribute = 'name';
 
     protected static Collection $permissionsCollection;
