@@ -30,12 +30,11 @@ use Modules\User\Filament\Resources\UserResource\RelationManagers;
 use Modules\User\Filament\Resources\UserResource\Widgets;
 use Modules\User\Models\Role;
 use Modules\User\Models\User;
-use Savannabits\FilamentModules\Concerns\ContextualResource;
+use Modules\Xot\Filament\Resources\XotBaseResource;
 
-class UserResource extends Resource
+class UserResource extends XotBaseResource
 {
-    use ContextualResource;
-    protected static ?string $model = User::class;
+    // protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
