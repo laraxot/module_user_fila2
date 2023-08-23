@@ -7,13 +7,12 @@ namespace Modules\User\Filament\Resources;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Modules\User\Filament\Resources\RoleResource\Pages;
+use Modules\User\Filament\Resources\TeamResource\Pages;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
-class RoleResource extends XotBaseResource
+class TeamResource extends XotBaseResource
 {
-    protected static ?string $navigationIcon = 'heroicon-o-shield-check';
-    protected static ?string $recordTitleAttribute = 'name';
+    protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
     {
@@ -47,15 +46,10 @@ class RoleResource extends XotBaseResource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListRoles::route('/'),
-            'create' => Pages\CreateRole::route('/create'),
-            'view' => Pages\ViewRole::route('/{record}'),
-            'edit' => Pages\EditRole::route('/{record}/edit'),
+            'index' => Pages\ListTeams::route('/'),
+            'create' => Pages\CreateTeam::route('/create'),
+            'view' => Pages\ViewTeam::route('/{record}'),
+            'edit' => Pages\EditTeam::route('/{record}/edit'),
         ];
-    }
-
-    protected static function getNavigationBadge(): ?string
-    {
-        return strval(static::getModel()::count());
     }
 }

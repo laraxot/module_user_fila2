@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Modules\User\Filament\Resources\RoleResource\Pages;
+namespace Modules\User\Filament\Resources\TeamResource\Pages;
 
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ViewRecord;
-use Modules\User\Filament\Resources\RoleResource;
+use Modules\User\Filament\Resources\TeamResource;
 
-class ViewRole extends ViewRecord
+class ViewTeam extends ViewRecord
 {
-    protected static string $resource = RoleResource::class;
+    protected static string $resource = TeamResource::class;
 
     protected function getActions(): array
     {
