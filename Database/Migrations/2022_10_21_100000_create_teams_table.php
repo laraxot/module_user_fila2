@@ -1,7 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
+=======
+>>>>>>> cf6505a (.)
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
@@ -22,8 +25,12 @@ class CreateTeamsTable extends XotBaseMigration
                 $table->string('name');
                 $table->boolean('personal_team');
                 $table->timestamps();
+<<<<<<< HEAD
             }
         );
+=======
+            });
+>>>>>>> cf6505a (.)
 
         // -- UPDATE --
         $this->tableUpdate(
@@ -33,5 +40,9 @@ class CreateTeamsTable extends XotBaseMigration
                 // }
             }
         );
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf6505a (.)
     }
 }

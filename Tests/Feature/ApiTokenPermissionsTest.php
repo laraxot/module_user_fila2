@@ -13,10 +13,14 @@ use Laravel\Jetstream\Features;
 use Laravel\Jetstream\Http\Livewire\ApiTokenManager;
 use Livewire\Livewire;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 use Modules\User\Tests\TestCase;
 
 // use Nwidart\Modules\Tests\BaseTestCase;
 // use Orchestra\Testbench\TestCase as OrchestraTestCase;
+=======
+use Tests\TestCase;
+>>>>>>> cf6505a (.)
 
 class ApiTokenPermissionsTest extends TestCase
 {
@@ -25,7 +29,11 @@ class ApiTokenPermissionsTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function apiTokenPermissionsCanBeUpdated(): void
+=======
+    public function api_token_permissions_can_be_updated(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::hasApiFeatures()) {
             $this->markTestSkipped('API support is not enabled.');

@@ -17,7 +17,11 @@ class RegistrationTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function registrationScreenCanBeRendered(): void
+=======
+    public function registration_screen_can_be_rendered(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::enabled(Features::registration())) {
             $this->markTestSkipped('Registration support is not enabled.');
@@ -33,7 +37,11 @@ class RegistrationTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function registrationScreenCannotBeRenderedIfSupportIsDisabled(): void
+=======
+    public function registration_screen_cannot_be_rendered_if_support_is_disabled(): void
+>>>>>>> cf6505a (.)
     {
         if (Features::enabled(Features::registration())) {
             $this->markTestSkipped('Registration support is enabled.');
@@ -49,7 +57,11 @@ class RegistrationTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function newUsersCanRegister(): void
+=======
+    public function new_users_can_register(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::enabled(Features::registration())) {
             $this->markTestSkipped('Registration support is not enabled.');

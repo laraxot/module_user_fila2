@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Http\Middleware;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Xot\Http\Middleware\XotBaseFilamentMiddleware;
 =======
 use Filament\Models\Contracts\FilamentUser;
@@ -17,6 +18,12 @@ use Webmozart\Assert\Assert;
 >>>>>>> 36aaec9 (.)
 =======
 >>>>>>> 50d5b27 (up)
+=======
+use Filament\Models\Contracts\FilamentUser;
+use Illuminate\Support\Str;
+use Modules\Xot\Http\Middleware\XotBaseFilamentMiddleware;
+use Webmozart\Assert\Assert;
+>>>>>>> cf6505a (.)
 
 class FilamentMiddleware extends XotBaseFilamentMiddleware
 {

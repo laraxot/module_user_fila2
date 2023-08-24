@@ -11,7 +11,11 @@ use Laravel\Jetstream\Http\Livewire\TeamMemberManager;
 use Laravel\Jetstream\Mail\TeamInvitation;
 use Livewire\Livewire;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 use Modules\User\Tests\TestCase;
+=======
+use Tests\TestCase;
+>>>>>>> cf6505a (.)
 
 class InviteTeamMemberTest extends TestCase
 {
@@ -20,7 +24,11 @@ class InviteTeamMemberTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function teamMembersCanBeInvitedToTeam(): void
+=======
+    public function team_members_can_be_invited_to_team(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::sendsTeamInvitations()) {
             $this->markTestSkipped('Team invitations not enabled.');
@@ -46,7 +54,11 @@ class InviteTeamMemberTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function teamMemberInvitationsCanBeCancelled(): void
+=======
+    public function team_member_invitations_can_be_cancelled(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::sendsTeamInvitations()) {
             $this->markTestSkipped('Team invitations not enabled.');

@@ -8,7 +8,11 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Jetstream\Http\Livewire\TeamMemberManager;
 use Livewire\Livewire;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 use Modules\User\Tests\TestCase;
+=======
+use Tests\TestCase;
+>>>>>>> cf6505a (.)
 
 class RemoveTeamMemberTest extends TestCase
 {
@@ -17,7 +21,11 @@ class RemoveTeamMemberTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function teamMembersCanBeRemovedFromTeams(): void
+=======
+    public function team_members_can_be_removed_from_teams(): void
+>>>>>>> cf6505a (.)
     {
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
@@ -36,7 +44,11 @@ class RemoveTeamMemberTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function onlyTeamOwnerCanRemoveTeamMembers(): void
+=======
+    public function only_team_owner_can_remove_team_members(): void
+>>>>>>> cf6505a (.)
     {
         $user = User::factory()->withPersonalTeam()->create();
 

@@ -9,7 +9,11 @@ use Laravel\Jetstream\Http\Livewire\DeleteTeamForm;
 use Livewire\Livewire;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 use Modules\User\Tests\TestCase;
+=======
+use Tests\TestCase;
+>>>>>>> cf6505a (.)
 
 class DeleteTeamTest extends TestCase
 {
@@ -18,7 +22,11 @@ class DeleteTeamTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function teamsCanBeDeleted(): void
+=======
+    public function teams_can_be_deleted(): void
+>>>>>>> cf6505a (.)
     {
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
@@ -41,7 +49,11 @@ class DeleteTeamTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function personalTeamsCantBeDeleted(): void
+=======
+    public function personal_teams_cant_be_deleted(): void
+>>>>>>> cf6505a (.)
     {
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 

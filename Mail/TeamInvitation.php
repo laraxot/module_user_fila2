@@ -18,4 +18,8 @@ class TeamInvitation extends Mailable
      * The team invitation instance.
      */
     public TeamInvitationModel $invitation;
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf6505a (.)
 }

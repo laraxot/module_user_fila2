@@ -9,7 +9,11 @@ use Laravel\Jetstream\Features;
 use Laravel\Jetstream\Http\Livewire\ApiTokenManager;
 use Livewire\Livewire;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 use Modules\User\Tests\TestCase;
+=======
+use Tests\TestCase;
+>>>>>>> cf6505a (.)
 
 class CreateApiTokenTest extends TestCase
 {
@@ -18,7 +22,11 @@ class CreateApiTokenTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function apiTokensCanBeCreated(): void
+=======
+    public function api_tokens_can_be_created(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::hasApiFeatures()) {
             $this->markTestSkipped('API support is not enabled.');

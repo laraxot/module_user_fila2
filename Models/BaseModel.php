@@ -63,7 +63,10 @@ abstract class BaseModel extends Model
      * @var string
      */
     protected $primaryKey = 'id';
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf6505a (.)
     /**
      * @var array<int, string>
      */

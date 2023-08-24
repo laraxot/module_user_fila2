@@ -25,7 +25,13 @@ class ModelHasPermissionFactory extends Factory
      */
     public function definition()
     {
+<<<<<<< HEAD
         return [
+=======
+
+        return [
+
+>>>>>>> cf6505a (.)
         ];
     }
 }

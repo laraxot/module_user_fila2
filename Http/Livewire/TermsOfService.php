@@ -6,6 +6,7 @@ namespace Modules\User\Http\Livewire;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 use ArtMin96\FilamentJet\FilamentJet;
 =======
 <<<<<<< HEAD
@@ -23,6 +24,14 @@ use Livewire\Component;
 use function Safe\file_get_contents;
 
 use Webmozart\Assert\Assert;
+=======
+use ArtMin96\FilamentJet\FilamentJet;
+use Illuminate\Support\Str;
+use Livewire\Component;
+use Webmozart\Assert\Assert;
+
+use function Safe\file_get_contents;
+>>>>>>> cf6505a (.)
 
 class TermsOfService extends Component
 {

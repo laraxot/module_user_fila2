@@ -15,6 +15,7 @@ namespace Modules\User\Models;
  * @property string|null                     $updated_by
  *
  * @method static \Modules\User\Database\Factories\PasswordResetFactory factory($count = null, $state = [])
+<<<<<<< HEAD
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset   newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset   newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset   query()
@@ -24,6 +25,17 @@ namespace Modules\User\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset   whereToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset   whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset   whereUpdatedBy($value)
+=======
+ * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset query()
+ * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset whereToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PasswordReset whereUpdatedBy($value)
+>>>>>>> cf6505a (.)
  *
  * @mixin IdeHelperPasswordReset
  * @mixin \Eloquent

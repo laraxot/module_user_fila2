@@ -9,7 +9,11 @@ use Laravel\Jetstream\Features;
 use Laravel\Jetstream\Http\Livewire\DeleteUserForm;
 use Livewire\Livewire;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 use Modules\User\Tests\TestCase;
+=======
+use Tests\TestCase;
+>>>>>>> cf6505a (.)
 
 class DeleteAccountTest extends TestCase
 {
@@ -18,7 +22,11 @@ class DeleteAccountTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function userAccountsCanBeDeleted(): void
+=======
+    public function user_accounts_can_be_deleted(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::hasAccountDeletionFeatures()) {
             $this->markTestSkipped('Account deletion is not enabled.');
@@ -38,7 +46,11 @@ class DeleteAccountTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function correctPasswordMustBeProvidedBeforeAccountCanBeDeleted(): void
+=======
+    public function correct_password_must_be_provided_before_account_can_be_deleted(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::hasAccountDeletionFeatures()) {
             $this->markTestSkipped('Account deletion is not enabled.');

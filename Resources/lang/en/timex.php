@@ -25,6 +25,10 @@ return [
         'end' => 'End',
         'participants' => 'Participants',
         'attachments' => 'Attachments',
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf6505a (.)
     ],
     'event-list' => [
         'author' => 'Author: :name',

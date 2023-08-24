@@ -11,7 +11,11 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
 use Laravel\Fortify\Features;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 use Modules\User\Tests\TestCase;
+=======
+use Tests\TestCase;
+>>>>>>> cf6505a (.)
 
 class EmailVerificationTest extends TestCase
 {
@@ -20,7 +24,11 @@ class EmailVerificationTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function emailVerificationScreenCanBeRendered(): void
+=======
+    public function email_verification_screen_can_be_rendered(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::enabled(Features::emailVerification())) {
             $this->markTestSkipped('Email verification not enabled.');
@@ -38,7 +46,11 @@ class EmailVerificationTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function emailCanBeVerified(): void
+=======
+    public function email_can_be_verified(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::enabled(Features::emailVerification())) {
             $this->markTestSkipped('Email verification not enabled.');
@@ -61,13 +73,17 @@ class EmailVerificationTest extends TestCase
         Event::assertDispatched(Verified::class);
 
         $this->assertTrue($user->fresh()->hasVerifiedEmail());
-        $response->assertRedirect(RouteServiceProvider::HOME.'?verified=1');
+        $response->assertRedirect(RouteServiceProvider::HOME . '?verified=1');
     }
 
     /**
      * @test
      */
+<<<<<<< HEAD
     public function emailCanNotVerifiedWithInvalidHash(): void
+=======
+    public function email_can_not_verified_with_invalid_hash(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::enabled(Features::emailVerification())) {
             $this->markTestSkipped('Email verification not enabled.');

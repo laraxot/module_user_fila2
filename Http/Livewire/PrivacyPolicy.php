@@ -25,9 +25,12 @@ use function Safe\file_get_contents;
 use Webmozart\Assert\Assert;
 =======
 use Webmozart\Assert\Assert;
-use function Safe\file_get_contents;
 
+<<<<<<< HEAD
 >>>>>>> 50d5b27 (up)
+=======
+use function Safe\file_get_contents;
+>>>>>>> cf6505a (.)
 
 class PrivacyPolicy extends Component
 {

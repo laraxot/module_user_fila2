@@ -15,4 +15,8 @@ class ShieldResourceData extends Data
     public bool $navigation_badge; // = true;
     public bool $navigation_group; // = true;
     public bool $is_globally_searchable; // = false;
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf6505a (.)
 }

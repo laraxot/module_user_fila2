@@ -28,23 +28,33 @@
         "laravel/passport": "*"
     },
     "require-dev": {
+<<<<<<< HEAD
         "barryvdh/laravel-ide-helper": "*",
         "fakerphp/faker": "*",
         "friendsofphp/php-cs-fixer": "*",
         "laravel/pint": "*",
         "nunomaduro/collision": "*",
+=======
+>>>>>>> cf6505a (.)
         "nunomaduro/larastan": "*",
         "nunomaduro/phpinsights": "^2.8",
         "orchestra/testbench": "*",
         "pestphp/pest": "*",
         "pestphp/pest-plugin-arch": "*",
         "pestphp/pest-plugin-laravel": "*",
+<<<<<<< HEAD
         "phpstan/phpstan-deprecation-rules": "*",
         "phpstan/phpstan-phpunit": "*",
         "psalm/plugin-laravel": "^2.8",
         "spatie/laravel-ray": "*",
         "thecodingmachine/phpstan-safe-rule": "*",
         "tightenco/duster": "^2.2"
+=======
+        "phpunit/phpunit": "*",
+        "psalm/plugin-laravel": "*",
+        "thecodingmachine/phpstan-safe-rule": "*",
+        "tightenco/duster": "*"
+>>>>>>> cf6505a (.)
     },
     "repositories": [{
             "type": "path",

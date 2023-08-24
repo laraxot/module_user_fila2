@@ -25,6 +25,10 @@ class ModelHasRoleFactory extends Factory
      */
     public function definition()
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf6505a (.)
         return [
             'role_id' => $this->faker->randomNumber(5, false),
             'model_type' => $this->faker->word,

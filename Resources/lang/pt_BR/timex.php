@@ -28,6 +28,10 @@ return [
         'end' => 'Término',
         'participants' => 'Participantes',
         'attachments' => 'Anexos',
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf6505a (.)
     ],
 
     'event-list' => [

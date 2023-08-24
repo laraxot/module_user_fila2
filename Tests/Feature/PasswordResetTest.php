@@ -9,7 +9,11 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
 use Laravel\Fortify\Features;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 use Modules\User\Tests\TestCase;
+=======
+use Tests\TestCase;
+>>>>>>> cf6505a (.)
 
 class PasswordResetTest extends TestCase
 {
@@ -18,7 +22,11 @@ class PasswordResetTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function resetPasswordLinkScreenCanBeRendered(): void
+=======
+    public function reset_password_link_screen_can_be_rendered(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::enabled(Features::resetPasswords())) {
             $this->markTestSkipped('Password updates are not enabled.');
@@ -34,7 +42,11 @@ class PasswordResetTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function resetPasswordLinkCanBeRequested(): void
+=======
+    public function reset_password_link_can_be_requested(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::enabled(Features::resetPasswords())) {
             $this->markTestSkipped('Password updates are not enabled.');
@@ -56,7 +68,11 @@ class PasswordResetTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function resetPasswordScreenCanBeRendered(): void
+=======
+    public function reset_password_screen_can_be_rendered(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::enabled(Features::resetPasswords())) {
             $this->markTestSkipped('Password updates are not enabled.');
@@ -73,7 +89,7 @@ class PasswordResetTest extends TestCase
         ]);
 
         Notification::assertSentTo($user, ResetPassword::class, function (object $notification) {
-            $response = $this->get('/reset-password/'.$notification->token);
+            $response = $this->get('/reset-password/' . $notification->token);
 
             $response->assertStatus(200);
 
@@ -84,7 +100,11 @@ class PasswordResetTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function passwordCanBeResetWithValidToken(): void
+=======
+    public function password_can_be_reset_with_valid_token(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::enabled(Features::resetPasswords())) {
             $this->markTestSkipped('Password updates are not enabled.');

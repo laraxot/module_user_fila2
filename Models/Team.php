@@ -45,4 +45,8 @@ class Team extends FilamentJetTeam
      * @var string
      */
     protected $connection = 'user';
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf6505a (.)
 }

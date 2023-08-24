@@ -10,9 +10,15 @@ namespace Modules\User\Models;
  * @mixin IdeHelperModelHasPermission
  *
  * @method static \Modules\User\Database\Factories\ModelHasPermissionFactory factory($count = null, $state = [])
+<<<<<<< HEAD
  * @method static \Illuminate\Database\Eloquent\Builder|ModelHasPermission   newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ModelHasPermission   newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ModelHasPermission   query()
+=======
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasPermission newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasPermission newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasPermission query()
+>>>>>>> cf6505a (.)
  *
  * @mixin \Eloquent
  */

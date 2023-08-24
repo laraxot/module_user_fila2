@@ -9,7 +9,11 @@ use Laravel\Fortify\Features;
 use Laravel\Jetstream\Http\Livewire\TwoFactorAuthenticationForm;
 use Livewire\Livewire;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 use Modules\User\Tests\TestCase;
+=======
+use Tests\TestCase;
+>>>>>>> cf6505a (.)
 
 class TwoFactorAuthenticationSettingsTest extends TestCase
 {
@@ -18,7 +22,11 @@ class TwoFactorAuthenticationSettingsTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function twoFactorAuthenticationCanBeEnabled(): void
+=======
+    public function two_factor_authentication_can_be_enabled(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::canManageTwoFactorAuthentication()) {
             $this->markTestSkipped('Two factor authentication is not enabled.');
@@ -42,7 +50,11 @@ class TwoFactorAuthenticationSettingsTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function recoveryCodesCanBeRegenerated(): void
+=======
+    public function recovery_codes_can_be_regenerated(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::canManageTwoFactorAuthentication()) {
             $this->markTestSkipped('Two factor authentication is not enabled.');
@@ -69,7 +81,11 @@ class TwoFactorAuthenticationSettingsTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function twoFactorAuthenticationCanBeDisabled(): void
+=======
+    public function two_factor_authentication_can_be_disabled(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::canManageTwoFactorAuthentication()) {
             $this->markTestSkipped('Two factor authentication is not enabled.');

@@ -9,7 +9,11 @@ use Illuminate\Support\Facades\Hash;
 use Laravel\Jetstream\Http\Livewire\UpdatePasswordForm;
 use Livewire\Livewire;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 use Modules\User\Tests\TestCase;
+=======
+use Tests\TestCase;
+>>>>>>> cf6505a (.)
 
 class UpdatePasswordTest extends TestCase
 {
@@ -18,7 +22,11 @@ class UpdatePasswordTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function passwordCanBeUpdated(): void
+=======
+    public function password_can_be_updated(): void
+>>>>>>> cf6505a (.)
     {
         $this->actingAs($user = User::factory()->create());
 
@@ -36,7 +44,11 @@ class UpdatePasswordTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function currentPasswordMustBeCorrect(): void
+=======
+    public function current_password_must_be_correct(): void
+>>>>>>> cf6505a (.)
     {
         $this->actingAs($user = User::factory()->create());
 
@@ -55,7 +67,11 @@ class UpdatePasswordTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function newPasswordsMustMatch(): void
+=======
+    public function new_passwords_must_match(): void
+>>>>>>> cf6505a (.)
     {
         $this->actingAs($user = User::factory()->create());
 

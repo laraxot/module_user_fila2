@@ -10,7 +10,11 @@ use Laravel\Jetstream\Features;
 use Laravel\Jetstream\Http\Livewire\ApiTokenManager;
 use Livewire\Livewire;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 use Modules\User\Tests\TestCase;
+=======
+use Tests\TestCase;
+>>>>>>> cf6505a (.)
 
 class DeleteApiTokenTest extends TestCase
 {
@@ -19,7 +23,11 @@ class DeleteApiTokenTest extends TestCase
     /**
      * @test
      */
+<<<<<<< HEAD
     public function apiTokensCanBeDeleted(): void
+=======
+    public function api_tokens_can_be_deleted(): void
+>>>>>>> cf6505a (.)
     {
         if (! Features::hasApiFeatures()) {
             $this->markTestSkipped('API support is not enabled.');
