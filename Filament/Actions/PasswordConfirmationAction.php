@@ -10,6 +10,7 @@ use Filament\Pages\Actions\Action;
 class PasswordConfirmationAction extends Action
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     public function call(array $data = []): void
     {
@@ -22,6 +23,8 @@ class PasswordConfirmationAction extends Action
         parent::call($data);
     }
 
+=======
+>>>>>>> d9f7748 (up)
     protected function isPasswordSessionValid(): bool
     {
         return session()->has('auth.password_confirmed_at') && (time() - session('auth.password_confirmed_at', 0)) < config('filament-jet.password_confirmation_seconds');
@@ -49,6 +52,9 @@ class PasswordConfirmationAction extends Action
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d9f7748 (up)
 
     public function call(array $data = []): void
     {
@@ -60,6 +66,7 @@ class PasswordConfirmationAction extends Action
 
         parent::call($data);
     }
+<<<<<<< HEAD
 
     protected function isPasswordSessionValid(): bool
     {
@@ -67,4 +74,6 @@ class PasswordConfirmationAction extends Action
     }
 =======
 >>>>>>> cf6505a (.)
+=======
+>>>>>>> d9f7748 (up)
 }

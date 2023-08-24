@@ -6,6 +6,7 @@ namespace Modules\User\Http\Middleware;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Xot\Http\Middleware\XotBaseFilamentMiddleware;
 =======
 use Filament\Models\Contracts\FilamentUser;
@@ -20,10 +21,17 @@ use Webmozart\Assert\Assert;
 >>>>>>> 50d5b27 (up)
 =======
 use Filament\Models\Contracts\FilamentUser;
+=======
+>>>>>>> d9f7748 (up)
 use Illuminate\Support\Str;
-use Modules\Xot\Http\Middleware\XotBaseFilamentMiddleware;
 use Webmozart\Assert\Assert;
+<<<<<<< HEAD
 >>>>>>> cf6505a (.)
+=======
+use Filament\Models\Contracts\FilamentUser;
+use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Modules\Xot\Http\Middleware\XotBaseFilamentMiddleware;
+>>>>>>> d9f7748 (up)
 
 class FilamentMiddleware extends XotBaseFilamentMiddleware
 {

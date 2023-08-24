@@ -86,8 +86,12 @@ use Spatie\PersonalDataExport\ExportsPersonalData;
  *
  * @mixin \Eloquent
  */
-class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contracts\UserContract, HasAvatar, UserJetContract, ExportsPersonalData
-{ /* , HasTeamsContract */
+class User extends Authenticatable implements
+    FilamentUser,
+    \Modules\Xot\Contracts\UserContract,
+    HasAvatar,
+    UserJetContract,
+    ExportsPersonalData { /* , HasTeamsContract */
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
@@ -145,16 +149,17 @@ class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contrac
         'profile_photo_url',
     ];
 
-    public function canAccessFilament(): bool
-    {
+
+    public function canAccessFilament(): bool {
         // return $this->role_id === Role::ROLE_ADMINISTRATOR;
         return true;
     }
 
-    public function profile(): HasOne
-    {
+    public function profile(): HasOne {
         $profileClass = XotData::make()->getProfileClass();
 
         return $this->hasOne($profileClass);
     }
+
+
 }

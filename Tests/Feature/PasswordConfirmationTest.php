@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\User\Models\User;
+<<<<<<< HEAD
 <<<<<<< HEAD
 use Modules\User\Tests\TestCase;
 =======
+=======
+use Illuminate\Foundation\Testing\RefreshDatabase;
+>>>>>>> d9f7748 (up)
 use Tests\TestCase;
 >>>>>>> cf6505a (.)
 
@@ -16,6 +19,7 @@ class PasswordConfirmationTest extends TestCase
 {
     use RefreshDatabase;
 
+<<<<<<< HEAD
     /**
      * @test
      */
@@ -24,6 +28,9 @@ class PasswordConfirmationTest extends TestCase
 =======
     public function confirm_password_screen_can_be_rendered(): void
 >>>>>>> cf6505a (.)
+=======
+    public function test_confirm_password_screen_can_be_rendered(): void
+>>>>>>> d9f7748 (up)
     {
         $user = User::factory()->withPersonalTeam()->create();
 
@@ -32,6 +39,7 @@ class PasswordConfirmationTest extends TestCase
         $response->assertStatus(200);
     }
 
+<<<<<<< HEAD
     /**
      * @test
      */
@@ -40,6 +48,9 @@ class PasswordConfirmationTest extends TestCase
 =======
     public function password_can_be_confirmed(): void
 >>>>>>> cf6505a (.)
+=======
+    public function test_password_can_be_confirmed(): void
+>>>>>>> d9f7748 (up)
     {
         $user = User::factory()->create();
 
@@ -51,6 +62,7 @@ class PasswordConfirmationTest extends TestCase
         $response->assertSessionHasNoErrors();
     }
 
+<<<<<<< HEAD
     /**
      * @test
      */
@@ -59,6 +71,9 @@ class PasswordConfirmationTest extends TestCase
 =======
     public function password_is_not_confirmed_with_invalid_password(): void
 >>>>>>> cf6505a (.)
+=======
+    public function test_password_is_not_confirmed_with_invalid_password(): void
+>>>>>>> d9f7748 (up)
     {
         $user = User::factory()->create();
 

@@ -10,15 +10,13 @@ use Spatie\Permission\PermissionRegistrar;
 /**
  * Class CreateModelHasPermissionsTable.
  */
-class CreateModelHasPermissionsTable extends XotBaseMigration
-{
+class CreateModelHasPermissionsTable extends XotBaseMigration {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         /** @var array $tableNames */
         $tableNames = config('permission.table_names');
         /** @var array $columnNames */

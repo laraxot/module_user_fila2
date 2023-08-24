@@ -4,14 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Feature;
 
+use Modules\User\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Jetstream\Http\Livewire\UpdatePasswordForm;
 use Livewire\Livewire;
+<<<<<<< HEAD
 use Modules\User\Models\User;
 <<<<<<< HEAD
 use Modules\User\Tests\TestCase;
 =======
+=======
+>>>>>>> d9f7748 (up)
 use Tests\TestCase;
 >>>>>>> cf6505a (.)
 
@@ -19,6 +23,7 @@ class UpdatePasswordTest extends TestCase
 {
     use RefreshDatabase;
 
+<<<<<<< HEAD
     /**
      * @test
      */
@@ -27,6 +32,9 @@ class UpdatePasswordTest extends TestCase
 =======
     public function password_can_be_updated(): void
 >>>>>>> cf6505a (.)
+=======
+    public function test_password_can_be_updated(): void
+>>>>>>> d9f7748 (up)
     {
         $this->actingAs($user = User::factory()->create());
 
@@ -41,6 +49,7 @@ class UpdatePasswordTest extends TestCase
         $this->assertTrue(Hash::check('new-password', $user->fresh()->password));
     }
 
+<<<<<<< HEAD
     /**
      * @test
      */
@@ -49,6 +58,9 @@ class UpdatePasswordTest extends TestCase
 =======
     public function current_password_must_be_correct(): void
 >>>>>>> cf6505a (.)
+=======
+    public function test_current_password_must_be_correct(): void
+>>>>>>> d9f7748 (up)
     {
         $this->actingAs($user = User::factory()->create());
 
@@ -64,6 +76,7 @@ class UpdatePasswordTest extends TestCase
         $this->assertTrue(Hash::check('password', $user->fresh()->password));
     }
 
+<<<<<<< HEAD
     /**
      * @test
      */
@@ -72,6 +85,9 @@ class UpdatePasswordTest extends TestCase
 =======
     public function new_passwords_must_match(): void
 >>>>>>> cf6505a (.)
+=======
+    public function test_new_passwords_must_match(): void
+>>>>>>> d9f7748 (up)
     {
         $this->actingAs($user = User::factory()->create());
 

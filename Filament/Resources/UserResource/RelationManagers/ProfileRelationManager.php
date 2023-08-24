@@ -10,14 +10,12 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
 
-class ProfileRelationManager extends RelationManager
-{
+class ProfileRelationManager extends RelationManager {
     protected static string $relationship = 'profile';
 
     protected static ?string $recordTitleAttribute = 'first_name';
 
-    public static function form(Form $form): Form
-    {
+    public static function form(Form $form): Form {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('ente'),
@@ -29,8 +27,7 @@ class ProfileRelationManager extends RelationManager
             ]);
     }
 
-    public static function table(Table $table): Table
-    {
+    public static function table(Table $table): Table {
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id'),

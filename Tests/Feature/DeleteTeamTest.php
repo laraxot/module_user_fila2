@@ -4,14 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Feature;
 
+use Modules\User\Models\Team;
+use Modules\User\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Jetstream\Http\Livewire\DeleteTeamForm;
 use Livewire\Livewire;
+<<<<<<< HEAD
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
 <<<<<<< HEAD
 use Modules\User\Tests\TestCase;
 =======
+=======
+>>>>>>> d9f7748 (up)
 use Tests\TestCase;
 >>>>>>> cf6505a (.)
 
@@ -19,6 +24,7 @@ class DeleteTeamTest extends TestCase
 {
     use RefreshDatabase;
 
+<<<<<<< HEAD
     /**
      * @test
      */
@@ -27,6 +33,9 @@ class DeleteTeamTest extends TestCase
 =======
     public function teams_can_be_deleted(): void
 >>>>>>> cf6505a (.)
+=======
+    public function test_teams_can_be_deleted(): void
+>>>>>>> d9f7748 (up)
     {
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
@@ -46,6 +55,7 @@ class DeleteTeamTest extends TestCase
         $this->assertCount(0, $otherUser->fresh()->teams);
     }
 
+<<<<<<< HEAD
     /**
      * @test
      */
@@ -54,6 +64,9 @@ class DeleteTeamTest extends TestCase
 =======
     public function personal_teams_cant_be_deleted(): void
 >>>>>>> cf6505a (.)
+=======
+    public function test_personal_teams_cant_be_deleted(): void
+>>>>>>> d9f7748 (up)
     {
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 

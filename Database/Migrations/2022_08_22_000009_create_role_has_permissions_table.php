@@ -27,14 +27,14 @@ class CreateRoleHasPermissionsTable extends XotBaseMigration
 
                 // *
                 $table->foreign(PermissionRegistrar::$pivotPermission)
-                    ->references('id') // permission id
-                    ->on('permissions')
-                    ->onDelete('cascade');
+                        ->references('id') // permission id
+                        ->on('permissions')
+                        ->onDelete('cascade');
 
                 $table->foreign(PermissionRegistrar::$pivotRole)
-                    ->references('id') // role id
-                    ->on('roles')
-                    ->onDelete('cascade');
+                        ->references('id') // role id
+                        ->on('roles')
+                        ->onDelete('cascade');
 
                 $table->primary(
                     [

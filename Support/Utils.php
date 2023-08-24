@@ -39,7 +39,7 @@ class Utils
     {
         $roleResourcePath = app_path((string) Str::of('Filament\\Resources\\Shield\\RoleResource.php')->replace('\\', '/'));
 
-        $filesystem = new Filesystem;
+        $filesystem = new Filesystem();
 
         return $filesystem->exists($roleResourcePath);
     }
@@ -84,8 +84,7 @@ class Utils
 
     public static function getAuthProviderFQCN(): string
     {
-        Assert::string($res = config('filament-shield.auth_provider_model.fqcn'));
-
+        Assert::string($res=config('filament-shield.auth_provider_model.fqcn'));
         return $res;
     }
 
@@ -133,36 +132,31 @@ class Utils
 
     public static function getGeneralResourcePermissionPrefixes(): array
     {
-        Assert::isArray($res = config('filament-shield.permission_prefixes.resource'), 'wip');
-
+        Assert::isArray($res=config('filament-shield.permission_prefixes.resource'), 'wip');
         return $res;
     }
 
     public static function getPagePermissionPrefix(): string
     {
-        Assert::string($res = config('filament-shield.permission_prefixes.page'));
-
+        Assert::string($res= config('filament-shield.permission_prefixes.page'));
         return $res;
     }
 
     public static function getWidgetPermissionPrefix(): string
     {
-        Assert::string($res = config('filament-shield.permission_prefixes.widget'));
-
+        Assert::string($res= config('filament-shield.permission_prefixes.widget'));
         return $res;
     }
 
     public static function isResourceEntityEnabled(): bool
     {
-        Assert::boolean($res = config('filament-shield.entities.resources', true));
-
+        Assert::boolean($res= config('filament-shield.entities.resources', true));
         return $res;
     }
 
     public static function isPageEntityEnabled(): bool
     {
-        Assert::boolean($res = config('filament-shield.entities.pages', true));
-
+        Assert::boolean($res= config('filament-shield.entities.pages', true));
         return $res;
     }
 
@@ -171,29 +165,25 @@ class Utils
      */
     public static function isWidgetEntityEnabled(): bool
     {
-        Assert::boolean($res = config('filament-shield.entities.widgets', true));
-
+        Assert::boolean($res= config('filament-shield.entities.widgets', true));
         return $res;
     }
 
     public static function isCustomPermissionEntityEnabled(): bool
     {
-        Assert::boolean($res = config('filament-shield.entities.custom_permissions', false));
-
+        Assert::boolean($res= config('filament-shield.entities.custom_permissions', false));
         return $res;
     }
 
     public static function getGeneratorOption(): string
     {
-        Assert::string($res = config('filament-shield.generator.option', 'policies_and_permissions'));
-
+        Assert::string($res= config('filament-shield.generator.option', 'policies_and_permissions'));
         return $res;
     }
 
     public static function isGeneralExcludeEnabled(): bool
     {
-        Assert::boolean($res = config('filament-shield.exclude.enabled', true));
-
+        Assert::boolean($res= config('filament-shield.exclude.enabled', true));
         return $res;
     }
 
@@ -209,29 +199,25 @@ class Utils
 
     public static function getExcludedResouces(): array
     {
-        Assert::isArray($res = config('filament-shield.exclude.resources'));
-
+        Assert::isArray($res=config('filament-shield.exclude.resources'));
         return $res;
     }
 
     public static function getExcludedPages(): array
     {
-        Assert::isArray($res = config('filament-shield.exclude.pages'));
-
+        Assert::isArray($res=config('filament-shield.exclude.pages'));
         return $res;
     }
 
     public static function getExcludedWidgets(): array
     {
-        Assert::isArray($res = config('filament-shield.exclude.widgets'));
-
+        Assert::isArray($res=config('filament-shield.exclude.widgets'));
         return $res;
     }
 
     public static function isRolePolicyRegistered(): bool
     {
-        Assert::boolean($res = config('filament-shield.register_role_policy', true));
-
+        Assert::boolean($res= config('filament-shield.register_role_policy', true));
         return $res;
     }
 
@@ -261,15 +247,13 @@ class Utils
 
     public static function getRoleModel(): string
     {
-        Assert::string($res = config('permission.models.role', 'Spatie\\Permission\\Models\\Role'));
-
+        Assert::string($res= config('permission.models.role', 'Spatie\\Permission\\Models\\Role'));
         return $res;
     }
 
     public static function getPermissionModel(): string
     {
-        Assert::string($res = config('permission.models.permission', 'Spatie\\Permission\\Models\\Permission'));
-
+        Assert::string($res=config('permission.models.permission', 'Spatie\\Permission\\Models\\Permission'));
         return $res;
     }
 }

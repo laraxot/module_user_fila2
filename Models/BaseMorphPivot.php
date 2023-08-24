@@ -12,20 +12,9 @@ use Modules\Xot\Traits\Updater;
 /**
  * Class BaseMorphPivot.
  */
-abstract class BaseMorphPivot extends MorphPivot
-{
+abstract class BaseMorphPivot extends MorphPivot {
     use HasFactory;
     use Updater;
-
-    /**
-     * @var bool
-     */
-    public $incrementing = true;
-
-    /**
-     * @var bool
-     */
-    public $timestamps = true;
     /**
      * Indicates whether attributes are snake cased on arrays.
      *
@@ -56,7 +45,18 @@ abstract class BaseMorphPivot extends MorphPivot
      */
     protected $primaryKey = 'id';
 
+    /**
+     * @var bool
+     */
+    public $incrementing = true;
+
+    /**
+     * @var bool
+     */
+    public $timestamps = true;
+
     // protected $attributes = ['related_type' => 'cuisine_cat'];
+
     /**
      * @var array<string>
      */
@@ -83,8 +83,7 @@ abstract class BaseMorphPivot extends MorphPivot
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
-    protected static function newFactory()
-    {
+    protected static function newFactory() {
         return FactoryService::newFactory(static::class);
     }
 }

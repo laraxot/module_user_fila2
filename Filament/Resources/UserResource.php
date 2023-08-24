@@ -9,32 +9,36 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Closure;
 >>>>>>> cf6505a (.)
 use Filament\Facades\Filament;
+=======
+>>>>>>> d9f7748 (up)
 use Filament\Forms;
-use Filament\Forms\Components\Card;
-use Filament\Forms\Components\Group;
-use Filament\Forms\Components\Placeholder;
-use Filament\Forms\Components\TextInput;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
-use Filament\Tables\Columns\BooleanColumn;
-use Filament\Tables\Columns\TextColumn;
-use Illuminate\Contracts\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\HtmlString;
-use Illuminate\Validation\Rules\Password;
-use Modules\User\Filament\Resources\UserResource\Pages;
-use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
-use Modules\User\Filament\Resources\UserResource\RelationManagers;
-use Modules\User\Filament\Resources\UserResource\Widgets;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
 use Modules\User\Models\Role;
 use Modules\User\Models\User;
+use Filament\Facades\Filament;
+use Filament\Resources\Resource;
+use Illuminate\Support\HtmlString;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Group;
+use Illuminate\Support\Facades\Hash;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
+use Illuminate\Validation\Rules\Password;
+use Filament\Forms\Components\Placeholder;
+use Filament\Tables\Columns\BooleanColumn;
+use Illuminate\Contracts\Database\Eloquent\Builder;
+use Modules\User\Filament\Resources\UserResource\Pages;
+use Modules\User\Filament\Resources\UserResource\Widgets;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
+use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
+use Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 class UserResource extends Resource
 {
@@ -43,13 +47,17 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
-    protected static bool|Closure $enablePasswordUpdates = true;
+    protected static bool|\Closure $enablePasswordUpdates = true;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     protected static ?\Closure $extendFormCallback = null;
 =======
     protected static ?Closure $extendFormCallback = null;
 >>>>>>> cf6505a (.)
+=======
+    protected static \Closure|null $extendFormCallback = null;
+>>>>>>> d9f7748 (up)
 
     /*
     protected static function getNavigationLabel(): string
@@ -90,7 +98,7 @@ class UserResource extends Resource
         ];
     }
 
-    public static function extendForm(Closure $callback): void
+    public static function extendForm(\Closure $callback): void
     {
         static::$extendFormCallback = $callback;
     }
@@ -100,8 +108,8 @@ class UserResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
+                   ->required()
+                   ->maxLength(255),
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->required()
@@ -200,12 +208,12 @@ class UserResource extends Resource
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('role')
-                    ->options([
-                        Role::ROLE_USER => 'User',
-                        Role::ROLE_OWNER => 'Owner',
-                        Role::ROLE_ADMINISTRATOR => 'Administrator',
-                    ])
-                    ->attribute('role_id'),
+                ->options([
+                    Role::ROLE_USER => 'User',
+                    Role::ROLE_OWNER => 'Owner',
+                    Role::ROLE_ADMINISTRATOR => 'Administrator',
+                ])
+                ->attribute('role_id'),
                 Tables\Filters\Filter::make('verified')
                     ->label(trans('filament-user::user.resource.verified'))
                     ->query(fn (Builder $query): Builder => $query->whereNotNull('email_verified_at')),
@@ -249,10 +257,10 @@ class UserResource extends Resource
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ])
-            ->defaultSort('created_at', 'desc');
+             ->defaultSort('created_at', 'desc');
     }
 
-    public static function enablePasswordUpdates(bool|Closure $condition = true): void
+    public static function enablePasswordUpdates(bool|\Closure $condition = true): void
     {
         static::$enablePasswordUpdates = $condition;
     }

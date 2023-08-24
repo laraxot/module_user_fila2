@@ -4,16 +4,20 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Feature;
 
+use Modules\User\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Mail;
 use Laravel\Jetstream\Features;
 use Laravel\Jetstream\Http\Livewire\TeamMemberManager;
 use Laravel\Jetstream\Mail\TeamInvitation;
 use Livewire\Livewire;
+<<<<<<< HEAD
 use Modules\User\Models\User;
 <<<<<<< HEAD
 use Modules\User\Tests\TestCase;
 =======
+=======
+>>>>>>> d9f7748 (up)
 use Tests\TestCase;
 >>>>>>> cf6505a (.)
 
@@ -21,6 +25,7 @@ class InviteTeamMemberTest extends TestCase
 {
     use RefreshDatabase;
 
+<<<<<<< HEAD
     /**
      * @test
      */
@@ -29,6 +34,9 @@ class InviteTeamMemberTest extends TestCase
 =======
     public function team_members_can_be_invited_to_team(): void
 >>>>>>> cf6505a (.)
+=======
+    public function test_team_members_can_be_invited_to_team(): void
+>>>>>>> d9f7748 (up)
     {
         if (! Features::sendsTeamInvitations()) {
             $this->markTestSkipped('Team invitations not enabled.');
@@ -51,6 +59,7 @@ class InviteTeamMemberTest extends TestCase
         $this->assertCount(1, $user->currentTeam->fresh()->teamInvitations);
     }
 
+<<<<<<< HEAD
     /**
      * @test
      */
@@ -59,6 +68,9 @@ class InviteTeamMemberTest extends TestCase
 =======
     public function team_member_invitations_can_be_cancelled(): void
 >>>>>>> cf6505a (.)
+=======
+    public function test_team_member_invitations_can_be_cancelled(): void
+>>>>>>> d9f7748 (up)
     {
         if (! Features::sendsTeamInvitations()) {
             $this->markTestSkipped('Team invitations not enabled.');

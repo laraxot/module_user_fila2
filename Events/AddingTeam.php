@@ -10,7 +10,7 @@ class AddingTeam
 {
     use Dispatchable;
 
-    /**
+     /**
      * The team owner.
      */
     public $owner;

@@ -58,12 +58,17 @@ return [
 
     'pages' => [
 <<<<<<< HEAD
+<<<<<<< HEAD
         'namespace' => $contextNs.'\\Pages',
         'path' => base_path('Modules/'.$moduleName."/{$contextPath}/Pages"),
 =======
         'namespace' => $contextNs . '\\Pages',
         'path' => base_path('Modules/' . $moduleName . "/{$contextPath}/Pages"),
 >>>>>>> cf6505a (.)
+=======
+        'namespace' => $contextNs.'\\Pages',
+        'path' => base_path('Modules/'.$moduleName."/$contextPath/Pages"),
+>>>>>>> d9f7748 (up)
         'register' => [],
     ],
 
@@ -79,12 +84,17 @@ return [
 
     'resources' => [
 <<<<<<< HEAD
+<<<<<<< HEAD
         'namespace' => $contextNs.'\\Resources',
         'path' => base_path('Modules/'.$moduleName."/{$contextPath}/Resources"),
 =======
         'namespace' => $contextNs . '\\Resources',
         'path' => base_path('Modules/' . $moduleName . "/{$contextPath}/Resources"),
 >>>>>>> cf6505a (.)
+=======
+        'namespace' => $contextNs.'\\Resources',
+        'path' => base_path('Modules/'.$moduleName."/$contextPath/Resources"),
+>>>>>>> d9f7748 (up)
         'register' => [],
     ],
 
@@ -100,12 +110,17 @@ return [
 
     'widgets' => [
 <<<<<<< HEAD
+<<<<<<< HEAD
         'namespace' => $contextNs.'\\Widgets',
         'path' => base_path('Modules/'.$moduleName."/{$contextPath}/Widgets"),
 =======
         'namespace' => $contextNs . '\\Widgets',
         'path' => base_path('Modules/' . $moduleName . "/{$contextPath}/Widgets"),
 >>>>>>> cf6505a (.)
+=======
+        'namespace' => $contextNs.'\\Widgets',
+        'path' => base_path('Modules/'.$moduleName."/$contextPath/Widgets"),
+>>>>>>> d9f7748 (up)
         'register' => [
             Widgets\AccountWidget::class,
             // Widgets\FilamentInfoWidget::class,
@@ -123,8 +138,8 @@ return [
     */
 
     'livewire' => [
-        'namespace' => $moduleNs . '\\Http\\Livewire',
-        'path' => base_path('Modules/' . $moduleName . '/Http/Livewire'),
+        'namespace' => $moduleNs.'\\Http\\Livewire',
+        'path' => base_path('Modules/'.$moduleName.'/Http/Livewire'),
     ],
 
     /*

@@ -6,4 +6,5 @@ namespace Modules\User\Contracts;
 
 interface HasShieldPermissions
 {
+
 }
