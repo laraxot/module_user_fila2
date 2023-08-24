@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+<<<<<<< HEAD
+=======
+use Filament\Facades\Filament;
+>>>>>>> cb5092b (up)
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -23,9 +27,10 @@ use Savannabits\FilamentModules\Concerns\ContextualResource;
 class RoleResource extends XotBaseResource
 { /* implements HasShieldPermissions */
     // use ContextualResource;
-    // protected static ?string $model = Role::class;
-    protected static ?string $recordTitleAttribute = 'name';
+    protected static ?string $model = Role::class;
+    protected static ?string $navigationIcon = 'heroicon-o-shield-check';
 
+    protected static ?string $recordTitleAttribute = 'name';
     protected static ?Collection $permissionsCollection = null;
 
     public static function getPermissionPrefixes(): array
@@ -202,14 +207,20 @@ class RoleResource extends XotBaseResource
         if (blank(static::$permissionsCollection)) {
             static::$permissionsCollection = Utils::getPermissionModel()::all();
         }
+        /*
+        dddx(['FilamentShield::getResources()' => FilamentShield::getResources(),
+            'Filament::getResources()' => Filament::getResources(),
+        ]);
 
+        return [];
+        */
         return collect(FilamentShield::getResources())->sortKeys()->reduce(function ($entities, $entity) {
             $entities[] = Forms\Components\Card::make()
                 ->extraAttributes(['class' => 'border-0 shadow-lg'])
                 ->schema([
                     Forms\Components\Toggle::make($entity['resource'])
                         ->label(FilamentShield::getLocalizedResourceLabel($entity['fqcn']))
-                        ->helperText(Utils::showModelPath($entity['fqcn']))
+                        // ->helperText(Utils::showModelPath($entity['fqcn']))
                         ->onIcon('heroicon-s-lock-open')
                         ->offIcon('heroicon-s-lock-closed')
                         ->reactive()
