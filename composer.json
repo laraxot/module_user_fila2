@@ -1,6 +1,18 @@
 {
-    "name": "laraxot/module_user",
-    "description": "",
+    "name": "laraxot/module_user_fila",
+    "description": "user module for user management",
+    "keywords": [
+        "laraxot",
+        "laravel",
+        "filament",
+        "module_user",
+        "Laravel", 
+        "User module",
+        "Users",
+        "Users management"
+    ],
+    "homepage": "https://github.com/laraxot/module_user_fila",
+    "license": "MIT",
     "authors": [{
         "name": "Marco Sottana",
         "email": "marco.sottana@gmail.com"
