@@ -9,12 +9,14 @@ use Modules\Xot\Http\Middleware\XotBaseFilamentMiddleware;
 =======
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
-<<<<<<< HEAD
 use Illuminate\Support\Str;
 use Webmozart\Assert\Assert;
+<<<<<<< HEAD
 =======
 >>>>>>> 1903df6 (up)
 >>>>>>> 36aaec9 (.)
+=======
+>>>>>>> 50d5b27 (up)
 
 class FilamentMiddleware extends XotBaseFilamentMiddleware
 {
@@ -25,11 +27,7 @@ class FilamentMiddleware extends XotBaseFilamentMiddleware
     /*
 =======
     /**
-<<<<<<< HEAD
      * @return \Nwidart\Modules\Laravel\Module|\Nwidart\Modules\Module
-=======
-     * @return \Nwidart\Modules\Laravel\Module|Nwidart\Modules\Module
->>>>>>> 1903df6 (up)
      */
 >>>>>>> 36aaec9 (.)
     private function getModule()
@@ -45,11 +43,7 @@ class FilamentMiddleware extends XotBaseFilamentMiddleware
             throw new \Exception('Context has to be defined in your class');
         }
 
-<<<<<<< HEAD
         return Str::of($module->getLowerName())->append('-')->append(\Str::slug(static::$context))->kebab()->toString();
-=======
-        return \Str::of($module->getLowerName())->append('-')->append(\Str::slug(static::$context))->kebab()->toString();
->>>>>>> 1903df6 (up)
     }
 
     protected function authenticate($request, array $guards): void

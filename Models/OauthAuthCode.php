@@ -27,10 +27,7 @@ use Laravel\Passport\AuthCode as PassportAuthCode;
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAuthCode whereScopes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OauthAuthCode whereUserId($value)
  *
-<<<<<<< HEAD
  * @mixin IdeHelperOauthAuthCode
-=======
->>>>>>> 1903df6 (up)
  * @mixin \Eloquent
  */
 class OauthAuthCode extends PassportAuthCode
@@ -38,10 +35,6 @@ class OauthAuthCode extends PassportAuthCode
     /**
      * @var string
      */
-<<<<<<< HEAD
     protected $connection = 'user';
-=======
-    protected $connection = 'mysql';
->>>>>>> 1903df6 (up)
     // protected $fillable = ['id', 'user_id', 'client_id', 'scopes', 'revoked', 'expires_at'];
 }

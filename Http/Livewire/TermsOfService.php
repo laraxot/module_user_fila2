@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\User\Http\Livewire;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use ArtMin96\FilamentJet\FilamentJet;
 =======
 <<<<<<< HEAD
@@ -12,6 +13,8 @@ use ArtMin96\FilamentJet\FilamentJet;
 use ArtMin96\FilamentJet\FilamentJet;
 use Illuminate\Support\Str;
 >>>>>>> 1903df6 (up)
+=======
+>>>>>>> 50d5b27 (up)
 use Livewire\Component;
 >>>>>>> 36aaec9 (.)
 use Illuminate\Support\Str;
@@ -33,11 +36,7 @@ class TermsOfService extends Component
         Assert::string($termsFile = FilamentJet::localizedMarkdownPath('terms.md'), 'wip');
 
         $view = view('filament-jet::livewire.terms-of-service', [
-<<<<<<< HEAD
             'terms' => Str::markdown(file_get_contents($termsFile)),
-=======
-            'terms' => Str::markdown(file_get_contents($termsFile) ?? '---'),
->>>>>>> 1903df6 (up)
         ]);
 
         $view->layout('filament::components.layouts.base', [
