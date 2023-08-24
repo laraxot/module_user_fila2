@@ -4,7 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire;
 
+<<<<<<< HEAD
 use ArtMin96\FilamentJet\FilamentJet;
+=======
+<<<<<<< HEAD
+=======
+use ArtMin96\FilamentJet\FilamentJet;
+use Illuminate\Support\Str;
+>>>>>>> 1903df6 (up)
+use Livewire\Component;
+>>>>>>> 36aaec9 (.)
 use Illuminate\Support\Str;
 use Livewire\Component;
 

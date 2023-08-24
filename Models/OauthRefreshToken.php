@@ -23,7 +23,10 @@ use Laravel\Passport\RefreshToken as PassportRefreshToken;
  * @method static \Illuminate\Database\Eloquent\Builder|OauthRefreshToken whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OauthRefreshToken whereRevoked($value)
  *
+<<<<<<< HEAD
  * @mixin IdeHelperOauthRefreshToken
+=======
+>>>>>>> 1903df6 (up)
  * @mixin \Eloquent
  */
 class OauthRefreshToken extends PassportRefreshToken
@@ -31,6 +34,10 @@ class OauthRefreshToken extends PassportRefreshToken
     /*
      * @var string
      */
+<<<<<<< HEAD
     protected $connection = 'user';
+=======
+    protected $connection = 'mysql';
+>>>>>>> 1903df6 (up)
     // protected $fillable = ['id', 'access_token_id', 'revoked', 'expires_at'];
 }
