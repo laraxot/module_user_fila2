@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-<<<<<<< HEAD
-=======
-use Filament\Facades\Filament;
->>>>>>> cb5092b (up)
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
