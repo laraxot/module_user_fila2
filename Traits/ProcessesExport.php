@@ -11,11 +11,12 @@ use Modules\User\Jobs\CreatePersonalDataExportJob;
 trait ProcessesExport
 {
     /**
-<<<<<<< HEAD
+     * <<<<<<< HEAD.
+     *
      * @var int<min, -1>|int<1, max>|string
-=======
+     *                                      =======
      * @var string|int
->>>>>>> 1903df6 (up)
+     *                                      >>>>>>> 1903df6 (up)
      */
     public $exportBatchId;
 
