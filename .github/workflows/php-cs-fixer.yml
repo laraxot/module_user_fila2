@@ -15,7 +15,11 @@ jobs:
       - name: Run PHP CS Fixer
         uses: docker://oskarstark/php-cs-fixer-ga
         with:
+<<<<<<< HEAD
           args: --config=.php-cs-fixer.dist.php --allow-risky=yes
+=======
+          args: --config=.php_cs.dist.php --allow-risky=yes
+>>>>>>> 900ef25 (up)
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
