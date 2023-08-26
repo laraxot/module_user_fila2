@@ -25,6 +25,7 @@ class CreateRole extends CreateRecord
 
         $res = Arr::only($data, ['name', 'guard_name']);
         $res['team_id'] = 1;
+
         return $res;
     }
 
