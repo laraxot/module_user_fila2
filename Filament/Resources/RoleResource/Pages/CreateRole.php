@@ -23,7 +23,9 @@ class CreateRole extends CreateRecord
             return ! in_array($key, ['name', 'guard_name', 'select_all']) && Str::contains($key, '_');
         })->keys();
 
-        return Arr::only($data, ['name', 'guard_name']);
+        $res = Arr::only($data, ['name', 'guard_name']);
+        $res['team_id'] = 1;
+        return $res;
     }
 
     protected function afterCreate(): void

@@ -106,7 +106,7 @@ class RoleResource extends XotBaseResource
                                     ]),
                             ]),
                         Forms\Components\Tabs\Tab::make(__('filament-shield::filament-shield.widgets'))
-                            ->visible(fn (): bool => (bool) Utils::isWidgetEntityEnabled() && (count(FilamentShield::getWidgets()) > 0 ? true : false))
+                            // ->visible(fn (): bool => (bool) Utils::isWidgetEntityEnabled() && (count(FilamentShield::getWidgets()) > 0 ? true : false))
                             ->reactive()
                             ->schema([
                                 Forms\Components\Grid::make([
@@ -211,6 +211,7 @@ class RoleResource extends XotBaseResource
 
         return [];
         */
+        return [];
         return collect(FilamentShield::getResources())->sortKeys()->reduce(function ($entities, $entity) {
             $entities[] = Forms\Components\Card::make()
                 ->extraAttributes(['class' => 'border-0 shadow-lg'])
@@ -444,6 +445,7 @@ class RoleResource extends XotBaseResource
 
     protected static function getPageEntityPermissionsSchema(): array
     {
+        return [];
         return collect(FilamentShield::getPages())->sortKeys()->reduce(function ($pages, $page) {
             $pages[] = Forms\Components\Grid::make()
                 ->schema([
@@ -485,6 +487,7 @@ class RoleResource extends XotBaseResource
 
     protected static function getWidgetEntityPermissionSchema(): ?array
     {
+        return [];
         return collect(FilamentShield::getWidgets())->reduce(function ($widgets, $widget) {
             $widgets[] = Forms\Components\Grid::make()
                 ->schema([
@@ -522,6 +525,7 @@ class RoleResource extends XotBaseResource
 
     protected static function getCustomEntities(): ?Collection
     {
+        return collect();
         $resourcePermissions = collect();
         collect(FilamentShield::getResources())->each(function ($entity) use ($resourcePermissions) {
             collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))->map(function ($permission) use ($resourcePermissions, $entity) {
