@@ -4,20 +4,32 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Filament\Tables;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
-use Filament\Tables;
-use Modules\User\Filament\Resources\TeamResource\Pages;
+use ArtMin96\FilamentJet\FilamentJet;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+use Modules\User\Filament\Resources\TeamResource\Pages;
+use Filament\Forms;
 
 class TeamResource extends XotBaseResource
 {
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+    protected static ?string $navigationLabel = 'Teams';
+
+    public static function getModel(): string {
+        return FilamentJet::teamModel();
+    }
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
+                Forms\Components\TextInput::make('name')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('role'),
             ]);
     }
 
@@ -25,15 +37,29 @@ class TeamResource extends XotBaseResource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id'),
+                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('role'),
             ])
             ->filters([
+            ])
+            ->headerActions([
+                Tables\Actions\CreateAction::make(),
+                // Tables\Actions\AssociateAction::make(),
+                Tables\Actions\AttachAction::make(),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                // Tables\Actions\EditAction::make(),
+                // Tables\Actions\DissociateAction::make(),
+                Tables\Actions\DetachAction::make(),
+                // Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                // Tables\Actions\DissociateBulkAction::make(),
+                Tables\Actions\DetachBulkAction::make(),
+                // Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 
