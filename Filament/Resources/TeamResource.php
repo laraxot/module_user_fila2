@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Filament\Tables;
+use ArtMin96\FilamentJet\FilamentJet;
+use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
-use ArtMin96\FilamentJet\FilamentJet;
-use Modules\Xot\Filament\Resources\XotBaseResource;
+use Filament\Tables;
 use Modules\User\Filament\Resources\TeamResource\Pages;
-use Filament\Forms;
+use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class TeamResource extends XotBaseResource
 {
@@ -18,7 +18,8 @@ class TeamResource extends XotBaseResource
 
     protected static ?string $navigationLabel = 'Teams';
 
-    public static function getModel(): string {
+    public static function getModel(): string
+    {
         return FilamentJet::teamModel();
     }
 
