@@ -10,4 +10,10 @@ use Modules\User\Filament\Resources\TeamResource;
 class CreateTeam extends CreateRecord
 {
     protected static string $resource = TeamResource::class;
+
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        $data['team_id'] =  auth()->id();;
+        return $data;
+    }
 }
