@@ -11,8 +11,8 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Modules\User\Filament\Resources\TeamResource\Pages;
-use Savannabits\FilamentModules\Concerns\ContextualResource;
 use Modules\User\Models\Role;
+use Savannabits\FilamentModules\Concerns\ContextualResource;
 
 class TeamResource extends Resource
 {
@@ -55,14 +55,13 @@ class TeamResource extends Resource
                 Tables\Actions\CreateAction::make(),
                 // Tables\Actions\AssociateAction::make(),
                 Tables\Actions\AttachAction::make()
-                
-                    // ->form(fn (Tables\Actions\AttachAction $action): array => [
-                    //     $action->getRecordSelect(),
-                    //     // Forms\Components\TextInput::make('role')->required(),
-                    //     Forms\Components\Select::make('role_id')
-                    //         ->options(Role::all()->pluck('name', 'id'))
-                    // ])
 
+                // ->form(fn (Tables\Actions\AttachAction $action): array => [
+                //     $action->getRecordSelect(),
+                //     // Forms\Components\TextInput::make('role')->required(),
+                //     Forms\Components\Select::make('role_id')
+                //         ->options(Role::all()->pluck('name', 'id'))
+                // ])
 
                 ,
             ])

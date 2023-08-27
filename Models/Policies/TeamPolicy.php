@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models\Policies;
 
-use Illuminate\Auth\Access\HandlesAuthorization;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
 use Modules\Xot\Models\Policies\XotBasePolicy;

@@ -1,10 +1,12 @@
 <?php
 
-use Modules\Xot\Database\Migrations\XotBaseMigration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+declare(strict_types=1);
 
-class CreateOauthAuthCodesTable extends XotBaseMigration {
+use Illuminate\Database\Schema\Blueprint;
+use Modules\Xot\Database\Migrations\XotBaseMigration;
+
+class CreateOauthAuthCodesTable extends XotBaseMigration
+{
     public function up(): void
     {
         $this->tableCreate(
@@ -21,8 +23,7 @@ class CreateOauthAuthCodesTable extends XotBaseMigration {
         // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
-
             }
         );
     }
-};
+}

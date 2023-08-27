@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Models\Policies;
 
-use Illuminate\Auth\Access\HandlesAuthorization;
-use Modules\User\Models\Team;
 use Modules\User\Models\User;
 use Modules\User\Models\User as Post;
 use Modules\Xot\Models\Policies\XotBasePolicy;
@@ -14,7 +12,6 @@ class UserPolicy extends XotBasePolicy
 {
     /**
      * Determine whether the user can view any models.
-     *
      */
     public function viewAny(User $user): bool
     {

@@ -1,10 +1,12 @@
 <?php
 
-use Modules\Xot\Database\Migrations\XotBaseMigration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+declare(strict_types=1);
 
-class CreateOauthClientsTable extends XotBaseMigration {
+use Illuminate\Database\Schema\Blueprint;
+use Modules\Xot\Database\Migrations\XotBaseMigration;
+
+class CreateOauthClientsTable extends XotBaseMigration
+{
     public function up(): void
     {
         $this->tableCreate(
@@ -25,8 +27,7 @@ class CreateOauthClientsTable extends XotBaseMigration {
         // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
-
             }
         );
     }
-};
+}
