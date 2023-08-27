@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Closure;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -64,7 +65,7 @@ class RoleResource extends XotBaseResource
                                     ->label(__('filament-shield::filament-shield.field.select_all.name'))
                                     ->helperText(__('filament-shield::filament-shield.field.select_all.message'))
                                     ->reactive()
-                                    ->afterStateUpdated(function (\Closure $set, $state) {
+                                    ->afterStateUpdated(function (Closure $set, $state) {
                                         static::refreshEntitiesStatesViaSelectAll($set, $state);
                                     })
                                     ->dehydrated(fn ($state): bool => $state),
@@ -203,6 +204,7 @@ class RoleResource extends XotBaseResource
         if (blank(static::$permissionsCollection)) {
             static::$permissionsCollection = Utils::getPermissionModel()::all();
         }
+
         /*
         dddx(['FilamentShield::getResources()' => FilamentShield::getResources(),
             'Filament::getResources()' => Filament::getResources(),
@@ -222,9 +224,9 @@ class RoleResource extends XotBaseResource
                         ->onIcon('heroicon-s-lock-open')
                         ->offIcon('heroicon-s-lock-closed')
                         ->reactive()
-                        ->afterStateUpdated(function (\Closure $set, \Closure $get, $state) use ($entity) {
+                        ->afterStateUpdated(function (Closure $set, Closure $get, $state) use ($entity) {
                             collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))->each(function ($permission) use ($set, $entity, $state) {
-                                $set($permission.'_'.$entity['resource'], $state);
+                                $set($permission . '_' . $entity['resource'], $state);
                             });
 
                             if (! $state) {
@@ -253,22 +255,22 @@ class RoleResource extends XotBaseResource
     public static function getResourceEntityPermissionsSchema($entity): ?array
     {
         return collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))->reduce(function ($permissions /* @phpstan ignore-line */, $permission) use ($entity) {
-            $permissions[] = Forms\Components\Checkbox::make($permission.'_'.$entity['resource'])
+            $permissions[] = Forms\Components\Checkbox::make($permission . '_' . $entity['resource'])
                 ->label(FilamentShield::getLocalizedResourcePermissionLabel($permission))
                 ->extraAttributes(['class' => 'text-primary-600'])
-                ->afterStateHydrated(function (\Closure $set, \Closure $get, $record) use ($entity, $permission) {
+                ->afterStateHydrated(function (Closure $set, Closure $get, $record) use ($entity, $permission) {
                     if (is_null($record)) {
                         return;
                     }
 
-                    $set($permission.'_'.$entity['resource'], $record->checkPermissionTo($permission.'_'.$entity['resource']));
+                    $set($permission . '_' . $entity['resource'], $record->checkPermissionTo($permission . '_' . $entity['resource']));
 
                     static::refreshResourceEntityStateAfterHydrated($record, $set, $entity);
 
                     static::refreshSelectAllStateViaEntities($set, $get);
                 })
                 ->reactive()
-                ->afterStateUpdated(function (\Closure $set, \Closure $get, $state) use ($entity) {
+                ->afterStateUpdated(function (Closure $set, Closure $get, $state) use ($entity) {
                     static::refreshResourceEntityStateAfterUpdate($set, $get, $entity);
 
                     if (! $state) {
@@ -337,7 +339,7 @@ class RoleResource extends XotBaseResource
             : null;
     }
 
-    protected static function refreshSelectAllStateViaEntities(\Closure $set, \Closure $get): void
+    protected static function refreshSelectAllStateViaEntities(Closure $set, Closure $get): void
     {
         $entitiesStates = collect(FilamentShield::getResources())
             ->when(Utils::isPageEntityEnabled(), fn ($entities) => $entities->merge(FilamentShield::getPages()))
@@ -360,12 +362,12 @@ class RoleResource extends XotBaseResource
         }
     }
 
-    protected static function refreshEntitiesStatesViaSelectAll(\Closure $set, $state): void
+    protected static function refreshEntitiesStatesViaSelectAll(Closure $set, $state): void
     {
         collect(FilamentShield::getResources())->each(function ($entity) use ($set, $state) {
             $set($entity['resource'], $state);
             collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))->each(function ($permission) use ($entity, $set, $state) {
-                $set($permission.'_'.$entity['resource'], $state);
+                $set($permission . '_' . $entity['resource'], $state);
             });
         });
 
@@ -388,11 +390,11 @@ class RoleResource extends XotBaseResource
         });
     }
 
-    protected static function refreshResourceEntityStateAfterUpdate(\Closure $set, \Closure $get, array $entity): void
+    protected static function refreshResourceEntityStateAfterUpdate(Closure $set, Closure $get, array $entity): void
     {
         $permissionStates = collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))
             ->map(function ($permission) use ($get, $entity) {
-                return (bool) $get($permission.'_'.$entity['resource']);
+                return (bool) $get($permission . '_' . $entity['resource']);
             });
 
         if (false === $permissionStates->containsStrict(false)) {
@@ -404,7 +406,7 @@ class RoleResource extends XotBaseResource
         }
     }
 
-    protected static function refreshResourceEntityStateAfterHydrated(Model $record, \Closure $set, array $entity): void
+    protected static function refreshResourceEntityStateAfterHydrated(Model $record, Closure $set, array $entity): void
     {
         $entities = $record->permissions->pluck('name')
             ->reduce(function ($roles, $role) {
@@ -453,7 +455,7 @@ class RoleResource extends XotBaseResource
                     Forms\Components\Checkbox::make($page)
                         ->label(FilamentShield::getLocalizedPageLabel($page))
                         ->inline()
-                        ->afterStateHydrated(function (\Closure $set, \Closure $get, $record) use ($page) {
+                        ->afterStateHydrated(function (Closure $set, Closure $get, $record) use ($page) {
                             if (is_null($record)) {
                                 return;
                             }
@@ -463,7 +465,7 @@ class RoleResource extends XotBaseResource
                             static::refreshSelectAllStateViaEntities($set, $get);
                         })
                         ->reactive()
-                        ->afterStateUpdated(function (\Closure $set, \Closure $get, $state) {
+                        ->afterStateUpdated(function (Closure $set, Closure $get, $state) {
                             if (! $state) {
                                 $set('select_all', false);
                             }
@@ -496,7 +498,7 @@ class RoleResource extends XotBaseResource
                     Forms\Components\Checkbox::make($widget)
                         ->label(FilamentShield::getLocalizedWidgetLabel($widget))
                         ->inline()
-                        ->afterStateHydrated(function (\Closure $set, \Closure $get, $record) use ($widget) {
+                        ->afterStateHydrated(function (Closure $set, Closure $get, $record) use ($widget) {
                             if (is_null($record)) {
                                 return;
                             }
@@ -506,7 +508,7 @@ class RoleResource extends XotBaseResource
                             static::refreshSelectAllStateViaEntities($set, $get);
                         })
                         ->reactive()
-                        ->afterStateUpdated(function (\Closure $set, \Closure $get, $state) {
+                        ->afterStateUpdated(function (Closure $set, Closure $get, $state) {
                             if (! $state) {
                                 $set('select_all', false);
                             }
@@ -531,7 +533,7 @@ class RoleResource extends XotBaseResource
         $resourcePermissions = collect();
         collect(FilamentShield::getResources())->each(function ($entity) use ($resourcePermissions) {
             collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))->map(function ($permission) use ($resourcePermissions, $entity) {
-                $resourcePermissions->push((string) Str::of($permission.'_'.$entity['resource']));
+                $resourcePermissions->push((string) Str::of($permission . '_' . $entity['resource']));
             });
         });
 
@@ -551,7 +553,7 @@ class RoleResource extends XotBaseResource
                     Forms\Components\Checkbox::make($customPermission)
                         ->label(Str::of($customPermission)->headline())
                         ->inline()
-                        ->afterStateHydrated(function (\Closure $set, \Closure $get, $record) use ($customPermission) {
+                        ->afterStateHydrated(function (Closure $set, Closure $get, $record) use ($customPermission) {
                             if (is_null($record)) {
                                 return;
                             }
@@ -561,7 +563,7 @@ class RoleResource extends XotBaseResource
                             static::refreshSelectAllStateViaEntities($set, $get);
                         })
                         ->reactive()
-                        ->afterStateUpdated(function (\Closure $set, \Closure $get, $state) {
+                        ->afterStateUpdated(function (Closure $set, Closure $get, $state) {
                             if (! $state) {
                                 $set('select_all', false);
                             }
