@@ -4,19 +4,24 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use ArtMin96\FilamentJet\FilamentJet;
 use Filament\Forms;
+use Filament\Tables;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
-use Filament\Tables;
-use Modules\User\Filament\Resources\TeamResource\Pages;
+use Filament\Resources\Resource;
+use ArtMin96\FilamentJet\FilamentJet;
 use Modules\Xot\Filament\Resources\XotBaseResource;
+use Modules\User\Filament\Resources\TeamResource\Pages;
+use Savannabits\FilamentModules\Concerns\ContextualResource;
 
-class TeamResource extends XotBaseResource
+class TeamResource extends Resource
 {
+    use ContextualResource;
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     protected static ?string $navigationLabel = 'Teams';
+    protected static ?string $slug = 'teams';
+    protected static ?string $navigationGroup = 'Admin';
 
     public static function getModel(): string
     {
@@ -78,5 +83,12 @@ class TeamResource extends XotBaseResource
             'view' => Pages\ViewTeam::route('/{record}'),
             'edit' => Pages\EditTeam::route('/{record}/edit'),
         ];
+    }
+
+    protected static function getNavigationBadge(): ?string
+    {
+
+        return strval(static::getModel()::count());
+
     }
 }
