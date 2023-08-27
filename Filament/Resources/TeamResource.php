@@ -35,6 +35,8 @@ class TeamResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('role'),
+                // Forms\Components\Select::make('role')
+                //     ->relationship('roles', 'name'),
             ]);
     }
 
