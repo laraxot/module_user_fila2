@@ -82,7 +82,8 @@ trait HasTeams
      */
     public function teams()
     {
-        return $this->belongsToMany(FilamentJet::teamModel(), FilamentJet::membershipModel())
+        
+        return $this->belongsToMany(FilamentJet::teamModel(), FilamentJet::membershipModel(), 'aaaa', 'bbbb', 'ccc', 'dddd')
             ->withPivot('role')
             ->withTimestamps()
             ->as('membership');

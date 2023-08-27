@@ -61,10 +61,6 @@
     "repositories": [{
             "type": "path",
             "url": "./packages/artmin96/filament-jet"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/laraxot/filament-jet.git"
         }
     ],
     "scripts": {

@@ -46,5 +46,5 @@ class Membership extends FilamentJetMembership
     /**
      * @var string
      */
-    protected $connection = 'user';
+    protected $connection = 'mysql';
 }

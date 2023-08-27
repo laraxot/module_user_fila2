@@ -34,5 +34,5 @@ namespace Modules\User\Models;
  */
 class TeamUser extends BasePivot
 {
-    protected $connection = 'user';
+    protected $connection = 'mysql';
 }
