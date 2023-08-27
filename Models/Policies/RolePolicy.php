@@ -9,7 +9,7 @@ use Modules\User\Models\Team;
 use Modules\User\Models\User;
 use Modules\Xot\Models\Policies\XotBasePolicy;
 
-class TeamPolicy extends XotBasePolicy
+class RolePolicy extends XotBasePolicy
 {
     /**
      * Determine whether the user can view any models.

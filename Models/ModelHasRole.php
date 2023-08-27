@@ -30,5 +30,5 @@ class ModelHasRole extends BaseMorphPivot
      *
      * @psalm-var list{'role_id', 'model_type', 'model_id'}
      */
-    protected $fillable = ['role_id', 'model_type', 'model_id'];
+    protected $fillable = ['role_id', 'model_type', 'model_id','team_id'];
 }
