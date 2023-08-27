@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Filament\Forms;
-use Filament\Tables;
-use Filament\Resources\Form;
-use Filament\Resources\Table;
-use Filament\Resources\Resource;
 use ArtMin96\FilamentJet\FilamentJet;
-use Modules\Xot\Filament\Resources\XotBaseResource;
+use Filament\Forms;
+use Filament\Resources\Form;
+use Filament\Resources\Resource;
+use Filament\Resources\Table;
+use Filament\Tables;
 use Modules\User\Filament\Resources\TeamResource\Pages;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
 
@@ -87,8 +86,6 @@ class TeamResource extends Resource
 
     protected static function getNavigationBadge(): ?string
     {
-
         return strval(static::getModel()::count());
-
     }
 }
