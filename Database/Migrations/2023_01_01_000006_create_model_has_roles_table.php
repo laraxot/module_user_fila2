@@ -61,7 +61,7 @@ class CreateModelHasRolesTable extends XotBaseMigration
                     $table->foreignId('team_id')->nullable();
                 }
             }
-            //$table->string('team_id')->nullable()->change();
+            // $table->string('team_id')->nullable()->change();
         );
     }
 }
