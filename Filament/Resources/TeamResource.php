@@ -35,12 +35,11 @@ class TeamResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                'name' => Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                // Forms\Components\TextInput::make('role'),
-                Forms\Components\Select::make('role')
-                    ->relationship('roles', 'name'),
+                // 'role'=>Forms\Components\Select::make('role')
+                //    ->options(Role::all()->pluck('name', 'name')),
             ]);
     }
 
@@ -48,16 +47,16 @@ class TeamResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id'),
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('role'),
+                'id' => Tables\Columns\TextColumn::make('id'),
+                'name' => Tables\Columns\TextColumn::make('name'),
+                // Tables\Columns\TextColumn::make('role'),
             ])
             ->filters([
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
+                // 'create' => Tables\Actions\CreateAction::make(),
                 // Tables\Actions\AssociateAction::make(),
-                Tables\Actions\AttachAction::make()
+                // Tables\Actions\AttachAction::make()
 
                 // ->form(fn (Tables\Actions\AttachAction $action): array => [
                 //     $action->getRecordSelect(),
@@ -65,20 +64,18 @@ class TeamResource extends Resource
                 //     Forms\Components\Select::make('role_id')
                 //         ->options(Role::all()->pluck('name', 'id'))
                 // ])
-
-                ,
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 // Tables\Actions\EditAction::make(),
                 // Tables\Actions\DissociateAction::make(),
-                Tables\Actions\DetachAction::make(),
+                // Tables\Actions\DetachAction::make(),
                 // Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 // Tables\Actions\DissociateBulkAction::make(),
-                Tables\Actions\DetachBulkAction::make(),
+                // Tables\Actions\DetachBulkAction::make(),
                 // Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
