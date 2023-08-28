@@ -8,26 +8,46 @@ use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
+use Filament\Tables\Columns\BooleanColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables;
+use Modules\User\Filament\Resources\UserResource;
 
 class UsersRelationManager extends RelationManager
 {
     protected static string $relationship = 'users';
+    protected static ?string $inverseRelationship = 'teams';
 
     protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Form $form): Form
     {
+        $form=UserResource::form($form);
+        return $form;
+        /*
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
             ]);
+        */
     }
 
     public static function table(Table $table): Table
     {
+        $table=UserResource::table($table);
+        $columns=$table->getColumns();
+        $columns=collect($columns)->except(['teams.name','role.name','roles.name'])->all();
+        $columns['role']=TextColumn::make('role');
+        $table->columns($columns);
+        $headerActions=$table->getHeaderActions();
+        //$headerActions['attach']=Tables\Actions\AttachAction::make();
+        $table->headerActions($headerActions);
+
+
+        return $table;
+        /*
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
@@ -48,5 +68,6 @@ class UsersRelationManager extends RelationManager
                 Tables\Actions\DetachBulkAction::make(),
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
+        */
     }
 }
