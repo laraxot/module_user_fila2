@@ -1,21 +1,19 @@
 <?php
-/**
- * ---.
- */
 
 declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use ArtMin96\FilamentJet\FilamentJet;
 use Filament\Forms;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
-use Modules\User\Filament\Resources\TeamResource\Pages;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
 use Modules\User\Models\Role;
+use Filament\Resources\Resource;
+use ArtMin96\FilamentJet\FilamentJet;
+use Modules\User\Filament\Resources\TeamResource\Pages;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
+use Modules\User\Filament\Resources\TeamResource\RelationManagers;
 
 class TeamResource extends Resource
 {
@@ -83,6 +81,7 @@ class TeamResource extends Resource
     public static function getRelations(): array
     {
         return [
+            RelationManagers\UsersRelationManager::class,
         ];
     }
 
