@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\User\Filament\Resources\TeamResource\RelationManagers;
 
 use Filament\Forms;
@@ -7,8 +9,6 @@ use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class UsersRelationManager extends RelationManager
 {
@@ -33,7 +33,6 @@ class UsersRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('name'),
             ])
             ->filters([
-                //
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make(),
@@ -49,5 +48,5 @@ class UsersRelationManager extends RelationManager
                 Tables\Actions\DetachBulkAction::make(),
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
-    }    
+    }
 }
