@@ -7,9 +7,11 @@ namespace Modules\User\Filament\Resources\UserResource\Pages;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
 use Modules\User\Filament\Resources\UserResource;
+use Savannabits\FilamentModules\Concerns\ContextualPage;
 
 class ListUsers extends ListRecords
 {
+    use ContextualPage;
     protected static string $resource = UserResource::class;
 
     protected function getActions(): array

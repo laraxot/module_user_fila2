@@ -4,15 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
-use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Modules\User\Filament\Resources\RoleResource;
 use Modules\User\Support\Utils;
+use Illuminate\Support\Collection;
+use Filament\Resources\Pages\CreateRecord;
+use Modules\User\Filament\Resources\RoleResource;
+use Savannabits\FilamentModules\Concerns\ContextualPage;
 
 class CreateRole extends CreateRecord
 {
+    use ContextualPage;
     public Collection $permissions;
 
     protected static string $resource = RoleResource::class;
