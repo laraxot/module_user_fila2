@@ -8,9 +8,8 @@ use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
-use Filament\Tables\Columns\BooleanColumn;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\UserResource;
 
 class UsersRelationManager extends RelationManager
@@ -22,7 +21,8 @@ class UsersRelationManager extends RelationManager
 
     public static function form(Form $form): Form
     {
-        $form=UserResource::form($form);
+        $form = UserResource::form($form);
+
         return $form;
         /*
         return $form
@@ -36,15 +36,14 @@ class UsersRelationManager extends RelationManager
 
     public static function table(Table $table): Table
     {
-        $table=UserResource::table($table);
-        $columns=$table->getColumns();
-        $columns=collect($columns)->except(['teams.name','role.name','roles.name'])->all();
-        $columns['role']=TextColumn::make('role');
+        $table = UserResource::table($table);
+        $columns = $table->getColumns();
+        $columns = collect($columns)->except(['teams.name', 'role.name', 'roles.name'])->all();
+        $columns['role'] = TextColumn::make('role');
         $table->columns($columns);
-        $headerActions=$table->getHeaderActions();
-        //$headerActions['attach']=Tables\Actions\AttachAction::make();
+        $headerActions = $table->getHeaderActions();
+        // $headerActions['attach']=Tables\Actions\AttachAction::make();
         $table->headerActions($headerActions);
-
 
         return $table;
         /*
