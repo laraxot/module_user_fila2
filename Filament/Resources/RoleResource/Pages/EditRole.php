@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
 use Filament\Pages\Actions;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-use Modules\User\Support\Utils;
-use Illuminate\Support\Collection;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Modules\User\Filament\Resources\RoleResource;
+use Modules\User\Support\Utils;
 use Savannabits\FilamentModules\Concerns\ContextualPage;
 
 class EditRole extends EditRecord
