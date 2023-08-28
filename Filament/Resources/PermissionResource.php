@@ -140,11 +140,10 @@ class PermissionResource extends Resource
                             ->options(Role::query()->pluck('name', 'id'))
                             ->required(),
                     ])->deselectRecordsAfterCompletion(),
-            ])
-            // ->emptyStateActions([
-            //    Tables\Actions\CreateAction::make(),
-            // ])
-        ;
+            ]);
+        // ->emptyStateActions([
+        //    Tables\Actions\CreateAction::make(),
+        // ])
     }
 
     public static function getRelations(): array
