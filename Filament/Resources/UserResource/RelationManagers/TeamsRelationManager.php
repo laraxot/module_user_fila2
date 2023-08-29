@@ -20,39 +20,35 @@ class TeamsRelationManager extends RelationManager
 
     public static function form(Form $form): Form
     {
-        // $form = TeamResource::form($form);
-        // $childComponents = [];
-        // foreach ($form->getSchema() as $schema) {
-        //     $childComponents = array_merge($childComponents, $schema->getChildComponents());
-        // }
-        // $childComponents['role'] = Forms\Components\Select::make('role')
-        //     ->options(Role::all()->pluck('name', 'name'));
-        // $form->schema($childComponents);
+        $form = TeamResource::form($form);
+        $childComponents = [];
+        foreach ($form->getSchema() as $schema) {
+            $childComponents = array_merge($childComponents, $schema->getChildComponents());
+        }
+        $childComponents['role'] = Forms\Components\Select::make('role')
+             ->options(Role::all()->pluck('name', 'name'));
+        $form->schema($childComponents);
 
-        // return $form;
-
-        return TeamResource::form($form);
+        return $form;
     }
 
     public static function table(Table $table): Table
     {
-        // $table = TeamResource::table($table);
+        $table = TeamResource::table($table);
 
-        // $columns = $table->getColumns();
-        // $columns['role'] = Tables\Columns\TextColumn::make('role');
-        // $table->columns($columns);
+        $columns = $table->getColumns();
+        $columns['role'] = Tables\Columns\TextColumn::make('role');
+        $table->columns($columns);
 
-        // $headerActions = $table->getHeaderActions();
-        // $headerActions['attach'] = Tables\Actions\AttachAction::make()
-        //     ->form(fn (Tables\Actions\AttachAction $action): array => [
-        //         $action->getRecordSelect(),
-        //         Forms\Components\Select::make('role_id')
-        //             ->options(Role::all()->pluck('name', 'id')),
-        //     ]);
-        // $table->headerActions($headerActions);
+        $headerActions = $table->getHeaderActions();
+        $headerActions['attach'] = Tables\Actions\AttachAction::make()
+            ->form(fn (Tables\Actions\AttachAction $action): array => [
+                $action->getRecordSelect(),
+                Forms\Components\Select::make('role')
+                    ->options(Role::all()->pluck('name', 'name')),
+            ]);
+        $table->headerActions($headerActions);
 
-        // return $table;
-
-        return TeamResource::table($table);
+        return $table;
     }
 }
