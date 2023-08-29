@@ -7,21 +7,23 @@ namespace Modules\User\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 // use Laravel\Sanctum\HasApiTokens;
-use ArtMin96\FilamentJet\Contracts\UserContract as UserJetContract;
-use ArtMin96\FilamentJet\Traits\CanExportPersonalData;
-use ArtMin96\FilamentJet\Traits\HasProfilePhoto;
-use ArtMin96\FilamentJet\Traits\HasTeams;
-use ArtMin96\FilamentJet\Traits\TwoFactorAuthenticatable;
-use Filament\Models\Contracts\FilamentUser;
-use Filament\Models\Contracts\HasAvatar;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
 use Modules\Xot\Datas\XotData;
+use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Filament\Models\Contracts\HasAvatar;
+use Illuminate\Notifications\Notifiable;
+use ArtMin96\FilamentJet\Traits\HasTeams;
+use Filament\Models\Contracts\FilamentUser;
+use ArtMin96\FilamentJet\Traits\HasProfilePhoto;
+use Modules\User\Database\Factories\UserFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Spatie\PersonalDataExport\ExportsPersonalData;
+use ArtMin96\FilamentJet\Traits\CanExportPersonalData;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use ArtMin96\FilamentJet\Traits\TwoFactorAuthenticatable;
+use ArtMin96\FilamentJet\Contracts\UserContract as UserJetContract;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * Modules\User\Models\User.
@@ -156,5 +158,13 @@ class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contrac
         $profileClass = XotData::make()->getProfileClass();
 
         return $this->hasOne($profileClass);
+    }
+
+    /**
+     * Create a new factory instance for the model.
+     */
+    protected static function newFactory(): Factory
+    {
+        return UserFactory::new();
     }
 }
