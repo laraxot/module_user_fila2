@@ -50,19 +50,19 @@ class RoleResource extends XotBaseResource
                         Forms\Components\Card::make()
                             ->schema([
                                 Forms\Components\TextInput::make('name')
-                                    ->label(__('filament-shield::filament-shield.field.name'))
+                                    ->label(static::trans('field.name'))
                                     ->required()
                                     ->maxLength(255),
                                 Forms\Components\TextInput::make('guard_name')
-                                    ->label(__('filament-shield::filament-shield.field.guard_name'))
+                                    ->label(static::trans('field.guard_name'))
                                     ->default(Utils::getFilamentAuthGuard())
                                     ->nullable()
                                     ->maxLength(255),
                                 Forms\Components\Toggle::make('select_all')
                                     ->onIcon('heroicon-s-shield-check')
                                     ->offIcon('heroicon-s-shield-exclamation')
-                                    ->label(__('filament-shield::filament-shield.field.select_all.name'))
-                                    ->helperText(__('filament-shield::filament-shield.field.select_all.message'))
+                                    ->label(static::trans('field.select_all.name'))
+                                    ->helperText(static::trans('field.select_all.message'))
                                     ->reactive()
                                     ->afterStateUpdated(function (\Closure $set, $state) {
                                         static::refreshEntitiesStatesViaSelectAll($set, $state);
@@ -76,7 +76,7 @@ class RoleResource extends XotBaseResource
                     ]),
                 Forms\Components\Tabs::make('Permissions')
                     ->tabs([
-                        Forms\Components\Tabs\Tab::make(__('filament-shield::filament-shield.resources'))
+                        Forms\Components\Tabs\Tab::make(static::trans('resources'))
                             ->visible(fn (): bool => (bool) Utils::isResourceEntityEnabled())
                             ->reactive()
                             ->schema([
@@ -90,7 +90,7 @@ class RoleResource extends XotBaseResource
                                         'lg' => 3,
                                     ]),
                             ]),
-                        Forms\Components\Tabs\Tab::make(__('filament-shield::filament-shield.pages'))
+                        Forms\Components\Tabs\Tab::make(static::trans('pages'))
                             // ->visible(fn (): bool => (bool) Utils::isPageEntityEnabled() && (count(FilamentShield::getPages()) > 0 ? true : false))
                             ->reactive()
                             ->schema([
@@ -104,7 +104,7 @@ class RoleResource extends XotBaseResource
                                         'lg' => 4,
                                     ]),
                             ]),
-                        Forms\Components\Tabs\Tab::make(__('filament-shield::filament-shield.widgets'))
+                        Forms\Components\Tabs\Tab::make(static::trans('widgets'))
                             // ->visible(fn (): bool => (bool) Utils::isWidgetEntityEnabled() && (count(FilamentShield::getWidgets()) > 0 ? true : false))
                             ->reactive()
                             ->schema([
@@ -119,7 +119,7 @@ class RoleResource extends XotBaseResource
                                     ]),
                             ]),
 
-                        Forms\Components\Tabs\Tab::make(__('filament-shield::filament-shield.custom'))
+                        Forms\Components\Tabs\Tab::make(static::trans('custom'))
                             ->visible(fn (): bool => (bool) Utils::isCustomPermissionEntityEnabled())
                             ->reactive()
                             ->schema([
@@ -143,18 +143,18 @@ class RoleResource extends XotBaseResource
         return $table
             ->columns([
                 Tables\Columns\BadgeColumn::make('name')
-                    ->label(__('filament-shield::filament-shield.column.name'))
+                    ->label(static::trans('fields.name'))
                     ->formatStateUsing(fn ($state): string => Str::headline($state))
                     ->colors(['primary'])
                     ->searchable(),
                 Tables\Columns\BadgeColumn::make('guard_name')
-                    ->label(__('filament-shield::filament-shield.column.guard_name')),
+                    ->label(static::trans('fields.guard_name')),
                 Tables\Columns\BadgeColumn::make('permissions_count')
-                    ->label(__('filament-shield::filament-shield.column.permissions'))
+                    ->label(static::trans('fields.permissions'))
                     ->counts('permissions')
                     ->colors(['success']),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->label(__('filament-shield::filament-shield.column.updated_at'))
+                    ->label(static::trans('fields.updated_at'))
                     ->dateTime(),
             ])
             ->filters([
@@ -236,7 +236,7 @@ class RoleResource extends XotBaseResource
                         })
                         ->dehydrated(false),
                     Forms\Components\Fieldset::make('Permissions')
-                        ->label(__('filament-shield::filament-shield.column.permissions'))
+                        ->label(static::trans('fields.permissions'))
                         ->extraAttributes(['class' => 'text-primary-600', 'style' => 'border-color:var(--primary)'])
                         ->columns([
                             'default' => 2,
@@ -289,13 +289,13 @@ class RoleResource extends XotBaseResource
     /*
     public static function getModelLabel(): string
     {
-        return __('filament-shield::filament-shield.resource.label.role');
+        return static::trans('resource.label.role');
     }
 
 
     public static function getPluralModelLabel(): string
     {
-        return __('filament-shield::filament-shield.resource.label.roles');
+        return static::trans('resource.label.roles');
     }
 
     protected static function shouldRegisterNavigation(): bool
@@ -306,18 +306,18 @@ class RoleResource extends XotBaseResource
     protected static function getNavigationGroup(): ?string
     {
         return Utils::isResourceNavigationGroupEnabled()
-            ? __('filament-shield::filament-shield.nav.group')
+            ? static::trans('nav.group')
             : '';
     }
 
     protected static function getNavigationLabel(): string
     {
-        return __('filament-shield::filament-shield.nav.role.label');
+        return static::trans('nav.role.label');
     }
 
     protected static function getNavigationIcon(): string
     {
-        return __('filament-shield::filament-shield.nav.role.icon');
+        return static::trans('nav.role.icon');
     }
 
     protected static function getNavigationSort(): ?int

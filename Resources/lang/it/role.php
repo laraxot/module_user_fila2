@@ -11,6 +11,10 @@ return [
         ],
     ],
     'fields' => [
+        'name' => 'Nome',
+        'guard_name' => 'Guard',
+        'permissions' => 'Permessi',
+        'updated_at' => 'Aggiornato il',
         'first_name' => 'Nome',
         'last_name' => 'Cognome',
     ],
