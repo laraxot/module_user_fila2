@@ -18,14 +18,11 @@ class RolesRelationManager extends RelationManager
     protected static ?string $recordTitleAttribute = 'name';
     // protected static ?string $inverseRelationship = 'section'; // Since the inverse related model is `Category`, this is normally `category`, not `section`.
 
-<<<<<<< HEAD
     // protected function mutateFormDataBeforeCreate(array $data): array
     // {
     //    dddx('a');
     // }
 
-=======
->>>>>>> ee518d7 (Check & fix styling)
     public static function form(Form $form): Form
     {
         return $form
