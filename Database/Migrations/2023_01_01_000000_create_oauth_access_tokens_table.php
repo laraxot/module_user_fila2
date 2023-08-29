@@ -13,6 +13,7 @@ class CreateOauthAccessTokensTable extends XotBaseMigration
             function (Blueprint $table) {
                 $table->string('id', 100)->primary();
                 $table->unsignedBigInteger('user_id')->nullable()->index();
+                // $table->foreignIdFor(User::class);
                 $table->unsignedBigInteger('client_id');
                 $table->string('name')->nullable();
                 $table->text('scopes')->nullable();

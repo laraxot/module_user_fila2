@@ -19,6 +19,7 @@ class CreateTeamsTable extends XotBaseMigration
             function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('user_id')->index();
+                // $table->foreignIdFor(User::class);
                 $table->string('name');
                 $table->boolean('personal_team');
                 $table->timestamps();

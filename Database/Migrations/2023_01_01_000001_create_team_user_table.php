@@ -20,6 +20,7 @@ class CreateTeamUserTable extends XotBaseMigration
                 $table->id();
                 $table->foreignId('team_id');
                 $table->foreignId('user_id');
+                // $table->foreignIdFor(User::class);
                 $table->string('role')->nullable();
                 $table->timestamps();
 

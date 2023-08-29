@@ -13,6 +13,7 @@ class CreateOauthClientsTable extends XotBaseMigration
             function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->unsignedBigInteger('user_id')->nullable()->index();
+                // $table->foreignIdFor(User::class);
                 $table->string('name');
                 $table->string('secret', 100)->nullable();
                 $table->string('provider')->nullable();
