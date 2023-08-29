@@ -9,15 +9,13 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /**
  * Class CreateRolesTable.
  */
-class CreateRolesTable extends XotBaseMigration
-{
+class CreateRolesTable extends XotBaseMigration {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         $tableNames = config('permission.table_names');
         $columnNames = config('permission.column_names');
         $teams = true;
@@ -66,7 +64,7 @@ class CreateRolesTable extends XotBaseMigration
                     // }
                 }
                 // $table->string('team_id')->nullable()->change();
-                $this->hasIndexName('name_guard_name_unique'){
+                if ($this->hasIndexName('name_guard_name_unique')) {
                     $table->dropIndex('roles_name_guard_name_unique');
                 }
             }
