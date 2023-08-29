@@ -13,7 +13,6 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
-use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Actions\BulkAction;
@@ -28,37 +27,38 @@ use Modules\User\Filament\Resources\PermissionResource\Pages\ViewPermission;
 use Modules\User\Filament\Resources\PermissionResource\RelationManager\RoleRelationManager;
 use Modules\User\Models\Permission;
 use Modules\User\Models\Role;
+use Modules\Xot\Filament\Resources\XotBaseResource;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
 
-class PermissionResource extends Resource
+class PermissionResource extends XotBaseResource
 {
     use ContextualResource;
     protected static ?string $navigationIcon = 'heroicon-o-lock-closed';
 
-    public static function shouldRegisterNavigation(): bool
-    {
-        return config('filament-spatie-roles-permissions.should_register_on_navigation.permissions', true);
-    }
+    // public static function shouldRegisterNavigation(): bool
+    // {
+    //    return config('filament-spatie-roles-permissions.should_register_on_navigation.permissions', true);
+    // }
 
-    public static function getModel(): string
-    {
-        return config('permission.models.permission', Permission::class);
-    }
+    // public static function getModel(): string
+    // {
+    //    return config('permission.models.permission', Permission::class);
+    // }
 
-    public static function getLabel(): string
-    {
-        return __('filament-spatie-roles-permissions::filament-spatie.section.permission');
-    }
+    // public static function getLabel(): string
+    // {
+    //    return __('filament-spatie-roles-permissions::filament-spatie.section.permission');
+    // }
 
-    public static function getNavigationGroup(): ?string
-    {
-        return __(config('filament-spatie-roles-permissions.navigation_section_group', 'filament-spatie-roles-permissions::filament-spatie.section.roles_and_permissions'));
-    }
+    // public static function getNavigationGroup(): ?string
+    // {
+    //    return __(config('filament-spatie-roles-permissions.navigation_section_group', 'filament-spatie-roles-permissions::filament-spatie.section.roles_and_permissions'));
+    // }
 
-    public static function getPluralLabel(): string
-    {
-        return __('filament-spatie-roles-permissions::filament-spatie.section.permissions');
-    }
+    // public static function getPluralLabel(): string
+    // {
+    //    return __('filament-spatie-roles-permissions::filament-spatie.section.permissions');
+    // }
 
     public static function form(Form $form): Form
     {
@@ -68,14 +68,14 @@ class PermissionResource extends Resource
                     ->schema([
                         Grid::make(2)->schema([
                             TextInput::make('name')
-                                ->label(__('filament-spatie-roles-permissions::filament-spatie.field.name')),
+                                ->label(static::trans('fields.name')),
                             Select::make('guard_name')
-                                ->label(__('filament-spatie-roles-permissions::filament-spatie.field.guard_name'))
+                                ->label(static::trans('fields.guard_name'))
                                 ->options(config('filament-spatie-roles-permissions.guard_names'))
                                 ->default(config('filament-spatie-roles-permissions.default_guard_name')),
                             Select::make('roles')
                                 ->multiple()
-                                ->label(__('filament-spatie-roles-permissions::filament-spatie.field.roles'))
+                                ->label(static::trans('fields.roles'))
                                 ->relationship('roles', 'name')
                                 ->preload(config('filament-spatie-roles-permissions.preload_roles', true)),
                         ]),
@@ -91,11 +91,11 @@ class PermissionResource extends Resource
                     ->label('ID')
                     ->searchable(),
                 TextColumn::make('name')
-                    ->label(__('filament-spatie-roles-permissions::filament-spatie.field.name'))
+                    ->label(static::trans('fields.name'))
                     ->searchable(),
                 TextColumn::make('guard_name')
                     ->toggleable(isToggledHiddenByDefault: config('filament-spatie-roles-permissions.toggleable_guard_names.permissions.isToggledHiddenByDefault', true))
-                    ->label(__('filament-spatie-roles-permissions::filament-spatie.field.guard_name'))
+                    ->label(static::trans('fields.guard_name'))
                     ->searchable(),
             ])
             ->filters([
@@ -136,7 +136,7 @@ class PermissionResource extends Resource
                     })
                     ->form([
                         Select::make('role')
-                            ->label(__('filament-spatie-roles-permissions::filament-spatie.field.role'))
+                            ->label(static::trans('fields.role'))
                             ->options(Role::query()->pluck('name', 'id'))
                             ->required(),
                     ])->deselectRecordsAfterCompletion(),

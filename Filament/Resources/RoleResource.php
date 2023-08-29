@@ -15,6 +15,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Modules\User\Facades\FilamentShield;
 use Modules\User\Filament\Resources\RoleResource\Pages;
+use Modules\User\Filament\Resources\RoleResource\RelationManagers;
 use Modules\User\Models\Role;
 use Modules\User\Support\Utils;
 use Modules\Xot\Filament\Resources\XotBaseResource;
@@ -50,19 +51,19 @@ class RoleResource extends XotBaseResource
                         Forms\Components\Card::make()
                             ->schema([
                                 Forms\Components\TextInput::make('name')
-                                    ->label(static::trans('field.name'))
+                                    ->label(static::trans('fields.name'))
                                     ->required()
                                     ->maxLength(255),
                                 Forms\Components\TextInput::make('guard_name')
-                                    ->label(static::trans('field.guard_name'))
+                                    ->label(static::trans('fields.guard_name'))
                                     ->default(Utils::getFilamentAuthGuard())
                                     ->nullable()
                                     ->maxLength(255),
                                 Forms\Components\Toggle::make('select_all')
                                     ->onIcon('heroicon-s-shield-check')
                                     ->offIcon('heroicon-s-shield-exclamation')
-                                    ->label(static::trans('field.select_all.name'))
-                                    ->helperText(static::trans('field.select_all.message'))
+                                    ->label(static::trans('fields.select_all.name'))
+                                    ->helperText(static::trans('fields.select_all.message'))
                                     ->reactive()
                                     ->afterStateUpdated(function (\Closure $set, $state) {
                                         static::refreshEntitiesStatesViaSelectAll($set, $state);
@@ -171,6 +172,7 @@ class RoleResource extends XotBaseResource
     public static function getRelations(): array
     {
         return [
+            RelationManagers\UsersRelationManager::class,
         ];
     }
 

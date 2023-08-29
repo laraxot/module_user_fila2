@@ -3,12 +3,9 @@
 declare(strict_types=1);
 
 return [
-    'resources' => 'Risorse',
-    'pages' => 'Pagine',
-    'widgets' => 'Widgets',
     'navigation' => [
-        'name' => 'Ruolo',
-        'plural' => 'Ruoli',
+        'name' => 'Permesso',
+        'plural' => 'Permessi',
         'group' => [
             'name' => 'Admin',
         ],
@@ -17,13 +14,10 @@ return [
         'name' => 'Nome',
         'guard_name' => 'Guard',
         'permissions' => 'Permessi',
+        'roles' => 'Ruoli',
         'updated_at' => 'Aggiornato il',
         'first_name' => 'Nome',
         'last_name' => 'Cognome',
-        'select_all' => [
-            'name' => 'Seleziona Tutti',
-            'message' => '',
-        ],
     ],
     'actions' => [
         'import' => [
