@@ -21,15 +21,26 @@ use Modules\User\Support\Utils;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
 
+<<<<<<< HEAD
 class RoleResource extends XotBaseResource
 { /* implements HasShieldPermissions */
     // use ContextualResource;
     protected static ?string $model = Role::class;
     protected static ?string $navigationIcon = 'heroicon-o-shield-check';
 
+=======
+class RoleResource extends Resource
+{ /* implements HasShieldPermissions */
+    use ContextualResource;
+>>>>>>> ee518d7 (Check & fix styling)
     protected static ?string $recordTitleAttribute = 'name';
     protected static ?Collection $permissionsCollection = null;
 
+<<<<<<< HEAD
+=======
+    protected static Collection $permissionsCollection;
+
+>>>>>>> ee518d7 (Check & fix styling)
     public static function getPermissionPrefixes(): array
     {
         return [
@@ -339,7 +350,11 @@ class RoleResource extends XotBaseResource
             : null;
     }
 
+<<<<<<< HEAD
     protected static function refreshSelectAllStateViaEntities(Closure $set, Closure $get): void
+=======
+    protected static function refreshSelectAllStateViaEntities(\Closure $set, \Closure $get): void
+>>>>>>> ee518d7 (Check & fix styling)
     {
         $entitiesStates = collect(FilamentShield::getResources())
             ->when(Utils::isPageEntityEnabled(), fn ($entities) => $entities->merge(FilamentShield::getPages()))
@@ -362,7 +377,11 @@ class RoleResource extends XotBaseResource
         }
     }
 
+<<<<<<< HEAD
     protected static function refreshEntitiesStatesViaSelectAll(Closure $set, $state): void
+=======
+    protected static function refreshEntitiesStatesViaSelectAll(\Closure $set, $state): void
+>>>>>>> ee518d7 (Check & fix styling)
     {
         collect(FilamentShield::getResources())->each(function ($entity) use ($set, $state) {
             $set($entity['resource'], $state);
@@ -390,7 +409,11 @@ class RoleResource extends XotBaseResource
         });
     }
 
+<<<<<<< HEAD
     protected static function refreshResourceEntityStateAfterUpdate(Closure $set, Closure $get, array $entity): void
+=======
+    protected static function refreshResourceEntityStateAfterUpdate(\Closure $set, \Closure $get, array $entity): void
+>>>>>>> ee518d7 (Check & fix styling)
     {
         $permissionStates = collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))
             ->map(function ($permission) use ($get, $entity) {
@@ -406,7 +429,11 @@ class RoleResource extends XotBaseResource
         }
     }
 
+<<<<<<< HEAD
     protected static function refreshResourceEntityStateAfterHydrated(Model $record, Closure $set, array $entity): void
+=======
+    protected static function refreshResourceEntityStateAfterHydrated(Model $record, \Closure $set, array $entity): void
+>>>>>>> ee518d7 (Check & fix styling)
     {
         $entities = $record->permissions->pluck('name')
             ->reduce(function ($roles, $role) {
@@ -447,8 +474,11 @@ class RoleResource extends XotBaseResource
 
     protected static function getPageEntityPermissionsSchema(): array
     {
+<<<<<<< HEAD
         return [];
 
+=======
+>>>>>>> ee518d7 (Check & fix styling)
         return collect(FilamentShield::getPages())->sortKeys()->reduce(function ($pages, $page) {
             $pages[] = Forms\Components\Grid::make()
                 ->schema([
@@ -490,8 +520,11 @@ class RoleResource extends XotBaseResource
 
     protected static function getWidgetEntityPermissionSchema(): ?array
     {
+<<<<<<< HEAD
         return [];
 
+=======
+>>>>>>> ee518d7 (Check & fix styling)
         return collect(FilamentShield::getWidgets())->reduce(function ($widgets, $widget) {
             $widgets[] = Forms\Components\Grid::make()
                 ->schema([
@@ -529,7 +562,10 @@ class RoleResource extends XotBaseResource
 
     protected static function getCustomEntities(): ?Collection
     {
+<<<<<<< HEAD
         return collect();
+=======
+>>>>>>> ee518d7 (Check & fix styling)
         $resourcePermissions = collect();
         collect(FilamentShield::getResources())->each(function ($entity) use ($resourcePermissions) {
             collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))->map(function ($permission) use ($resourcePermissions, $entity) {
