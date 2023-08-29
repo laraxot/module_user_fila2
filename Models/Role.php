@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use ArtMin96\FilamentJet\FilamentJet;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Permission\Models\Role as SpatieRole;
 
@@ -50,4 +51,28 @@ class Role extends SpatieRole
      * @var string
      */
     protected $connection = 'user';
+
+    /**
+     * Get all of the teams the user belongs to.
+     */
+    public function team()
+    {
+        $teamClass = FilamentJet::teamModel();
+
+        return $this->belongsTo($teamClass);
+        /*
+        $pivotClass = FilamentJet::membershipModel();
+        $pivot = app($pivotClass);
+        $pivotTable = $pivot->getTable();
+        $pivotDbName = $pivot->getConnection()->getDatabaseName();
+        $pivotTableFull = $pivotDbName.'.'.$pivotTable;
+
+        // $this->setConnection('mysql');
+        return $this->belongsToMany(FilamentJet::teamModel(), $pivotTableFull, null, 'team_id')
+            ->using($pivotClass)
+            ->withPivot('role')
+            ->withTimestamps()
+            ->as('membership');
+        */
+    }
 }

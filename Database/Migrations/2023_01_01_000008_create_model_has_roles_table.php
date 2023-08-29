@@ -21,7 +21,7 @@ class CreateModelHasRolesTable extends XotBaseMigration
     {
         /** @var array $columnNames */
         $columnNames = config('permission.column_names');
-        /** @var array $teams */
+        /** @var bool $teams */
         $teams = true; // config('permission.teams');
 
         // -- CREATE --
@@ -60,8 +60,14 @@ class CreateModelHasRolesTable extends XotBaseMigration
                 if (! $this->hasColumn('team_id')) {
                     $table->foreignId('team_id')->nullable();
                 }
+                $table->string('team_id')->nullable()->change();
+                if ($this->hasIndexName('model_has_roles_team_foreign_key_index')) {
+                    $table->dropIndex('model_has_roles_team_foreign_key_index');
+                }
+                if ($this->hasIndexName('model_has_roles_model_id_model_type_index')) {
+                    $table->dropIndex('model_has_roles_model_id_model_type_index');
+                }
             }
-            // $table->string('team_id')->nullable()->change();
         );
     }
 }

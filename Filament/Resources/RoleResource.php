@@ -54,6 +54,8 @@ class RoleResource extends XotBaseResource
                                     ->label(static::trans('fields.name'))
                                     ->required()
                                     ->maxLength(255),
+                                Forms\Components\Select::make('team_id')
+                                    ->relationship('team', 'name'),
                                 Forms\Components\TextInput::make('guard_name')
                                     ->label(static::trans('fields.guard_name'))
                                     ->default(Utils::getFilamentAuthGuard())
@@ -148,6 +150,8 @@ class RoleResource extends XotBaseResource
                     ->formatStateUsing(fn ($state): string => Str::headline($state))
                     ->colors(['primary'])
                     ->searchable(),
+                //Tables\Columns\TextColumn::make('team_id'),
+                Tables\Columns\TextColumn::make('team.name'),
                 Tables\Columns\BadgeColumn::make('guard_name')
                     ->label(static::trans('fields.guard_name')),
                 Tables\Columns\BadgeColumn::make('permissions_count')
