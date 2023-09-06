@@ -24,6 +24,7 @@ use Savannabits\FilamentModules\Concerns\ContextualResource;
 class RoleResource extends XotBaseResource
 { /* implements HasShieldPermissions */
     // use ContextualResource;
+    protected static string $resourceFile = __FILE__;
     protected static ?string $model = Role::class;
     protected static ?string $navigationIcon = 'heroicon-o-shield-check';
 

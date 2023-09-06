@@ -33,6 +33,7 @@ use Savannabits\FilamentModules\Concerns\ContextualResource;
 class PermissionResource extends XotBaseResource
 {
     use ContextualResource;
+    protected static string $resourceFile = __FILE__;
     protected static ?string $navigationIcon = 'heroicon-o-lock-closed';
 
     // public static function shouldRegisterNavigation(): bool
