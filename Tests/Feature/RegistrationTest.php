@@ -11,7 +11,7 @@ use Laravel\Fortify\Features;
 use Laravel\Jetstream\Jetstream;
 use Modules\User\Tests\TestCase;
 
-final class RegistrationTest extends TestCase
+class RegistrationTest extends TestCase
 {
     use RefreshDatabase;
 

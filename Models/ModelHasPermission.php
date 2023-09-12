@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Builder;
  *
  * @mixin \Eloquent
  */
-final class ModelHasPermission extends BaseMorphPivot
+class ModelHasPermission extends BaseMorphPivot
 {
     /**
      * @var array<string>

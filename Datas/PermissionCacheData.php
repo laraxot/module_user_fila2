@@ -10,7 +10,7 @@ use Spatie\LaravelData\Data;
 /**
  * Undocumented class.
  */
-final class PermissionCacheData extends Data
+class PermissionCacheData extends Data
 {
     public DateInterval $expiration_time;
      // => \DateInterval::createFromDateString('24 hours'),

@@ -32,7 +32,7 @@ use Laravel\Passport\AuthCode as PassportAuthCode;
  * @mixin IdeHelperOauthAuthCode
  * @mixin \Eloquent
  */
-final class OauthAuthCode extends PassportAuthCode
+class OauthAuthCode extends PassportAuthCode
 {
     /**
      * @var string

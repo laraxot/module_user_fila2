@@ -7,7 +7,7 @@ namespace Modules\User\Events;
 use ArtMin96\FilamentJet\Contracts\TeamContract;
 use Illuminate\Foundation\Events\Dispatchable;
 
-final class InvitingTeamMember
+class InvitingTeamMember
 {
     use Dispatchable;
 

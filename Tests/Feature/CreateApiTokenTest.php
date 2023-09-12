@@ -12,7 +12,7 @@ use Livewire\Livewire;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
 
-final class CreateApiTokenTest extends TestCase
+class CreateApiTokenTest extends TestCase
 {
     use RefreshDatabase;
 

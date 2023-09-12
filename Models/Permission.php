@@ -42,7 +42,7 @@ use Spatie\Permission\Models\Permission as SpatiePermission;
  * @mixin IdeHelperPermission
  * @mixin \Eloquent
  */
-final class Permission extends SpatiePermission
+class Permission extends SpatiePermission
 {
     /**
      * @var string

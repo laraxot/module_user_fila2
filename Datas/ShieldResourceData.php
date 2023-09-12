@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
 /**
  * Undocumented class.
  */
-final class ShieldResourceData extends Data
+class ShieldResourceData extends Data
 {
     public int $navigation_sort;
      // = -1;

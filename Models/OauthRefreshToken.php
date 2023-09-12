@@ -28,7 +28,7 @@ use Laravel\Passport\RefreshToken as PassportRefreshToken;
  * @mixin IdeHelperOauthRefreshToken
  * @mixin \Eloquent
  */
-final class OauthRefreshToken extends PassportRefreshToken
+class OauthRefreshToken extends PassportRefreshToken
 {
     /*
      * @var string

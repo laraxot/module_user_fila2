@@ -9,7 +9,7 @@ use DateTime;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\User\Models\PasswordReset;
 
-final class PasswordResetFactory extends Factory
+class PasswordResetFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.

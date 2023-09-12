@@ -11,7 +11,7 @@ use Livewire\Livewire;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
 
-final class UpdateTeamNameTest extends TestCase
+class UpdateTeamNameTest extends TestCase
 {
     use RefreshDatabase;
 

@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-final class CreateOauthClientsTable extends XotBaseMigration
+class CreateOauthClientsTable extends XotBaseMigration
 {
     public function up(): void
     {

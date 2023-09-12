@@ -7,7 +7,7 @@ namespace Modules\User\Events;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Queue\SerializesModels;
 
-final class RecoveryCodeReplaced
+class RecoveryCodeReplaced
 {
     use SerializesModels;
 

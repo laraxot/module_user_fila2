@@ -40,7 +40,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *
  * @mixin \Eloquent
  */
-final class Team extends FilamentJetTeam
+class Team extends FilamentJetTeam
 {
     use HasFactory;
 

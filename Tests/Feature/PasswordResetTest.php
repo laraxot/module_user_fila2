@@ -12,7 +12,7 @@ use Laravel\Fortify\Features;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
 
-final class PasswordResetTest extends TestCase
+class PasswordResetTest extends TestCase
 {
     use RefreshDatabase;
 

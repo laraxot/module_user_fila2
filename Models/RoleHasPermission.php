@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Builder;
  * @mixin IdeHelperRoleHasPermission
  * @mixin \Eloquent
  */
-final class RoleHasPermission extends BasePivot
+class RoleHasPermission extends BasePivot
 {
     /**
      * @var array<string>

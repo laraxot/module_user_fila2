@@ -10,7 +10,7 @@ use Webmozart\Assert\Assert;
 /**
  * Undocumented class.
  */
-final class FilamentShieldData extends Data
+class FilamentShieldData extends Data
 {
     public ShieldResourceData $shield_resource;
 

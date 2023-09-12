@@ -7,7 +7,7 @@ namespace Modules\User\Events;
 use ArtMin96\FilamentJet\Contracts\UserContract;
 use Illuminate\Foundation\Events\Dispatchable;
 
-final class RecoveryCodesGenerated
+class RecoveryCodesGenerated
 {
     use Dispatchable;
 

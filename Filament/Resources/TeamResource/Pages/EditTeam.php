@@ -11,7 +11,7 @@ use Filament\Resources\Pages\EditRecord;
 use Modules\User\Filament\Resources\TeamResource;
 use Savannabits\FilamentModules\Concerns\ContextualPage;
 
-final class EditTeam extends EditRecord
+class EditTeam extends EditRecord
 {
     use ContextualPage;
     protected static string $resource = TeamResource::class;

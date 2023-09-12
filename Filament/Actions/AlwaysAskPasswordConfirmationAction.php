@@ -8,7 +8,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms;
 use Filament\Pages\Actions\Action;
 
-final class AlwaysAskPasswordConfirmationAction extends Action
+class AlwaysAskPasswordConfirmationAction extends Action
 {
     protected function setUp(): void
     {

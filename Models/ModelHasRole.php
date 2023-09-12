@@ -25,7 +25,7 @@ use Illuminate\Database\Eloquent\Builder;
  *
  * @mixin \Eloquent
  */
-final class ModelHasRole extends BaseMorphPivot
+class ModelHasRole extends BaseMorphPivot
 {
     /**
      * @var array<string>

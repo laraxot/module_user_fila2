@@ -11,7 +11,7 @@ use Livewire\Livewire;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
 
-final class ProfileInformationTest extends TestCase
+class ProfileInformationTest extends TestCase
 {
     use RefreshDatabase;
 

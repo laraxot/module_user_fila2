@@ -14,7 +14,7 @@ use Livewire\Livewire;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
 
-final class InviteTeamMemberTest extends TestCase
+class InviteTeamMemberTest extends TestCase
 {
     use RefreshDatabase;
 

@@ -12,7 +12,7 @@ use Livewire\Livewire;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
 
-final class TwoFactorAuthenticationSettingsTest extends TestCase
+class TwoFactorAuthenticationSettingsTest extends TestCase
 {
     use RefreshDatabase;
 

@@ -40,7 +40,7 @@ use Laravel\Passport\Token as PassportToken;
  * @mixin IdeHelperOauthAccessToken
  * @mixin \Eloquent
  */
-final class OauthAccessToken extends PassportToken
+class OauthAccessToken extends PassportToken
 {
     /**
      * @var string

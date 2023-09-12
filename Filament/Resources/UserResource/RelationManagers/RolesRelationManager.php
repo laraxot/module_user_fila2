@@ -18,7 +18,7 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
 
-final class RolesRelationManager extends RelationManager
+class RolesRelationManager extends RelationManager
 {
     protected static string $relationship = 'roles';
 

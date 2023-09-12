@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Modules\User\Filament\Resources\PermissionResource;
 use Savannabits\FilamentModules\Concerns\ContextualPage;
 
-final class ListPermissions extends ListRecords
+class ListPermissions extends ListRecords
 {
     use ContextualPage;
     protected static string $resource = PermissionResource::class;

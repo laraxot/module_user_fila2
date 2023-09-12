@@ -10,7 +10,7 @@ use Filament\Resources\Pages\ListRecords;
 use Modules\User\Filament\Resources\TeamResource;
 use Savannabits\FilamentModules\Concerns\ContextualPage;
 
-final class ListTeams extends ListRecords
+class ListTeams extends ListRecords
 {
     use ContextualPage;
     protected static string $resource = TeamResource::class;

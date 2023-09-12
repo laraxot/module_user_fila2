@@ -15,7 +15,7 @@ use Filament\Tables;
 use Modules\User\Filament\Resources\TeamResource;
 use Modules\User\Models\Role;
 
-final class TeamsRelationManager extends RelationManager
+class TeamsRelationManager extends RelationManager
 {
     protected static string $relationship = 'teams';
 

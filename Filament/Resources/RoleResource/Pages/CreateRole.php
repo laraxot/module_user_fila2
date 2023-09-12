@@ -12,7 +12,7 @@ use Modules\User\Filament\Resources\RoleResource;
 use Modules\User\Support\Utils;
 use Savannabits\FilamentModules\Concerns\ContextualPage;
 
-final class CreateRole extends CreateRecord
+class CreateRole extends CreateRecord
 {
     use ContextualPage;
     public Collection $permissions;

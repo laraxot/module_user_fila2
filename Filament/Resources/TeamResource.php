@@ -24,7 +24,7 @@ use Modules\User\Filament\Resources\TeamResource\RelationManagers;
 use Modules\User\Models\Role;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
 
-final class TeamResource extends Resource
+class TeamResource extends Resource
 {
     private static string $resourceFile = __FILE__;
     

@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
 /**
  * Undocumented class.
  */
-final class FilamentUserData extends Data
+class FilamentUserData extends Data
 {
     public bool $enabled;
      // => true,

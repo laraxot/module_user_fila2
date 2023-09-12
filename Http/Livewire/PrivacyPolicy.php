@@ -13,7 +13,7 @@ use function Safe\file_get_contents;
 
 use Webmozart\Assert\Assert;
 
-final class PrivacyPolicy extends Component
+class PrivacyPolicy extends Component
 {
     /**
      * Show the terms of service for the application.

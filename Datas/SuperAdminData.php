@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
 /**
  * Undocumented class.
  */
-final class SuperAdminData extends Data
+class SuperAdminData extends Data
 {
     public bool $enabled;
      // ' => true,

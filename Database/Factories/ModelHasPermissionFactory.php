@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\User\Models\ModelHasPermission;
 
-final class ModelHasPermissionFactory extends Factory
+class ModelHasPermissionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.

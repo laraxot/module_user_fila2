@@ -31,7 +31,7 @@ use Illuminate\Database\Eloquent\Builder;
  * @mixin IdeHelperPasswordReset
  * @mixin \Eloquent
  */
-final class PasswordReset extends BaseModel
+class PasswordReset extends BaseModel
 {
     /**
      * @var array<string>

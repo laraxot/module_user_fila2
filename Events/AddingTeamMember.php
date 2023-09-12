@@ -8,7 +8,7 @@ use ArtMin96\FilamentJet\Contracts\TeamContract;
 use ArtMin96\FilamentJet\Contracts\UserContract;
 use Illuminate\Foundation\Events\Dispatchable;
 
-final class AddingTeamMember
+class AddingTeamMember
 {
     use Dispatchable;
 

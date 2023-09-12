@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Modules\User\Filament\Resources\UserResource;
 use Savannabits\FilamentModules\Concerns\ContextualPage;
 
-final class EditUser extends EditRecord
+class EditUser extends EditRecord
 {
     use ContextualPage;
     protected static string $resource = UserResource::class;

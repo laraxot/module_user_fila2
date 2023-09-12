@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 use function Safe\preg_match;
 
-final class Password implements Rule
+class Password implements Rule
 {
     /**
      * The minimum length of the password.

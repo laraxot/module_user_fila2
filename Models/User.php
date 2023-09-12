@@ -96,7 +96,7 @@ use Spatie\PersonalDataExport\ExportsPersonalData;
  *
  * @mixin \Eloquent
  */
-final class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contracts\UserContract, HasAvatar, UserJetContract, ExportsPersonalData
+class User extends Authenticatable implements FilamentUser, \Modules\Xot\Contracts\UserContract, HasAvatar, UserJetContract, ExportsPersonalData
 { /* , HasTeamsContract */
     use HasApiTokens;
     use HasFactory;

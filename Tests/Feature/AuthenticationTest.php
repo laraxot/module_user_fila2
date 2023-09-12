@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
 
-final class AuthenticationTest extends TestCase
+class AuthenticationTest extends TestCase
 {
     use RefreshDatabase;
 

@@ -12,7 +12,7 @@ use Livewire\Livewire;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
 
-final class UpdatePasswordTest extends TestCase
+class UpdatePasswordTest extends TestCase
 {
     use RefreshDatabase;
 

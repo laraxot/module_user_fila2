@@ -10,7 +10,7 @@ use Filament\Resources\Pages\ViewRecord;
 use Modules\User\Filament\Resources\TeamResource;
 use Savannabits\FilamentModules\Concerns\ContextualPage;
 
-final class ViewTeam extends ViewRecord
+class ViewTeam extends ViewRecord
 {
     use ContextualPage;
     protected static string $resource = TeamResource::class;

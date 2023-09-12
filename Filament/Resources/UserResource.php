@@ -40,7 +40,7 @@ use Modules\User\Models\Role;
 use Modules\User\Models\User;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
-final class UserResource extends XotBaseResource {
+class UserResource extends XotBaseResource {
     protected static string $resourceFile = __FILE__;
 
     // protected static ?string $model = User::class;

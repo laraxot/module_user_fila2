@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
 /**
  * Undocumented class.
  */
-final class PermissionColumnNamesData extends Data
+class PermissionColumnNamesData extends Data
 {
     public ?string $role_pivot_key = null;
      // => null, // default 'role_id',

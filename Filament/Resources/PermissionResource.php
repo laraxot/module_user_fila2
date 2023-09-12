@@ -33,7 +33,7 @@ use Modules\User\Models\Role;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
 
-final class PermissionResource extends XotBaseResource
+class PermissionResource extends XotBaseResource
 {
     use ContextualResource;
     protected static string $resourceFile = __FILE__;

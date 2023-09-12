@@ -9,7 +9,7 @@ use Spatie\LaravelData\Data;
 /**
  * Undocumented class.
  */
-final class PermissionTableNamesData extends Data
+class PermissionTableNamesData extends Data
 {
     public string $roles;
      //  'roles',

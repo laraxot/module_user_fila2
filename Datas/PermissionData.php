@@ -10,7 +10,7 @@ use Webmozart\Assert\Assert;
 /**
  * Undocumented class.
  */
-final class PermissionData extends Data
+class PermissionData extends Data
 {
     public PermissionModelsData $models;
     

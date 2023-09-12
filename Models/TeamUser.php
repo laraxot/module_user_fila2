@@ -34,7 +34,7 @@ use Illuminate\Database\Eloquent\Builder;
  *
  * @mixin \Eloquent
  */
-final class TeamUser extends BasePivot
+class TeamUser extends BasePivot
 {
     protected $connection = 'user';
 }

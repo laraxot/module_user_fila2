@@ -10,7 +10,7 @@ use Spatie\Permission\PermissionRegistrar;
 /**
  * Class CreateModelHasPermissionsTable.
  */
-final class CreateModelHasPermissionsTable extends XotBaseMigration
+class CreateModelHasPermissionsTable extends XotBaseMigration
 {
     /**
      * Run the migrations.

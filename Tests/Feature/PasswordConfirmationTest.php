@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
 
-final class PasswordConfirmationTest extends TestCase
+class PasswordConfirmationTest extends TestCase
 {
     use RefreshDatabase;
 

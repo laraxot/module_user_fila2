@@ -15,7 +15,7 @@ use Modules\User\Filament\Resources\RoleResource;
 use Modules\User\Support\Utils;
 use Savannabits\FilamentModules\Concerns\ContextualPage;
 
-final class EditRole extends EditRecord
+class EditRole extends EditRecord
 {
     use ContextualPage;
     public Collection $permissions;

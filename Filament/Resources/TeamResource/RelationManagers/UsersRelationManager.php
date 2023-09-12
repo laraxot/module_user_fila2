@@ -12,7 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\UserResource;
 
-final class UsersRelationManager extends RelationManager
+class UsersRelationManager extends RelationManager
 {
     protected static string $relationship = 'users';
     

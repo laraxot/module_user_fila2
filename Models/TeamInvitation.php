@@ -34,7 +34,7 @@ use ArtMin96\FilamentJet\Models\TeamInvitation as FilamentJetTeamInvitation;
  *
  * @mixin \Eloquent
  */
-final class TeamInvitation extends FilamentJetTeamInvitation
+class TeamInvitation extends FilamentJetTeamInvitation
 {
     /**
      * @var string

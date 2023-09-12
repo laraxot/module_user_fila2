@@ -14,7 +14,7 @@ use Laravel\Fortify\Features;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
 
-final class EmailVerificationTest extends TestCase
+class EmailVerificationTest extends TestCase
 {
     use RefreshDatabase;
 

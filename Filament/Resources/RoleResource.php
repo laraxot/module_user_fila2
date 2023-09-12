@@ -40,7 +40,7 @@ use Modules\User\Support\Utils;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
 
-final class RoleResource extends XotBaseResource
+class RoleResource extends XotBaseResource
 { /* implements HasShieldPermissions */
     // use ContextualResource;
     protected static string $resourceFile = __FILE__;

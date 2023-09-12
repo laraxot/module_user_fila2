@@ -9,7 +9,7 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /**
  * Class CreateRolesTable.
  */
-final class CreateRolesTable extends XotBaseMigration
+class CreateRolesTable extends XotBaseMigration
 {
     /**
      * Run the migrations.

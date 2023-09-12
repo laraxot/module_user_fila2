@@ -12,7 +12,7 @@ use Modules\User\Models\Team;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
 
-final class DeleteTeamTest extends TestCase
+class DeleteTeamTest extends TestCase
 {
     use RefreshDatabase;
 

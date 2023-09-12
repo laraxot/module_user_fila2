@@ -13,7 +13,7 @@ use Livewire\Livewire;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
 
-final class DeleteApiTokenTest extends TestCase
+class DeleteApiTokenTest extends TestCase
 {
     use RefreshDatabase;
 

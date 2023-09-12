@@ -20,7 +20,7 @@ use Webmozart\Assert\Assert;
 /**
  * ---.
  */
-final class Utils
+class Utils
 {
     public static function getFilamentAuthGuard(): string
     {

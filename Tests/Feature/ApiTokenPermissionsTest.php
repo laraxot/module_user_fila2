@@ -19,7 +19,7 @@ use Modules\User\Tests\TestCase;
 // use Nwidart\Modules\Tests\BaseTestCase;
 // use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
-final class ApiTokenPermissionsTest extends TestCase
+class ApiTokenPermissionsTest extends TestCase
 {
     use RefreshDatabase;
 

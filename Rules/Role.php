@@ -7,7 +7,7 @@ namespace Modules\User\Rules;
 use ArtMin96\FilamentJet\FilamentJet;
 use Illuminate\Contracts\Validation\Rule;
 
-final class Role implements Rule
+class Role implements Rule
 {
     /**
      * Determine if the validation rule passes.
