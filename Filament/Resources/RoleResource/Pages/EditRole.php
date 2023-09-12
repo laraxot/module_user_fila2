@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\RoleResource\Pages;
 
-use Filament\Pages\Actions\ViewAction;
 use Filament\Pages\Actions\DeleteAction;
-use Filament\Pages\Actions;
+use Filament\Pages\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
@@ -32,7 +31,7 @@ class EditRole extends EditRecord
 
     protected function mutateFormDataBeforeSave(array $data): array
     {
-        $this->permissions = collect($data)->filter(static fn($permission, $key): bool => ! in_array($key, ['name', 'guard_name', 'select_all']) && Str::contains($key, '_'))->keys();
+        $this->permissions = collect($data)->filter(static fn ($permission, $key): bool => ! in_array($key, ['name', 'guard_name', 'select_all']) && Str::contains($key, '_'))->keys();
 
         return Arr::only($data, ['name', 'guard_name']);
     }

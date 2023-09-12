@@ -9,7 +9,7 @@ use Modules\Xot\Http\Middleware\XotBaseFilamentMiddleware;
 class FilamentMiddleware extends XotBaseFilamentMiddleware
 {
     public static string $module = 'User';
-    
+
     public static string $context = 'filament';
 
     /*

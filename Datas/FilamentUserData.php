@@ -12,6 +12,6 @@ use Spatie\LaravelData\Data;
 class FilamentUserData extends Data
 {
     public bool $enabled;
-     // => true,
+    // => true,
     public string $name; // => 'filament_user',
 }

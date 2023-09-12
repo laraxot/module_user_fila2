@@ -4,26 +4,26 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
-use Filament\Forms\Components\TextInput;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Actions\AttachAction;
-use Filament\Forms\Components\Select;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\DetachAction;
-use Filament\Tables\Actions\DeleteBulkAction;
 use ArtMin96\FilamentJet\FilamentJet;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Actions\AttachAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\DetachAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\TextColumn;
 
 class RolesRelationManager extends RelationManager
 {
     protected static string $relationship = 'roles';
 
     protected static ?string $recordTitleAttribute = 'name';
-    
+
     // protected static ?string $inverseRelationship = 'section'; // Since the inverse related model is `Category`, this is normally `category`, not `section`.
 
     // protected function mutateFormDataBeforeCreate(array $data): array
@@ -62,7 +62,7 @@ class RolesRelationManager extends RelationManager
                     //     $data['team_id'] = 2;
                     //     return $data;
                     // }),
-                    ->form(static fn(AttachAction $attachAction): array => [
+                    ->form(static fn (AttachAction $attachAction): array => [
                         $attachAction->getRecordSelect(),
                         // Forms\Components\TextInput::make('team_id')->required(),
                         Select::make('team_id')

@@ -10,7 +10,7 @@ class CreateOauthClientsTable extends XotBaseMigration
     public function up(): void
     {
         $this->tableCreate(
-            static function (Blueprint $blueprint) : void {
+            static function (Blueprint $blueprint): void {
                 $blueprint->bigIncrements('id');
                 $blueprint->unsignedBigInteger('user_id')->nullable()->index();
                 // $table->foreignIdFor(User::class);
@@ -27,7 +27,7 @@ class CreateOauthClientsTable extends XotBaseMigration
 
         // -- UPDATE --
         $this->tableUpdate(
-            static function (Blueprint $blueprint) : void {
+            static function (Blueprint $blueprint): void {
             }
         );
     }

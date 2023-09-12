@@ -54,12 +54,13 @@ class Password implements Rule
         if ($this->requireNumeric && ! preg_match('/\d/', $value)) {
             return false;
         }
-        if (!$this->requireSpecialCharacter) {
+        if (! $this->requireSpecialCharacter) {
             return Str::length($value) >= $this->length;
         }
-        if (preg_match('/[\W_]/', $value) !== 0) {
+        if (0 !== preg_match('/[\W_]/', $value)) {
             return Str::length($value) >= $this->length;
         }
+
         return false;
     }
 
@@ -70,7 +71,7 @@ class Password implements Rule
      */
     public function message()
     {
-        if ($this->message !== '' && $this->message !== '0') {
+        if ('' !== $this->message && '0' !== $this->message) {
             return $this->message;
         }
 

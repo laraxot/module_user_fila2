@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Feature;
 
-use PHPUnit\Framework\Attributes\Test;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Fortify\Features;
 use Laravel\Jetstream\Jetstream;
 use Modules\User\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class RegistrationTest extends TestCase
 {

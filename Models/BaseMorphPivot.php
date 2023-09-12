@@ -27,7 +27,7 @@ abstract class BaseMorphPivot extends MorphPivot
      * @var bool
      */
     public $timestamps = true;
-    
+
     /**
      * Indicates whether attributes are snake cased on arrays.
      *
@@ -48,7 +48,7 @@ abstract class BaseMorphPivot extends MorphPivot
      * @var string
      */
     protected $connection = 'user';
-    
+
     /**
      * @var array
      */

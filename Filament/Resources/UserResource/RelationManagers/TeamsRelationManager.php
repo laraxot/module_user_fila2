@@ -5,13 +5,11 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
 use Filament\Forms\Components\Select;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Actions\AttachAction;
-use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
-use Filament\Tables;
+use Filament\Tables\Actions\AttachAction;
+use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\TeamResource;
 use Modules\User\Models\Role;
 
@@ -28,7 +26,7 @@ class TeamsRelationManager extends RelationManager
         foreach ($form->getSchema() as $schema) {
             $childComponents = array_merge($childComponents, $schema->getChildComponents());
         }
-        
+
         $childComponents['role'] = Select::make('role')
              ->options(Role::all()->pluck('name', 'name'));
         $form->schema($childComponents);
@@ -46,7 +44,7 @@ class TeamsRelationManager extends RelationManager
 
         $headerActions = $table->getHeaderActions();
         $headerActions['attach'] = AttachAction::make()
-            ->form(static fn(AttachAction $attachAction): array => [
+            ->form(static fn (AttachAction $attachAction): array => [
                 $attachAction->getRecordSelect(),
                 Select::make('role')
                     ->options(Role::all()->pluck('name', 'name')),

@@ -12,10 +12,10 @@ use Spatie\LaravelData\Data;
 class SuperAdminData extends Data
 {
     public bool $enabled;
-     // ' => true,
+    // ' => true,
     public string $name;
-     // ' => 'super_admin',
+    // ' => 'super_admin',
     public bool $define_via_gate;
-     // ' => false,
+    // ' => false,
     public string $intercept_gate; // ' => 'before', // after
 }

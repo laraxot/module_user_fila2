@@ -6,15 +6,6 @@ namespace Modules\User\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 // use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Support\Carbon;
-use Illuminate\Database\Eloquent\Collection;
-use Laravel\Passport\Client;
-use Illuminate\Notifications\DatabaseNotificationCollection;
-use Illuminate\Notifications\DatabaseNotification;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
-use Laravel\Passport\Token;
-use Illuminate\Database\Eloquent\Builder;
 use ArtMin96\FilamentJet\Contracts\UserContract as UserJetContract;
 use ArtMin96\FilamentJet\Traits\CanExportPersonalData;
 use ArtMin96\FilamentJet\Traits\HasProfilePhoto;
@@ -22,45 +13,54 @@ use ArtMin96\FilamentJet\Traits\HasTeams;
 use ArtMin96\FilamentJet\Traits\TwoFactorAuthenticatable;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Carbon;
+use Laravel\Passport\Client;
 use Laravel\Passport\HasApiTokens;
+use Laravel\Passport\Token;
 use Modules\User\Database\Factories\UserFactory;
 use Modules\Xot\Datas\XotData;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\PersonalDataExport\ExportsPersonalData;
 
 /**
  * Modules\User\Models\User.
  *
- * @property int                                                                                                           $id
- * @property string                                                                                                        $name
- * @property string                                                                                                        $email
- * @property string                                                                                                        $api_token
- * @property Carbon|null $email_verified_at
- * @property string                                                                                                        $password
- * @property string|null                                                                                                   $two_factor_secret
- * @property string|null                                                                                                   $two_factor_recovery_codes
- * @property string|null                                                                                                   $two_factor_confirmed_at
- * @property string|null                                                                                                   $remember_token
- * @property int|null                                                                                                      $current_team_id
- * @property string|null                                                                                                   $profile_photo_path
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property Collection<int, Client> $clients
- * @property int|null                                                                                                      $clients_count
- * @property string                                                                                                        $profile_photo_url
+ * @property int                                                       $id
+ * @property string                                                    $name
+ * @property string                                                    $email
+ * @property string                                                    $api_token
+ * @property Carbon|null                                               $email_verified_at
+ * @property string                                                    $password
+ * @property string|null                                               $two_factor_secret
+ * @property string|null                                               $two_factor_recovery_codes
+ * @property string|null                                               $two_factor_confirmed_at
+ * @property string|null                                               $remember_token
+ * @property int|null                                                  $current_team_id
+ * @property string|null                                               $profile_photo_path
+ * @property Carbon|null                                               $created_at
+ * @property Carbon|null                                               $updated_at
+ * @property Collection<int, Client>                                   $clients
+ * @property int|null                                                  $clients_count
+ * @property string                                                    $profile_photo_url
  * @property DatabaseNotificationCollection<int, DatabaseNotification> $notifications
- * @property int|null                                                                                                      $notifications_count
- * @property Collection<int, Permission> $permissions
- * @property int|null                                                                                                      $permissions_count
- * @property Collection<int, Role> $roles
- * @property int|null                                                                                                      $roles_count
- * @property Collection<int, Token> $tokens
- * @property int|null                                                                                                      $tokens_count
+ * @property int|null                                                  $notifications_count
+ * @property Collection<int, Permission>                               $permissions
+ * @property int|null                                                  $permissions_count
+ * @property Collection<int, Role>                                     $roles
+ * @property int|null                                                  $roles_count
+ * @property Collection<int, Token>                                    $tokens
+ * @property int|null                                                  $tokens_count
  *
  * @method static Builder|User newModelQuery()
  * @method static Builder|User newQuery()
@@ -89,10 +89,10 @@ use Spatie\PersonalDataExport\ExportsPersonalData;
  *
  * @method static Builder|User whereLang($value)
  *
- * @property Team|null $currentTeam
- * @property Collection<int, Team> $ownedTeams
- * @property \Modules\EWall\Models\Profile|null                                       $profile
- * @property Collection<int, Team> $teams
+ * @property Team|null                          $currentTeam
+ * @property Collection<int, Team>              $ownedTeams
+ * @property \Modules\EWall\Models\Profile|null $profile
+ * @property Collection<int, Team>              $teams
  *
  * @mixin \Eloquent
  */

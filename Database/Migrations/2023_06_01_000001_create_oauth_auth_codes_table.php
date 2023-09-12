@@ -10,7 +10,7 @@ class CreateOauthAuthCodesTable extends XotBaseMigration
     public function up(): void
     {
         $this->tableCreate(
-            static function (Blueprint $blueprint) : void {
+            static function (Blueprint $blueprint): void {
                 $blueprint->string('id', 100)->primary();
                 $blueprint->unsignedBigInteger('user_id')->index();
                 $blueprint->unsignedBigInteger('client_id');
@@ -22,7 +22,7 @@ class CreateOauthAuthCodesTable extends XotBaseMigration
 
         // -- UPDATE --
         $this->tableUpdate(
-            static function (Blueprint $blueprint) : void {
+            static function (Blueprint $blueprint): void {
             }
         );
     }

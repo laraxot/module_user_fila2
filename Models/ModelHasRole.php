@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Modules\User\Database\Factories\ModelHasRoleFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Modules\User\Database\Factories\ModelHasRoleFactory;
+
 /**
  * Modules\User\Models\ModelHasRole.
  *
@@ -15,7 +16,7 @@ use Illuminate\Database\Eloquent\Builder;
  * @property string $model_type
  * @property int    $model_id
  *
- * @method static ModelHasRoleFactory factory($count = null, $state = [])
+ * @method static ModelHasRoleFactory  factory($count = null, $state = [])
  * @method static Builder|ModelHasRole newModelQuery()
  * @method static Builder|ModelHasRole newQuery()
  * @method static Builder|ModelHasRole query()

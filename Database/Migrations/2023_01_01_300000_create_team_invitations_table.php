@@ -14,7 +14,7 @@ class CreateTeamInvitationsTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(
-            static function (Blueprint $blueprint) : void {
+            static function (Blueprint $blueprint): void {
                 $blueprint->id();
                 $blueprint->foreignId('team_id')->constrained()->cascadeOnDelete();
                 $blueprint->string('email');
@@ -26,7 +26,7 @@ class CreateTeamInvitationsTable extends XotBaseMigration
 
         // -- UPDATE --
         $this->tableUpdate(
-            static function (Blueprint $blueprint) : void {
+            static function (Blueprint $blueprint): void {
                 // if (! $this->hasColumn('email')) {
                 //    $table->string('email')->nullable();
                 // }

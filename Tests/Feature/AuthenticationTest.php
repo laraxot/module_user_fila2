@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Feature;
 
-use PHPUnit\Framework\Attributes\Test;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class AuthenticationTest extends TestCase
 {

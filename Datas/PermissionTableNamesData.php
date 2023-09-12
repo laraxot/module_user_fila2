@@ -12,12 +12,12 @@ use Spatie\LaravelData\Data;
 class PermissionTableNamesData extends Data
 {
     public string $roles;
-     //  'roles',
+    //  'roles',
     public string $permissions;
-     // 'permissions'
+    // 'permissions'
     public string $model_has_permissions;
-     // ' => 'model_has_permissions',
+    // ' => 'model_has_permissions',
     public string $model_has_roles;
-     // ' => 'model_has_roles',
+    // ' => 'model_has_roles',
     public string $role_has_permissions; // ' => 'role_has_permissions',
 }

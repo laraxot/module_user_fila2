@@ -25,7 +25,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('/user')
     ->namespace('Api')
     ->group(
-        static function () : void {
+        static function (): void {
             // authenticate user
             /*
             Route::post('/login', [UserController::class, 'login'])

@@ -40,7 +40,8 @@ use Modules\User\Models\Role;
 use Modules\User\Models\User;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
-class UserResource extends XotBaseResource {
+class UserResource extends XotBaseResource
+{
     protected static string $resourceFile = __FILE__;
 
     // protected static ?string $model = User::class;
@@ -78,21 +79,25 @@ class UserResource extends XotBaseResource {
     }
     */
 
-    protected static function getNavigationBadge(): ?string {
+    protected static function getNavigationBadge(): ?string
+    {
         return (string) static::getModel()::count();
     }
 
-    public static function getWidgets(): array {
+    public static function getWidgets(): array
+    {
         return [
             UserOverview::class,
         ];
     }
 
-    public static function extendForm(\Closure $callback): void {
+    public static function extendForm(\Closure $callback): void
+    {
         static::$extendFormCallback = $callback;
     }
 
-    public static function formOld(Form $form): Form {
+    public static function formOld(Form $form): Form
+    {
         return $form
             ->schema([
                 TextInput::make('name')
@@ -109,7 +114,8 @@ class UserResource extends XotBaseResource {
             ]);
     }
 
-    public static function form(Form $form): Form {
+    public static function form(Form $form): Form
+    {
         return $form
             ->schema(static function () {
                 $schema = [
@@ -169,7 +175,8 @@ class UserResource extends XotBaseResource {
             ->columns(12);
     }
 
-    public static function table(Table $table): Table {
+    public static function table(Table $table): Table
+    {
         return $table
             ->columns([
                 TextColumn::make('id')->sortable(),
@@ -247,7 +254,8 @@ class UserResource extends XotBaseResource {
             ->defaultSort('created_at', 'desc');
     }
 
-    public static function enablePasswordUpdates(bool|\Closure $condition = true): void {
+    public static function enablePasswordUpdates(bool|\Closure $condition = true): void
+    {
         static::$enablePasswordUpdates = $condition;
     }
 
@@ -258,7 +266,8 @@ class UserResource extends XotBaseResource {
     }
     */
 
-    public static function getRelations(): array {
+    public static function getRelations(): array
+    {
         return [
             TeamsRelationManager::class,
             ProfileRelationManager::class,
@@ -266,7 +275,8 @@ class UserResource extends XotBaseResource {
         ];
     }
 
-    public static function getPages(): array {
+    public static function getPages(): array
+    {
         return [
             'index' => ListUsers::route('/'),
             'create' => CreateUser::route('/create'),

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\User\Filament\Actions;
 
 use Filament\Forms\Components\TextInput;
-use Filament\Forms;
 use Filament\Pages\Actions\Action;
 
 class PasswordConfirmationAction extends Action
@@ -34,7 +33,7 @@ class PasswordConfirmationAction extends Action
     public function call(array $data = []): void
     {
         // If the session already has a cookie and it's still valid, we don't want to reset the time on it.
-        if (!$this->isPasswordSessionValid()) {
+        if (! $this->isPasswordSessionValid()) {
             session(['auth.password_confirmed_at' => time()]);
         }
 

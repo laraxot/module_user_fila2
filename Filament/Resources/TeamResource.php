@@ -4,37 +4,34 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Filament\Forms\Components\TextInput;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Actions\ViewAction;
-use Filament\Tables\Actions\EditAction;
-use Modules\User\Filament\Resources\TeamResource\RelationManagers\UsersRelationManager;
-use Modules\User\Filament\Resources\TeamResource\Pages\ListTeams;
-use Modules\User\Filament\Resources\TeamResource\Pages\CreateTeam;
-use Modules\User\Filament\Resources\TeamResource\Pages\ViewTeam;
-use Modules\User\Filament\Resources\TeamResource\Pages\EditTeam;
 use ArtMin96\FilamentJet\FilamentJet;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Modules\User\Filament\Resources\TeamResource\Pages;
-use Modules\User\Filament\Resources\TeamResource\RelationManagers;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\TextColumn;
+use Modules\User\Filament\Resources\TeamResource\Pages\CreateTeam;
+use Modules\User\Filament\Resources\TeamResource\Pages\EditTeam;
+use Modules\User\Filament\Resources\TeamResource\Pages\ListTeams;
+use Modules\User\Filament\Resources\TeamResource\Pages\ViewTeam;
+use Modules\User\Filament\Resources\TeamResource\RelationManagers\UsersRelationManager;
 use Modules\User\Models\Role;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
 
 class TeamResource extends Resource
 {
-    private static string $resourceFile = __FILE__;
-    
     use ContextualResource;
+    private static string $resourceFile = __FILE__;
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     protected static ?string $navigationLabel = 'Teams';
-    
+
     protected static ?string $slug = 'teams';
-    
+
     protected static ?string $navigationGroup = 'Admin';
 
     public static function getModel(): string

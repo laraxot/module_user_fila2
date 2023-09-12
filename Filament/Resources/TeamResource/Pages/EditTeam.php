@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\TeamResource\Pages;
 
-use Filament\Pages\Actions\ViewAction;
 use Filament\Pages\Actions\DeleteAction;
-use Filament\Pages\Actions;
+use Filament\Pages\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 use Modules\User\Filament\Resources\TeamResource;
 use Savannabits\FilamentModules\Concerns\ContextualPage;

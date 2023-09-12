@@ -1,13 +1,10 @@
 <?php
 
 declare(strict_types=1);
-use Filament\Widgets\AccountWidget;
-use Modules\User\Http\Livewire\Auth\FilamentLogin;
-use Modules\User\Http\Middleware\FilamentMiddleware;
-
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Http\Middleware\MirrorConfigToSubpackages;
 use Filament\Widgets;
+use Filament\Widgets\AccountWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -15,6 +12,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Modules\User\Http\Livewire\Auth\FilamentLogin;
+use Modules\User\Http\Middleware\FilamentMiddleware;
 
 $moduleName = 'User';
 $moduleNs = 'Modules\User';

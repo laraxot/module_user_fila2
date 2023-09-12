@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\User\Support;
 
-use Spatie\Permission\Traits\HasRoles;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use Modules\User\Contracts\HasShieldPermissions;
@@ -15,6 +12,9 @@ use Modules\User\Datas\FilamentShieldData;
 use function Safe\class_implements;
 use function Safe\class_uses;
 
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
 use Webmozart\Assert\Assert;
 
 /**

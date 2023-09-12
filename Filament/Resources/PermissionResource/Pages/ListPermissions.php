@@ -30,7 +30,7 @@ class ListPermissions extends ListRecords
 
         return [
             BulkAction::make('Attach Role')
-                ->action(static function (Collection $records, array $data) : void {
+                ->action(static function (Collection $records, array $data): void {
                     foreach ($records as $record) {
                         $record->roles()->sync($data['role']);
                         $record->save();

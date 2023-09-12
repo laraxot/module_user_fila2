@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire;
 
-use Illuminate\Contracts\View\View;
 use ArtMin96\FilamentJet\FilamentJet;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
 use Livewire\Component;
 

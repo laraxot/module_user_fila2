@@ -24,7 +24,7 @@ class CreateModelHasRolesTable extends XotBaseMigration
 
         // -- CREATE --
         $this->tableCreate(
-            static function (Blueprint $blueprint) use ($columnNames, $teams) : void {
+            static function (Blueprint $blueprint) use ($columnNames, $teams): void {
                 $blueprint->unsignedBigInteger(PermissionRegistrar::$pivotRole);
                 $blueprint->string('model_type');
                 $blueprint->unsignedBigInteger($columnNames['model_morph_key']);
@@ -57,12 +57,12 @@ class CreateModelHasRolesTable extends XotBaseMigration
                 if (! $this->hasColumn('team_id')) {
                     $blueprint->foreignId('team_id')->nullable();
                 }
-                
+
                 $blueprint->string('team_id')->nullable()->change();
                 if ($this->hasIndexName('model_has_roles_team_foreign_key_index')) {
                     $blueprint->dropIndex('model_has_roles_team_foreign_key_index');
                 }
-                
+
                 if ($this->hasIndexName('model_has_roles_model_id_model_type_index')) {
                     $blueprint->dropIndex('model_has_roles_model_id_model_type_index');
                 }

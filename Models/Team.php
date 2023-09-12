@@ -4,24 +4,24 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-use Illuminate\Support\Carbon;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Builder;
 use ArtMin96\FilamentJet\Models\Team as FilamentJetTeam;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Carbon;
 
 /**
  * Modules\User\Models\Team.
  *
- * @property int                                                                      $id
- * @property int                                                                      $user_id
- * @property string                                                                   $name
- * @property bool                                                                     $personal_team
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property User|null $owner
+ * @property int                   $id
+ * @property int                   $user_id
+ * @property string                $name
+ * @property bool                  $personal_team
+ * @property Carbon|null           $created_at
+ * @property Carbon|null           $updated_at
+ * @property User|null             $owner
  * @property Collection<int, User> $users
- * @property int|null                                                                 $users_count
+ * @property int|null              $users_count
  *
  * @method static Builder|Team newModelQuery()
  * @method static Builder|Team newQuery()
@@ -36,7 +36,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @mixin IdeHelperTeam
  *
  * @property Collection<int, TeamInvitation> $teamInvitations
- * @property int|null                                                                           $team_invitations_count
+ * @property int|null                        $team_invitations_count
  *
  * @mixin \Eloquent
  */
