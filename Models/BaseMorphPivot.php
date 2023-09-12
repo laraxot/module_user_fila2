@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphPivot;
 use Modules\Xot\Services\FactoryService;
@@ -26,6 +27,7 @@ abstract class BaseMorphPivot extends MorphPivot
      * @var bool
      */
     public $timestamps = true;
+    
     /**
      * Indicates whether attributes are snake cased on arrays.
      *
@@ -46,6 +48,7 @@ abstract class BaseMorphPivot extends MorphPivot
      * @var string
      */
     protected $connection = 'user';
+    
     /**
      * @var array
      */
@@ -55,17 +58,6 @@ abstract class BaseMorphPivot extends MorphPivot
      * @var string
      */
     protected $primaryKey = 'id';
-
-    // protected $attributes = ['related_type' => 'cuisine_cat'];
-    /**
-     * @var array<string>
-     */
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at',
-        // 'published_at',
-    ];
 
     /**
      * @var array<string>
@@ -77,11 +69,12 @@ abstract class BaseMorphPivot extends MorphPivot
         'user_id',
         'note',
     ];
+    protected $casts = ['created_at' => 'datetime', 'updated_at' => 'datetime', 'deleted_at' => 'datetime'];
 
     /**
      * Create a new factory instance for the model.
      *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     * @return Factory
      */
     protected static function newFactory()
     {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Traits;
 
+use Throwable;
 use Illuminate\Bus\Batch;
 use Illuminate\Support\Facades\Bus;
 use Modules\User\Jobs\CreatePersonalDataExportJob;
@@ -21,11 +22,9 @@ trait ProcessesExport
     public $exportProgress = 0;
 
     /**
-     * @throws \Throwable
-     *
-     * @return void
+     * @throws Throwable
      */
-    public function export()
+    public function export(): void
     {
         $batch = Bus::batch(new CreatePersonalDataExportJob($this->user))
             ->name('export personal data')
@@ -44,10 +43,7 @@ trait ProcessesExport
         return Bus::findBatch($this->exportBatchId);
     }
 
-    /**
-     * @return void
-     */
-    public function updateExportProgress()
+    public function updateExportProgress(): void
     {
         $this->exportProgress = $this->exportBatch->progress();
     }

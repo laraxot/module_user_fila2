@@ -6,22 +6,21 @@ namespace Modules\User\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 
-class AddingTeam
+final class AddingTeam
 {
     use Dispatchable;
-
-    /**
-     * The team owner.
-     */
-    public $owner;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($owner)
+    public function __construct(
+        /**
+         * The team owner.
+         */
+        public $owner
+    )
     {
-        $this->owner = $owner;
     }
 }

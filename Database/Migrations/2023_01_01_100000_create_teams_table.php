@@ -5,30 +5,28 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-class CreateTeamsTable extends XotBaseMigration
+final class CreateTeamsTable extends XotBaseMigration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         // -- CREATE --
         $this->tableCreate(
-            function (Blueprint $table) {
-                $table->id();
-                $table->foreignId('user_id')->index();
+            static function (Blueprint $blueprint) : void {
+                $blueprint->id();
+                $blueprint->foreignId('user_id')->index();
                 // $table->foreignIdFor(User::class);
-                $table->string('name');
-                $table->boolean('personal_team');
-                $table->timestamps();
+                $blueprint->string('name');
+                $blueprint->boolean('personal_team');
+                $blueprint->timestamps();
             }
         );
 
         // -- UPDATE --
         $this->tableUpdate(
-            function (Blueprint $table) {
+            static function (Blueprint $blueprint) : void {
                 // if (! $this->hasColumn('email')) {
                 //    $table->string('email')->nullable();
                 // }

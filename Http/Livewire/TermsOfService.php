@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire;
 
+use Illuminate\Contracts\View\View;
 use ArtMin96\FilamentJet\FilamentJet;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -12,12 +13,12 @@ use function Safe\file_get_contents;
 
 use Webmozart\Assert\Assert;
 
-class TermsOfService extends Component
+final class TermsOfService extends Component
 {
     /**
      * Show the terms of service for the application.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return View
      */
     public function render()
     {

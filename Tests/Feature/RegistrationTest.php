@@ -4,19 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Feature;
 
+use PHPUnit\Framework\Attributes\Test;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Fortify\Features;
 use Laravel\Jetstream\Jetstream;
 use Modules\User\Tests\TestCase;
 
-class RegistrationTest extends TestCase
+final class RegistrationTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * @test
-     */
+    #[Test]
     public function registrationScreenCanBeRendered(): void
     {
         if (! Features::enabled(Features::registration())) {
@@ -25,14 +24,12 @@ class RegistrationTest extends TestCase
             return;
         }
 
-        $response = $this->get('/register');
+        $testResponse = $this->get('/register');
 
-        $response->assertStatus(200);
+        $testResponse->assertStatus(200);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function registrationScreenCannotBeRenderedIfSupportIsDisabled(): void
     {
         if (Features::enabled(Features::registration())) {
@@ -41,14 +38,12 @@ class RegistrationTest extends TestCase
             return;
         }
 
-        $response = $this->get('/register');
+        $testResponse = $this->get('/register');
 
-        $response->assertStatus(404);
+        $testResponse->assertStatus(404);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function newUsersCanRegister(): void
     {
         if (! Features::enabled(Features::registration())) {
@@ -57,7 +52,7 @@ class RegistrationTest extends TestCase
             return;
         }
 
-        $response = $this->post('/register', [
+        $testResponse = $this->post('/register', [
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => 'password',
@@ -66,6 +61,6 @@ class RegistrationTest extends TestCase
         ]);
 
         $this->assertAuthenticated();
-        $response->assertRedirect(RouteServiceProvider::HOME);
+        $testResponse->assertRedirect(RouteServiceProvider::HOME);
     }
 }

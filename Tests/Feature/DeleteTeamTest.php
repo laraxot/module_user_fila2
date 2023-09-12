@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Feature;
 
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Jetstream\Http\Livewire\DeleteTeamForm;
 use Livewire\Livewire;
@@ -11,13 +12,11 @@ use Modules\User\Models\Team;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
 
-class DeleteTeamTest extends TestCase
+final class DeleteTeamTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * @test
-     */
+    #[Test]
     public function teamsCanBeDeleted(): void
     {
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
@@ -31,21 +30,19 @@ class DeleteTeamTest extends TestCase
             ['role' => 'test-role']
         );
 
-        $component = Livewire::test(DeleteTeamForm::class, ['team' => $team->fresh()])
+        Livewire::test(DeleteTeamForm::class, ['team' => $team->fresh()])
             ->call('deleteTeam');
 
         $this->assertNull($team->fresh());
         $this->assertCount(0, $otherUser->fresh()->teams);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function personalTeamsCantBeDeleted(): void
     {
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
-        $component = Livewire::test(DeleteTeamForm::class, ['team' => $user->currentTeam])
+        Livewire::test(DeleteTeamForm::class, ['team' => $user->currentTeam])
             ->call('deleteTeam')
             ->assertHasErrors(['team']);
 

@@ -12,12 +12,12 @@ use Illuminate\Database\Eloquent\Collection;
 use Modules\User\Filament\Resources\PermissionResource;
 use Savannabits\FilamentModules\Concerns\ContextualPage;
 
-class ListPermissions extends ListRecords
+final class ListPermissions extends ListRecords
 {
     use ContextualPage;
     protected static string $resource = PermissionResource::class;
 
-    protected function getHeaderActions(): array
+    private function getHeaderActions(): array
     {
         return [
             CreateAction::make(),
@@ -30,7 +30,7 @@ class ListPermissions extends ListRecords
 
         return [
             BulkAction::make('Attach Role')
-                ->action(function (Collection $records, array $data): void {
+                ->action(static function (Collection $records, array $data) : void {
                     foreach ($records as $record) {
                         $record->roles()->sync($data['role']);
                         $record->save();

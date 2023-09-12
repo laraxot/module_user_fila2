@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Feature;
 
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
@@ -11,13 +12,11 @@ use Laravel\Fortify\Features;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
 
-class PasswordResetTest extends TestCase
+final class PasswordResetTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * @test
-     */
+    #[Test]
     public function resetPasswordLinkScreenCanBeRendered(): void
     {
         if (! Features::enabled(Features::resetPasswords())) {
@@ -26,14 +25,12 @@ class PasswordResetTest extends TestCase
             return;
         }
 
-        $response = $this->get('/forgot-password');
+        $testResponse = $this->get('/forgot-password');
 
-        $response->assertStatus(200);
+        $testResponse->assertStatus(200);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function resetPasswordLinkCanBeRequested(): void
     {
         if (! Features::enabled(Features::resetPasswords())) {
@@ -46,16 +43,14 @@ class PasswordResetTest extends TestCase
 
         $user = User::factory()->create();
 
-        $response = $this->post('/forgot-password', [
+        $this->post('/forgot-password', [
             'email' => $user->email,
         ]);
 
         Notification::assertSentTo($user, ResetPassword::class);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function resetPasswordScreenCanBeRendered(): void
     {
         if (! Features::enabled(Features::resetPasswords())) {
@@ -68,22 +63,20 @@ class PasswordResetTest extends TestCase
 
         $user = User::factory()->create();
 
-        $response = $this->post('/forgot-password', [
+        $this->post('/forgot-password', [
             'email' => $user->email,
         ]);
 
-        Notification::assertSentTo($user, ResetPassword::class, function (object $notification) {
-            $response = $this->get('/reset-password/'.$notification->token);
+        Notification::assertSentTo($user, ResetPassword::class, function (object $notification): bool {
+            $testResponse = $this->get('/reset-password/'.$notification->token);
 
-            $response->assertStatus(200);
+            $testResponse->assertStatus(200);
 
             return true;
         });
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function passwordCanBeResetWithValidToken(): void
     {
         if (! Features::enabled(Features::resetPasswords())) {
@@ -96,19 +89,19 @@ class PasswordResetTest extends TestCase
 
         $user = User::factory()->create();
 
-        $response = $this->post('/forgot-password', [
+        $this->post('/forgot-password', [
             'email' => $user->email,
         ]);
 
-        Notification::assertSentTo($user, ResetPassword::class, function (object $notification) use ($user) {
-            $response = $this->post('/reset-password', [
+        Notification::assertSentTo($user, ResetPassword::class, function (object $notification) use ($user): bool {
+            $testResponse = $this->post('/reset-password', [
                 'token' => $notification->token,
                 'email' => $user->email,
                 'password' => 'password',
                 'password_confirmation' => 'password',
             ]);
 
-            $response->assertSessionHasNoErrors();
+            $testResponse->assertSessionHasNoErrors();
 
             return true;
         });

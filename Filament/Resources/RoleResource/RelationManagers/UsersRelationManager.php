@@ -12,9 +12,10 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Modules\User\Filament\Resources\UserResource;
 
-class UsersRelationManager extends RelationManager
+final class UsersRelationManager extends RelationManager
 {
     protected static string $relationship = 'users';
+    
     protected static ?string $inverseRelationship = 'teams';
 
     protected static ?string $recordTitleAttribute = 'name';

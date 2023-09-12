@@ -4,6 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Actions\EditAction;
+use Modules\User\Filament\Resources\TeamResource\RelationManagers\UsersRelationManager;
+use Modules\User\Filament\Resources\TeamResource\Pages\ListTeams;
+use Modules\User\Filament\Resources\TeamResource\Pages\CreateTeam;
+use Modules\User\Filament\Resources\TeamResource\Pages\ViewTeam;
+use Modules\User\Filament\Resources\TeamResource\Pages\EditTeam;
 use ArtMin96\FilamentJet\FilamentJet;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -15,14 +24,17 @@ use Modules\User\Filament\Resources\TeamResource\RelationManagers;
 use Modules\User\Models\Role;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
 
-class TeamResource extends Resource
+final class TeamResource extends Resource
 {
-    protected static string $resourceFile = __FILE__;
+    private static string $resourceFile = __FILE__;
+    
     use ContextualResource;
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     protected static ?string $navigationLabel = 'Teams';
+    
     protected static ?string $slug = 'teams';
+    
     protected static ?string $navigationGroup = 'Admin';
 
     public static function getModel(): string
@@ -34,7 +46,7 @@ class TeamResource extends Resource
     {
         return $form
             ->schema([
-                'name' => Forms\Components\TextInput::make('name')
+                'name' => TextInput::make('name')
                     ->required()
                     ->maxLength(255),
                 // 'role'=>Forms\Components\Select::make('role')
@@ -46,8 +58,8 @@ class TeamResource extends Resource
     {
         return $table
             ->columns([
-                'id' => Tables\Columns\TextColumn::make('id'),
-                'name' => Tables\Columns\TextColumn::make('name'),
+                'id' => TextColumn::make('id'),
+                'name' => TextColumn::make('name'),
                 // Tables\Columns\TextColumn::make('role'),
             ])
             ->filters([
@@ -65,8 +77,8 @@ class TeamResource extends Resource
                 // ])
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                ViewAction::make(),
+                EditAction::make(),
                 // Tables\Actions\EditAction::make(),
                 // Tables\Actions\DissociateAction::make(),
                 // Tables\Actions\DetachAction::make(),
@@ -82,22 +94,22 @@ class TeamResource extends Resource
     public static function getRelations(): array
     {
         return [
-            RelationManagers\UsersRelationManager::class,
+            UsersRelationManager::class,
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListTeams::route('/'),
-            'create' => Pages\CreateTeam::route('/create'),
-            'view' => Pages\ViewTeam::route('/{record}'),
-            'edit' => Pages\EditTeam::route('/{record}/edit'),
+            'index' => ListTeams::route('/'),
+            'create' => CreateTeam::route('/create'),
+            'view' => ViewTeam::route('/{record}'),
+            'edit' => EditTeam::route('/{record}/edit'),
         ];
     }
 
     protected static function getNavigationBadge(): ?string
     {
-        return strval(static::getModel()::count());
+        return (string) static::getModel()::count();
     }
 }

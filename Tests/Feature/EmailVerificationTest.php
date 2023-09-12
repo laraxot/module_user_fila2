@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\User\Tests\Feature;
 
+use PHPUnit\Framework\Attributes\Test;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -13,13 +14,11 @@ use Laravel\Fortify\Features;
 use Modules\User\Models\User;
 use Modules\User\Tests\TestCase;
 
-class EmailVerificationTest extends TestCase
+final class EmailVerificationTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * @test
-     */
+    #[Test]
     public function emailVerificationScreenCanBeRendered(): void
     {
         if (! Features::enabled(Features::emailVerification())) {
@@ -30,14 +29,12 @@ class EmailVerificationTest extends TestCase
 
         $user = User::factory()->withPersonalTeam()->unverified()->create();
 
-        $response = $this->actingAs($user)->get('/email/verify');
+        $testResponse = $this->actingAs($user)->get('/email/verify');
 
-        $response->assertStatus(200);
+        $testResponse->assertStatus(200);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function emailCanBeVerified(): void
     {
         if (! Features::enabled(Features::emailVerification())) {
@@ -53,20 +50,18 @@ class EmailVerificationTest extends TestCase
         $verificationUrl = URL::temporarySignedRoute(
             'verification.verify',
             now()->addMinutes(60),
-            ['id' => $user->id, 'hash' => sha1($user->email)]
+            ['id' => $user->id, 'hash' => sha1((string) $user->email)]
         );
 
-        $response = $this->actingAs($user)->get($verificationUrl);
+        $testResponse = $this->actingAs($user)->get($verificationUrl);
 
         Event::assertDispatched(Verified::class);
 
         $this->assertTrue($user->fresh()->hasVerifiedEmail());
-        $response->assertRedirect(RouteServiceProvider::HOME.'?verified=1');
+        $testResponse->assertRedirect(RouteServiceProvider::HOME.'?verified=1');
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function emailCanNotVerifiedWithInvalidHash(): void
     {
         if (! Features::enabled(Features::emailVerification())) {

@@ -7,6 +7,9 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Grid;
@@ -30,10 +33,11 @@ use Modules\User\Models\Role;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 use Savannabits\FilamentModules\Concerns\ContextualResource;
 
-class PermissionResource extends XotBaseResource
+final class PermissionResource extends XotBaseResource
 {
     use ContextualResource;
     protected static string $resourceFile = __FILE__;
+    
     protected static ?string $navigationIcon = 'heroicon-o-lock-closed';
 
     // public static function shouldRegisterNavigation(): bool
@@ -121,15 +125,15 @@ class PermissionResource extends XotBaseResource
                     }),
                 */
             ])->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\ViewAction::make(),
+                EditAction::make(),
+                ViewAction::make(),
             ])
             ->bulkActions([
                 // Tables\Actions\BulkActionGroup::make([
-                Tables\Actions\DeleteBulkAction::make(),
+                DeleteBulkAction::make(),
                 // ]),
                 BulkAction::make('Attach Role')
-                    ->action(function (Collection $records, array $data): void {
+                    ->action(static function (Collection $records, array $data) : void {
                         foreach ($records as $record) {
                             $record->roles()->sync($data['role']);
                             $record->save();
@@ -156,7 +160,7 @@ class PermissionResource extends XotBaseResource
 
     protected static function getNavigationBadge(): ?string
     {
-        return strval(static::getModel()::count());
+        return (string) static::getModel()::count();
     }
 
     public static function getPages(): array

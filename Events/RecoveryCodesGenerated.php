@@ -7,19 +7,16 @@ namespace Modules\User\Events;
 use ArtMin96\FilamentJet\Contracts\UserContract;
 use Illuminate\Foundation\Events\Dispatchable;
 
-class RecoveryCodesGenerated
+final class RecoveryCodesGenerated
 {
     use Dispatchable;
-
-    public UserContract $user;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(UserContract $user)
+    public function __construct(public UserContract $userContract)
     {
-        $this->user = $user;
     }
 }

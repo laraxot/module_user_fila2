@@ -4,6 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources\UserResource\RelationManagers;
 
+use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Actions\AttachAction;
+use Filament\Forms\Components\Select;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\DetachAction;
+use Filament\Tables\Actions\DeleteBulkAction;
 use ArtMin96\FilamentJet\FilamentJet;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -11,11 +18,12 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
 
-class RolesRelationManager extends RelationManager
+final class RolesRelationManager extends RelationManager
 {
     protected static string $relationship = 'roles';
 
     protected static ?string $recordTitleAttribute = 'name';
+    
     // protected static ?string $inverseRelationship = 'section'; // Since the inverse related model is `Category`, this is normally `category`, not `section`.
 
     // protected function mutateFormDataBeforeCreate(array $data): array
@@ -27,7 +35,7 @@ class RolesRelationManager extends RelationManager
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                TextInput::make('name')
                     ->required()
                     ->maxLength(255),
                 /*
@@ -41,23 +49,23 @@ class RolesRelationManager extends RelationManager
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('team_id'),
+                TextColumn::make('name'),
+                TextColumn::make('team_id'),
             ])
             ->filters([
             ])
             ->headerActions([
                 // Tables\Actions\CreateAction::make(),
-                Tables\Actions\AttachAction::make()
+                AttachAction::make()
                     // ->mutateFormDataUsing(function (array $data): array {
                     //     // This is the test.
                     //     $data['team_id'] = 2;
                     //     return $data;
                     // }),
-                    ->form(fn (Tables\Actions\AttachAction $action): array => [
-                        $action->getRecordSelect(),
+                    ->form(static fn(AttachAction $attachAction): array => [
+                        $attachAction->getRecordSelect(),
                         // Forms\Components\TextInput::make('team_id')->required(),
-                        Forms\Components\Select::make('team_id')
+                        Select::make('team_id')
                             ->options(FilamentJet::teamModel()::get()->pluck('name', 'id')),
                         // ->options(function($item){
                         //     dddx($this);
@@ -65,12 +73,12 @@ class RolesRelationManager extends RelationManager
                     ]),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                EditAction::make(),
                 // Tables\Actions\DeleteAction::make(),
-                Tables\Actions\DetachAction::make(),
+                DetachAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                DeleteBulkAction::make(),
             ]);
     }
 }

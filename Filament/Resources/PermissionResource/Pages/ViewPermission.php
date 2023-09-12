@@ -9,7 +9,7 @@ use Filament\Resources\Pages\ViewRecord;
 use Modules\User\Filament\Resources\PermissionResource;
 use Savannabits\FilamentModules\Concerns\ContextualPage;
 
-class ViewPermission extends ViewRecord
+final class ViewPermission extends ViewRecord
 {
     use ContextualPage;
     protected static string $resource = PermissionResource::class;
