@@ -8,37 +8,38 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-use Filament\Facades\Filament;
-use Filament\Forms\Components\Card;
-use Filament\Forms\Components\Group;
-use Filament\Forms\Components\Placeholder;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Columns\BooleanColumn;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Filters\Filter;
-use Filament\Tables\Filters\SelectFilter;
-use Illuminate\Contracts\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Hash;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
+use Modules\User\Models\Role;
+use Modules\User\Models\Team;
+use Modules\User\Models\User;
+use Filament\Facades\Filament;
+use Filament\Resources\Resource;
 use Illuminate\Support\HtmlString;
+use Filament\Forms\Components\Card;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Filters\Filter;
+use Filament\Forms\Components\Group;
+use Illuminate\Support\Facades\Hash;
+use Filament\Forms\Components\Select;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Validation\Rules\Password;
-use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
+use Filament\Forms\Components\Placeholder;
+use Filament\Tables\Columns\BooleanColumn;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Illuminate\Contracts\Database\Eloquent\Builder;
+use Modules\Xot\Filament\Resources\XotBaseResource;
 use Modules\User\Filament\Resources\UserResource\Pages\EditUser;
 use Modules\User\Filament\Resources\UserResource\Pages\ListUsers;
-use Modules\User\Filament\Resources\UserResource\RelationManagers\ProfileRelationManager;
+use Modules\User\Filament\Resources\UserResource\Pages\CreateUser;
+use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
 use Modules\User\Filament\Resources\UserResource\RelationManagers\RolesRelationManager;
 use Modules\User\Filament\Resources\UserResource\RelationManagers\TeamsRelationManager;
-use Modules\User\Filament\Resources\UserResource\Widgets\UserOverview;
-use Modules\User\Models\Role;
-use Modules\User\Models\User;
-use Modules\Xot\Filament\Resources\XotBaseResource;
+use Modules\User\Filament\Resources\UserResource\RelationManagers\ProfileRelationManager;
 
 class UserResource extends XotBaseResource
 {
@@ -128,7 +129,7 @@ class UserResource extends XotBaseResource
                         'password' => TextInput::make('password')
                             ->required()
                             ->password()
-                            ->dehydrateStateUsing(static fn ($state) => Hash::make($state))
+                            ->dehydrateStateUsing(fn ($state) => Hash::make($state))
                             /*
                             ->dehydrateStateUsing(static function ($state) use ($form){
                                 if(!empty($state)){
@@ -141,7 +142,7 @@ class UserResource extends XotBaseResource
                                 }
                             }),
                             */
-                            ->visible(static fn ($livewire): bool => $livewire instanceof CreateUser)
+                            ->visible(fn ($livewire): bool => $livewire instanceof CreateUser)
                             ->rule(Password::default()),
                         'new_password_group' => Group::make([
                             'new_password' => TextInput::make('new_password')
@@ -153,17 +154,22 @@ class UserResource extends XotBaseResource
                             'new_password_confirmation' => TextInput::make('new_password_confirmation')
                                 ->password()
                                 ->label('Confirm New Password')
-                                ->rule('required', static fn ($get): bool => (bool) $get('new_password'))
+                                ->rule('required', fn ($get): bool => (bool) $get('new_password'))
                                 ->same('new_password')
                                 ->dehydrated(false),
                         ])->visible(static::$enablePasswordUpdates),
                         Select::make('roles')
                             ->multiple()
                             ->relationship('roles', 'name'),
+                        /*
+                        Select::make('teams')
+                            ->multiple()
+                            ->options(fn()=>Team::get()->pluck('name','id')),
+                        */
                     ])->columnSpan(8),
                     'right' => Card::make([
                         'created_at' => Placeholder::make('created_at')
-                            ->content(static fn ($record) => $record?->created_at?->diffForHumans() ?? new HtmlString('&mdash;')),
+                            ->content(fn ($record) => $record?->created_at?->diffForHumans() ?? new HtmlString('&mdash;')),
                     ])->columnSpan(4),
                 ];
                 if (static::$extendFormCallback instanceof \Closure) {
@@ -211,10 +217,10 @@ class UserResource extends XotBaseResource
                     ->attribute('role_id'),
                 Filter::make('verified')
                     ->label(trans('filament-user::user.resource.verified'))
-                    ->query(static fn (Builder $builder): Builder => $builder->whereNotNull('email_verified_at')),
+                    ->query(fn (Builder $builder): Builder => $builder->whereNotNull('email_verified_at')),
                 Filter::make('unverified')
                     ->label(trans('filament-user::user.resource.unverified'))
-                    ->query(static fn (Builder $builder): Builder => $builder->whereNull('email_verified_at')),
+                    ->query(fn (Builder $builder): Builder => $builder->whereNull('email_verified_at')),
             ])
             ->actions([
                 EditAction::make(),
@@ -234,7 +240,7 @@ class UserResource extends XotBaseResource
                         TextInput::make('new_password_confirmation')
                             ->password()
                             ->label('Confirm New Password')
-                            ->rule('required', static fn ($get): bool => (bool) $get('new_password'))
+                            ->rule('required', fn ($get): bool => (bool) $get('new_password'))
                             ->same('new_password'),
                     ])
                     ->icon('heroicon-o-key')
@@ -243,7 +249,7 @@ class UserResource extends XotBaseResource
                 Action::make('deactivate')
                     ->color('danger')
                     ->icon('heroicon-o-trash')
-                    ->action(static fn (User $record) => $record->delete())
+                    ->action(fn (User $record) => $record->delete())
                 // ->visible(fn (User $record): bool => $record->role_id === Role::ROLE_ADMINISTRATOR)
                 ,
             ])

@@ -89,7 +89,7 @@ class RoleResource extends XotBaseResource
                                     ->afterStateUpdated(static function (\Closure $set, $state): void {
                                         static::refreshEntitiesStatesViaSelectAll($set, $state);
                                     })
-                                    ->dehydrated(static fn ($state): bool => $state),
+                                    ->dehydrated(fn ($state): bool => $state),
                             ])
                             ->columns([
                                 'sm' => 2,
@@ -99,7 +99,7 @@ class RoleResource extends XotBaseResource
                 Tabs::make('Permissions')
                     ->tabs([
                         Tab::make(static::trans('resources'))
-                            ->visible(static fn (): bool => Utils::isResourceEntityEnabled())
+                            ->visible(fn (): bool => Utils::isResourceEntityEnabled())
                             ->reactive()
                             ->schema([
                                 Grid::make([
@@ -142,7 +142,7 @@ class RoleResource extends XotBaseResource
                             ]),
 
                         Tab::make(static::trans('custom'))
-                            ->visible(static fn (): bool => Utils::isCustomPermissionEntityEnabled())
+                            ->visible(fn (): bool => Utils::isCustomPermissionEntityEnabled())
                             ->reactive()
                             ->schema([
                                 Grid::make([
@@ -166,7 +166,7 @@ class RoleResource extends XotBaseResource
             ->columns([
                 BadgeColumn::make('name')
                     ->label(static::trans('fields.name'))
-                    ->formatStateUsing(static fn ($state): string => Str::headline($state))
+                    ->formatStateUsing(fn ($state): string => Str::headline($state))
                     ->colors(['primary'])
                     ->searchable(),
                 // Tables\Columns\TextColumn::make('team_id'),
@@ -262,7 +262,7 @@ class RoleResource extends XotBaseResource
                     }
                     static::refreshSelectAllStateViaEntities($set, $get);
                 })
-                ->dehydrated(static fn ($state): bool => $state);
+                ->dehydrated(fn ($state): bool => $state);
 
             return $permissions;
         }, collect())
@@ -324,9 +324,9 @@ class RoleResource extends XotBaseResource
     private function refreshSelectAllStateViaEntities(\Closure $set, \Closure $get): void
     {
         $entitiesStates = collect(FilamentShield::getResources())
-            ->when(Utils::isPageEntityEnabled(), static fn ($entities) => $entities->merge(FilamentShield::getPages()))
+            ->when(Utils::isPageEntityEnabled(), fn ($entities) => $entities->merge(FilamentShield::getPages()))
             ->when(Utils::isWidgetEntityEnabled(), fn ($entities) => $entities->merge(FilamentShield::getWidgets()))
-            ->when(Utils::isCustomPermissionEntityEnabled(), static fn ($entities) => $entities->merge(static::getCustomEntities()))
+            ->when(Utils::isCustomPermissionEntityEnabled(), fn ($entities) => $entities->merge(static::getCustomEntities()))
             ->map(static function ($entity) use ($get): bool {
                 if (is_array($entity)) {
                     return (bool) $get($entity['resource']);
@@ -375,7 +375,7 @@ class RoleResource extends XotBaseResource
     private function refreshResourceEntityStateAfterUpdate(\Closure $set, \Closure $get, array $entity): void
     {
         $permissionStates = collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))
-            ->map(static fn ($permission): bool => (bool) $get($permission.'_'.$entity['resource']));
+            ->map(fn ($permission): bool => (bool) $get($permission.'_'.$entity['resource']));
 
         if (false === $permissionStates->containsStrict(false)) {
             $set($entity['resource'], true);
@@ -395,7 +395,7 @@ class RoleResource extends XotBaseResource
                 return $roles;
             }, collect())
             ->values()
-            ->groupBy(static fn ($item) => $item)->map->count()
+            ->groupBy(fn ($item) => $item)->map->count()
             ->reduce(static function (array $counts, $role, $key) use ($entity): array {
                 $count = is_countable(Utils::getResourcePermissionPrefixes($entity['fqcn'])) ? count(Utils::getResourcePermissionPrefixes($entity['fqcn'])) : 0;
                 $counts[$key] = $role > 1 && $role === $count;
@@ -469,7 +469,7 @@ class RoleResource extends XotBaseResource
                             }
                             static::refreshSelectAllStateViaEntities($set, $get);
                         })
-                        ->dehydrated(static fn ($state): bool => $state),
+                        ->dehydrated(fn ($state): bool => $state),
                 ])
                 ->columns(1)
                 ->columnSpan(1);
