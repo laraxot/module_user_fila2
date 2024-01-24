@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 return [
     'model' => [
-      'label' => 'Event',
-      'pluralLabel' => 'Events',
+        'label' => 'Event',
+        'pluralLabel' => 'Events',
     ],
     'modal' => [
         'submit' => 'Submit',
@@ -14,7 +14,7 @@ return [
         'edit' => 'Edit',
     ],
     'events' => [
-        'empty' => 'No upcoming :label'
+        'empty' => 'No upcoming :label',
     ],
     'event' => [
         'subject' => 'Subject',
@@ -30,12 +30,12 @@ return [
     'event-list' => [
         'author' => 'Author: :name',
         'start' => 'Start: :start',
-        'end' => 'End: :end'
+        'end' => 'End: :end',
     ],
     'labels' => [
-      'navigation' => 'TiMEX',
-      'breadcrumbs' => 'TiMEX',
-      'title' => 'TiMEX',
-      'today' => 'Today',
+        'navigation' => 'TiMEX',
+        'breadcrumbs' => 'TiMEX',
+        'title' => 'TiMEX',
+        'today' => 'Today',
     ],
 ];

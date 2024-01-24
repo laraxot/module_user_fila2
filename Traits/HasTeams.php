@@ -204,7 +204,7 @@ trait HasTeams
 
         if (in_array(HasApiTokens::class, class_uses_recursive($this))
             && ! $this->tokenCan($permission)
-            && null !== $this->currentAccessToken()) {
+            && $this->currentAccessToken() !== null) {
             return false;
         }
 

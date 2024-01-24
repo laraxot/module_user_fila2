@@ -34,7 +34,8 @@ use ArtMin96\FilamentJet\Models\Membership as FilamentJetMembership;
  *
  * @mixin \Eloquent
  */
-class Membership extends FilamentJetMembership {
+class Membership extends FilamentJetMembership
+{
     /**
      * Indicates if the IDs are auto-incrementing.
      *

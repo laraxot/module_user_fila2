@@ -4,16 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Models\Policies;
 
+use Illuminate\Auth\Access\HandlesAuthorization;
 use Modules\User\Models\Team;
 use Modules\User\Models\User;
-use Illuminate\Auth\Access\HandlesAuthorization;
 
 class TeamPolicy
 {
     use HandlesAuthorization;
 
     /**
-     *
      * Determine whether the user can view any models.
      *
      * @return true
@@ -32,7 +31,6 @@ class TeamPolicy
     }
 
     /**
-     *
      * Determine whether the user can create models.
      *
      * @return true

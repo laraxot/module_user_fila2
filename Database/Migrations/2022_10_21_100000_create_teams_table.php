@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-class CreateTeamsTable extends XotBaseMigration {
+class CreateTeamsTable extends XotBaseMigration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
+    public function up()
+    {
         // -- CREATE --
         $this->tableCreate(
             function (Blueprint $table) {
@@ -22,8 +22,9 @@ class CreateTeamsTable extends XotBaseMigration {
                 $table->string('name');
                 $table->boolean('personal_team');
                 $table->timestamps();
-        });
-    
+            }
+        );
+
         // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
@@ -33,4 +34,4 @@ class CreateTeamsTable extends XotBaseMigration {
             }
         );
     }
-};
+}

@@ -10,11 +10,6 @@ use Livewire\Component;
 use function Safe\file_get_contents;
 use Webmozart\Assert\Assert;
 
-
-
-
-
-
 class TermsOfService extends Component
 {
     /**
@@ -24,7 +19,7 @@ class TermsOfService extends Component
      */
     public function render()
     {
-        Assert::string($termsFile = FilamentJet::localizedMarkdownPath('terms.md'),'wip');
+        Assert::string($termsFile = FilamentJet::localizedMarkdownPath('terms.md'), 'wip');
 
         $view = view('filament-jet::livewire.terms-of-service', [
             'terms' => Str::markdown(file_get_contents($termsFile)),

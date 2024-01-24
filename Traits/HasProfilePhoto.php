@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Traits;
 
-use Modules\User\Features;
-use Filament\Facades\Filament;
 use Illuminate\Support\Facades\Storage;
+use Modules\User\Features;
 
 trait HasProfilePhoto
 {

@@ -58,7 +58,7 @@ return [
 
     'pages' => [
         'namespace' => $contextNs.'\\Pages',
-        'path' => base_path('Modules/'.$moduleName."/$contextPath/Pages"),
+        'path' => base_path('Modules/'.$moduleName."/{$contextPath}/Pages"),
         'register' => [],
     ],
 
@@ -74,7 +74,7 @@ return [
 
     'resources' => [
         'namespace' => $contextNs.'\\Resources',
-        'path' => base_path('Modules/'.$moduleName."/$contextPath/Resources"),
+        'path' => base_path('Modules/'.$moduleName."/{$contextPath}/Resources"),
         'register' => [],
     ],
 
@@ -90,7 +90,7 @@ return [
 
     'widgets' => [
         'namespace' => $contextNs.'\\Widgets',
-        'path' => base_path('Modules/'.$moduleName."/$contextPath/Widgets"),
+        'path' => base_path('Modules/'.$moduleName."/{$contextPath}/Widgets"),
         'register' => [
             Widgets\AccountWidget::class,
             // Widgets\FilamentInfoWidget::class,

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \BezhanSalleh\FilamentShield\FilamentShield
+ *
  * @method getWidgets()
  */
 class FilamentShield extends Facade

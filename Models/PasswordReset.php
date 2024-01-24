@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Models;
 
-class PasswordReset extends BaseModel {
+class PasswordReset extends BaseModel
+{
     /**
      * @var array<string>
      *

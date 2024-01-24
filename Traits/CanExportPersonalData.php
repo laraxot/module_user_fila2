@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Traits;
 
-use Modules\User\Features;
 use Illuminate\Support\Str;
+use Modules\User\Features;
 use Spatie\PersonalDataExport\PersonalDataSelection;
 
 trait CanExportPersonalData

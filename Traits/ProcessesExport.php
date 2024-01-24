@@ -11,7 +11,6 @@ use Modules\User\Jobs\CreatePersonalDataExportJob;
 trait ProcessesExport
 {
     /**
-     *
      * @var int<min, -1>|int<1, max>|string
      */
     public $exportBatchId;
