@@ -1,14 +1,8 @@
 <?php
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 declare(strict_types=1);
 
-=======
->>>>>>> cf6505a (.)
-=======
 use Illuminate\Support\Facades\Schema;
->>>>>>> d9f7748 (up)
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
@@ -29,18 +23,8 @@ class CreateTeamInvitationsTable extends XotBaseMigration {
             $table->string('role')->nullable();
             $table->timestamps();
 
-<<<<<<< HEAD
-                $table->unique(['team_id', 'email']);
-<<<<<<< HEAD
-            }
-        );
-=======
-            });
->>>>>>> cf6505a (.)
-=======
             $table->unique(['team_id', 'email']);
         });
->>>>>>> d9f7748 (up)
 
         // -- UPDATE --
         $this->tableUpdate(

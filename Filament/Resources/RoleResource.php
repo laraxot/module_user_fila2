@@ -185,17 +185,12 @@ class RoleResource extends Resource
         return Utils::getRoleModel();
     }
 
-<<<<<<< HEAD
     public static function canGloballySearch(): bool
     {
         return Utils::isResourceGloballySearchable() && count(static::getGloballySearchableAttributes()) && static::canViewAny();
     }
 
-<<<<<<< HEAD
     /*--------------------------------*
-=======
-    /**--------------------------------*
->>>>>>> cf6505a (.)
     | Resource Related Logic Start     |
     *----------------------------------*/
 
@@ -215,15 +210,9 @@ class RoleResource extends Resource
                         ->onIcon('heroicon-s-lock-open')
                         ->offIcon('heroicon-s-lock-closed')
                         ->reactive()
-<<<<<<< HEAD
                         ->afterStateUpdated(function (\Closure $set, \Closure $get, $state) use ($entity) {
                             collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))->each(function ($permission) use ($set, $entity, $state) {
                                 $set($permission.'_'.$entity['resource'], $state);
-=======
-                        ->afterStateUpdated(function (Closure $set, Closure $get, $state) use ($entity) {
-                            collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))->each(function ($permission) use ($set, $entity, $state) {
-                                $set($permission . '_' . $entity['resource'], $state);
->>>>>>> cf6505a (.)
                             });
 
                             if (! $state) {
@@ -252,37 +241,22 @@ class RoleResource extends Resource
     public static function getResourceEntityPermissionsSchema($entity): ?array
     {
         return collect(Utils::getResourcePermissionPrefixes($entity['fqcn']))->reduce(function ($permissions /* @phpstan ignore-line */, $permission) use ($entity) {
-<<<<<<< HEAD
             $permissions[] = Forms\Components\Checkbox::make($permission.'_'.$entity['resource'])
                 ->label(FilamentShield::getLocalizedResourcePermissionLabel($permission))
                 ->extraAttributes(['class' => 'text-primary-600'])
                 ->afterStateHydrated(function (\Closure $set, \Closure $get, $record) use ($entity, $permission) {
-=======
-            $permissions[] = Forms\Components\Checkbox::make($permission . '_' . $entity['resource'])
-                ->label(FilamentShield::getLocalizedResourcePermissionLabel($permission))
-                ->extraAttributes(['class' => 'text-primary-600'])
-                ->afterStateHydrated(function (Closure $set, Closure $get, $record) use ($entity, $permission) {
->>>>>>> cf6505a (.)
                     if (is_null($record)) {
                         return;
                     }
 
-<<<<<<< HEAD
                     $set($permission.'_'.$entity['resource'], $record->checkPermissionTo($permission.'_'.$entity['resource']));
-=======
-                    $set($permission . '_' . $entity['resource'], $record->checkPermissionTo($permission . '_' . $entity['resource']));
->>>>>>> cf6505a (.)
 
                     static::refreshResourceEntityStateAfterHydrated($record, $set, $entity);
 
                     static::refreshSelectAllStateViaEntities($set, $get);
                 })
                 ->reactive()
-<<<<<<< HEAD
                 ->afterStateUpdated(function (\Closure $set, \Closure $get, $state) use ($entity) {
-=======
-                ->afterStateUpdated(function (Closure $set, Closure $get, $state) use ($entity) {
->>>>>>> cf6505a (.)
                     static::refreshResourceEntityStateAfterUpdate($set, $get, $entity);
 
                     if (! $state) {
@@ -353,13 +327,6 @@ class RoleResource extends Resource
             : null;
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    protected static function refreshSelectAllStateViaEntities(\Closure $set, \Closure $get): void
-=======
-    protected static function refreshSelectAllStateViaEntities(Closure $set, Closure $get): void
->>>>>>> cf6505a (.)
-=======
     public static function canGloballySearch(): bool
     {
         return Utils::isResourceGloballySearchable() && count(static::getGloballySearchableAttributes()) && static::canViewAny();

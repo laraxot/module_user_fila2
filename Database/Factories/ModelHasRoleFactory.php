@@ -25,17 +25,8 @@ class ModelHasRoleFactory extends Factory {
      *
      * @psalm-return array{role_id: int, model_type: string, model_id: int}
      */
-<<<<<<< HEAD
-    public function definition()
-    {
-<<<<<<< HEAD
-=======
-=======
     public function definition() {
 
->>>>>>> d9f7748 (up)
-
->>>>>>> cf6505a (.)
         return [
             'role_id' => $this->faker->randomNumber(5, false),
             'model_type' => $this->faker->word,

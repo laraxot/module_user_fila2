@@ -8,14 +8,8 @@ declare(strict_types=1);
 
 namespace Modules\User\Filament\Resources;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 use Closure;
->>>>>>> cf6505a (.)
 use Filament\Facades\Filament;
-=======
->>>>>>> d9f7748 (up)
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Resources\Form;
@@ -49,15 +43,7 @@ class UserResource extends Resource
 
     protected static bool|\Closure $enablePasswordUpdates = true;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    protected static ?\Closure $extendFormCallback = null;
-=======
-    protected static ?Closure $extendFormCallback = null;
->>>>>>> cf6505a (.)
-=======
     protected static \Closure|null $extendFormCallback = null;
->>>>>>> d9f7748 (up)
 
     /*
     protected static function getNavigationLabel(): string

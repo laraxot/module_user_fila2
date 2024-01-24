@@ -1,10 +1,7 @@
 <?php
 
-<<<<<<< HEAD
 declare(strict_types=1);
 
-=======
->>>>>>> cf6505a (.)
 use Illuminate\Database\Schema\Blueprint;
 
 use Modules\Xot\Database\Migrations\XotBaseMigration;

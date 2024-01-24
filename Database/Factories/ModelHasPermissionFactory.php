@@ -25,23 +25,12 @@ class ModelHasPermissionFactory extends Factory {
      *
      * @psalm-return array<never, never>
      */
-<<<<<<< HEAD
     public function definition()
     {
-<<<<<<< HEAD
-        return [
-=======
-
-        return [
-
->>>>>>> cf6505a (.)
-=======
-    public function definition() {
 
 
         return [
             
->>>>>>> d9f7748 (up)
         ];
     }
 }

@@ -12,18 +12,7 @@ jobs:
                   php-version: 8.1
             - run: composer install --prefer-dist --no-progress
             - run: composer require nunomaduro/phpinsights --dev
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             - run: cp vendor/nunomaduro/phpinsights/stubs/laravel.php phpinsights.php
-=======
->>>>>>> 900ef25 (up)
-=======
-            - run: cp vendor/nunomaduro/phpinsights/stubs/laravel.php phpinsights.php
->>>>>>> baf26f6 (up)
-=======
-            - run: cp vendor/nunomaduro/phpinsights/stubs/laravel.php phpinsights.php
->>>>>>> 145ec6b (.)
             - run: vendor/bin/phpinsights -n --ansi --format=github-action --fix
             - uses: stefanzweifel/git-auto-commit-action@v4
               with:

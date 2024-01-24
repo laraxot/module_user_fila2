@@ -39,14 +39,4 @@ class TeamInvitation extends FilamentJetTeamInvitation {
      * @var string
      */
     protected $connection = 'user';
-<<<<<<< HEAD
-=======
-
-<<<<<<< HEAD
->>>>>>> cf6505a (.)
-=======
-
-
-
->>>>>>> d9f7748 (up)
 }

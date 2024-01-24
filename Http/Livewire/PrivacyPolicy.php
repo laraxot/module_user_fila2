@@ -4,39 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-use ArtMin96\FilamentJet\FilamentJet;
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 50d5b27 (up)
 use ArtMin96\FilamentJet\FilamentJet;
 use Illuminate\Support\Str;
 use Livewire\Component;
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 36aaec9 (.)
 use Illuminate\Support\Str;
 use Livewire\Component;
 
 use function Safe\file_get_contents;
 
 use Webmozart\Assert\Assert;
-=======
-use Webmozart\Assert\Assert;
-
-<<<<<<< HEAD
->>>>>>> 50d5b27 (up)
-=======
-use function Safe\file_get_contents;
->>>>>>> cf6505a (.)
-=======
-use Webmozart\Assert\Assert;
-use function Safe\file_get_contents;
-
->>>>>>> d9f7748 (up)
 
 class PrivacyPolicy extends Component
 {

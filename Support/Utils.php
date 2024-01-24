@@ -8,20 +8,12 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use Modules\User\Contracts\HasShieldPermissions;
 use Modules\User\Datas\FilamentShieldData;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 1903df6 (up)
-=======
->>>>>>> 50d5b27 (up)
 use Webmozart\Assert\Assert;
->>>>>>> 36aaec9 (.)
 
 use function Safe\class_implements;
 use function Safe\class_uses;
 
-use Webmozart\Assert\Assert;
+
 
 /**
  * ---.

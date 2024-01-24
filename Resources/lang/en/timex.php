@@ -17,7 +17,6 @@ return [
         'empty' => 'No upcoming :label'
     ],
     'event' => [
-<<<<<<< HEAD
         'subject' => 'Subject',
         'body' => 'Body',
         'category' => 'Category',
@@ -26,20 +25,7 @@ return [
         'end' => 'End',
         'participants' => 'Participants',
         'attachments' => 'Attachments',
-<<<<<<< HEAD
-=======
-=======
-      'subject' => 'Subject',
-      'body' => 'Body',
-      'category' => 'Category',
-      'allDay' => 'All day',
-      'start' => 'Start',
-      'end' => 'End',
-      'participants' => 'Participants',
-      'attachments' => 'Attachments',
->>>>>>> d9f7748 (up)
 
->>>>>>> cf6505a (.)
     ],
     'event-list' => [
         'author' => 'Author: :name',

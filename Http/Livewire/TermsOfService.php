@@ -4,42 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\User\Http\Livewire;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-use ArtMin96\FilamentJet\FilamentJet;
-=======
-<<<<<<< HEAD
-=======
 use ArtMin96\FilamentJet\FilamentJet;
 use Illuminate\Support\Str;
->>>>>>> 1903df6 (up)
-=======
->>>>>>> 50d5b27 (up)
 use Livewire\Component;
->>>>>>> 36aaec9 (.)
-use Illuminate\Support\Str;
-use Livewire\Component;
-
 use function Safe\file_get_contents;
-
-use Webmozart\Assert\Assert;
-=======
-use ArtMin96\FilamentJet\FilamentJet;
-use Illuminate\Support\Str;
-=======
->>>>>>> d9f7748 (up)
-use Livewire\Component;
-use Illuminate\Support\Str;
 use Webmozart\Assert\Assert;
 
-use function Safe\file_get_contents;
-<<<<<<< HEAD
->>>>>>> cf6505a (.)
-=======
-use ArtMin96\FilamentJet\FilamentJet;
->>>>>>> d9f7748 (up)
+
+
+
+
 
 class TermsOfService extends Component
 {

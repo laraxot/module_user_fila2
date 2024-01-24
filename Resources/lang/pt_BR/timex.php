@@ -20,7 +20,6 @@ return [
     ],
 
     'event' => [
-<<<<<<< HEAD
         'subject' => 'Título',
         'body' => 'Mensagem',
         'category' => 'Categoria',
@@ -29,20 +28,8 @@ return [
         'end' => 'Término',
         'participants' => 'Participantes',
         'attachments' => 'Anexos',
-<<<<<<< HEAD
-=======
-=======
-      'subject' => 'Título',
-      'body' => 'Mensagem',
-      'category' => 'Categoria',
-      'allDay' => 'Dia todo',
-      'start' => 'Começo',
-      'end' => 'Término',
-      'participants' => 'Participantes',
-      'attachments' => 'Anexos',
->>>>>>> d9f7748 (up)
 
->>>>>>> cf6505a (.)
+
     ],
 
     'event-list' => [
