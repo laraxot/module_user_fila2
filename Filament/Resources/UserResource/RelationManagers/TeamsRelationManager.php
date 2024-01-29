@@ -73,14 +73,14 @@ class TeamsRelationManager extends RelationManager
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
+                TextColumn::make('name'),
             ])
             ->filters([
             ])
             ->headerActions([
                 // Tables\Actions\CreateAction::make(),
                 // Tables\Actions\AssociateAction::make(),
-                Tables\Actions\AttachAction::make(),
+                AttachAction::make(),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
